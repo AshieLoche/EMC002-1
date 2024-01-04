@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "BlackwoodCastleShadow";
+    src: url("fonts/BlackwoodCastleShadow.ttf");
+}
+
 body {
     height: 100vh;
     width: 100vw;
@@ -10,28 +15,44 @@ body {
 }
 .bodyContainer {
     height: 90vh;
-    width: 50vw;    
+    width: 75vw;    
     background-color: RGBA(40,1,56,0.5);
     box-sizing: border-box;
     border-radius: 25px;
     padding: 0px;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.pokemonContainer {
+    height: 50%;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-.pokemon {
-    height: 150px;
-    width: 150px;
+.pokemonImageLeft, .pokemonImageRight {
+    margin: 25px;
+    margin-left: 0px;
+    height: 200px;
+    width: 200px;
+    border: 5px solid #280137;
     border-radius: 100%;
 }
-p {
-    margin: 50px;
+.pokemonImageRight
+{
+    margin-left: 25px;
+    margin-right: 0px;
+}
+.pokemonName {
     font-size: 100px;
     color: ghostwhite;
     background-color: #280137;
     border-radius: 10px;
     padding: 0px 20px;
+    font-family: "BlackwoodCastleShadow";
 }
 a {
     font-size: 25px;
