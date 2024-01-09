@@ -1,3 +1,7 @@
 $(document).ready(function(){
-    // alert(window.innerHeight);
+        // let windowWidth = window.innerWidth;
+        // let screenWidth = screen.width;
+        // let windowDevicePixelRatio = window.devicePixelRatio;
+        // alert(`${windowWidth} ${screenWidth} ${windowDevicePixelRatio}`);
+
 });
