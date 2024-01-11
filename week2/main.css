@@ -3,6 +3,27 @@
     src: url("fonts/BlackwoodCastleShadow.ttf");
 }
 
+p {
+    color: cyan;
+}
+a {
+    color: whitesmoke;
+}
+table {
+    width: 100%;
+    color: white;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    font-size: 50px;
+}
+.types {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 * {
     box-sizing: border-box;
     margin: 0px;
@@ -12,7 +33,8 @@
 body, .bodyContainer, .PokeDopt_InfoContainer_Left, .PokeDopt_InfoContainer_Center, 
 .PokeDopt_InfoContainer_Right, .PokeDopt_TitleContainer,
 .PokeDopt_TitleImageOuterContainer, .PokeDopt_TitleImageInnerContainer,
-.PokeDopt_TitleNameContainer {
+.PokeDopt_TitleNameContainer, .PokeDopt_PokemonContainer, 
+.PokeDopt_PokemonOuterCard, .PokeDopt_PokemonInnerCard {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -27,8 +49,8 @@ body {
 }
 
 .bodyContainer {
-    height: 90vh;
-    width: 95vw;    
+    height: 90%;
+    width: 95%;    
     background-color: RGBA(40,1,56,0.5);
     border-radius: 25px;
 }
@@ -45,21 +67,26 @@ body {
 .PokeDopt_InfoContainer_Left {
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
+    overflow: auto;
+}
+
+.PokeDopt_InfoContainer_Left::-webkit-scrollbar, .PokeDopt_InfoContainer_Right::-webkit-scrollbar {
+    display: none;
 }
 
 .PokeDopt_InfoContainer_Center {
-    background-color: blue;
+    justify-content: flex-end;
 }
 
 .PokeDopt_TitleContainer {
-    padding: 25px;
+    padding-top: 50px;
     width: 100%;
-    justify-content: space-around;
-    background-color: red;
+    justify-content: center;
 }
 .PokeDopt_TitleImageOuterContainer {
     width: 200px;
     height: 200px;
+    min-width: 200px;
     border: 5px solid black;
     border-radius: 100%;
     background-image: linear-gradient(to bottom right, #280137, #7A4190,#280137);
@@ -71,7 +98,6 @@ body {
     border-radius: 100%;
     background-image: linear-gradient(to bottom right, #4E1764, #7A4190, #4E1764);
     box-shadow: 5px -5px 30px black inset;
-    flex-direction: column;
 }
 .PokeDopt_TitleImage {
     width: 100px;
@@ -80,7 +106,7 @@ body {
 
 .PokeDopt_TitleNameContainer {
     border-radius: 50px;
-    padding: 10px;
+    margin-left: 20px;
     position: relative;
 }
 .PokeDopt_TitleName {
@@ -91,62 +117,60 @@ body {
     -webkit-background-clip: text;
     letter-spacing: 5px;
     z-index: 1;
-    /* position: absolute; */
 }
 .PokeDopt_TitleNameBackground {
-    /* display: none; */
     font-family: "BlackwoodCastleShadow";
     font-size: 135px;
     color: purple;
     text-shadow: 0px 0px 25px black;
-    /* margin-left: -480px; */
-    /* margin-top: -175px; */
     letter-spacing: 5px;
     z-index: 0;
     position: absolute;
 }
 
 .PokeDopt_PokemonContainer {
-    background-color: yellow;
     width: 100%;
+    height: 100%;
 }
 .PokeDopt_PokemonOuterCard {
-    
+    background-image: linear-gradient(to bottom right, #280137, #7A4190,#280137);
+    width: 90%;
+    height: 90%;
+    border: 5px solid black;
+    border-radius: 100px;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.PokeDopt_PokemonInnerCard {
+    background: linear-gradient(to bottom right, #4E1764, #7A4190, #4E1764);
+    box-shadow: 0px 0px 50px black inset;
+    width: 95%;
+    height: 75%;
+    border: 5px solid black;
+    border-radius: 100px;
+    margin: 2.5% 0;
+}
+.PokeDopt_PokemonImage {
+    width: 90%;
+    height: 90%;
+}
+.PokeDopt_PokemonNameContainer {
+    width: 80%;
+    height: 18.5%;
+    text-align: center;
+    box-shadow: 5px 5px 15px black inset;
+    border-radius: 25px;
+    border: 5px solid black;
+}
+.PokeDopt_PokemonName {
+    font-family: "BlackwoodCastleShadow";
+    font-size: 121px;
+    color: black;
+    letter-spacing: 5px;
 }
 
 .PokeDopt_InfoContainer_Right {
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
+    overflow: auto;
 }
-/* 
-.pokemonImageLeft, .pokemonImageRight {
-    margin: 25px;
-    margin-left: 0px;
-    height: 200px;
-    width: 200px;
-    border: 5px solid #280137;
-    border-radius: 100%;
-}
-.pokemonImageRight
-{
-    margin-left: 25px;
-    margin-right: 0px;
-}
-.pokemonName {
-    font-size: 125px;
-    color: ghostwhite;
-    background-color: #280137;
-    border-radius: 10px;
-    padding: 0px 20px;
-    font-family: "BlackwoodCastleShadow";
-}
-.pokemoneTitleImage {
-    margin: 15px;
-    width: 500px;
-    height: 500px;
-}
-a {
-    display: none;
-    font-size: 25px;
-    color: ghostwhite;
-} */
