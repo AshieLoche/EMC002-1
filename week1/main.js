@@ -3,5 +3,5 @@ $(document).ready(function(){
         // let screenWidth = screen.width;
         // let windowDevicePixelRatio = window.devicePixelRatio;
         // alert(`${windowWidth} ${screenWidth} ${windowDevicePixelRatio}`);
-
+        // alert($(".bodyContainer").css("width"));
 });

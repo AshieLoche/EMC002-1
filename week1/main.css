@@ -3,36 +3,98 @@
     src: url("fonts/BlackwoodCastleShadow.ttf");
 }
 
-body {
-    height: 100vh;
-    width: 100vw;
-    margin: 0px;
-    background-image: url("images/pokemon_background.jpg");
-    background-size: 100% 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.bodyContainer {
-    height: 90vh;
-    width: 95vw;    
-    background-color: RGBA(40,1,56,0.5);
+* {
     box-sizing: border-box;
-    border-radius: 25px;
+    margin: 0px;
     padding: 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
 }
-.pokemonTitleContainer {
-    height: 35%;
-    width: 50%;
+
+body, .bodyContainer, .PokeDopt_InfoContainer_Left, .PokeDopt_InfoContainer_Center, 
+.PokeDopt_InfoContainer_Right, .PokeDopt_TitleContainer,
+.PokeDopt_TitleImageOuterContainer, .PokeDopt_TitleImageInnerContainer,
+.PokeDopt_TitleNameContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("images/pokemon_background.jpg");
+    background-size: 100% 100%;
+}
+
+.bodyContainer {
+    height: 90vh;
+    width: 95vw;    
+    background-color: RGBA(40,1,56,0.5);
+    border-radius: 25px;
+}
+
+.PokeDopt_InfoContainer_Left, .PokeDopt_InfoContainer_Center, 
+.PokeDopt_InfoContainer_Right {
+    height: 100%;
+    width: 33.33%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.PokeDopt_InfoContainer_Left {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.PokeDopt_InfoContainer_Center {
+}
+
+.PokeDopt_TitleContainer {
+    padding: 15px;
+    width: 100%;
+    justify-content: space-between;
+}
+.PokeDopt_TitleImageOuterContainer {
+    width: 200px;
+    height: 200px;
+    border: 5px solid black;
+    border-radius: 100%;
+    background-image: linear-gradient(to bottom right, #280137, #7A4190,#280137);
+}
+.PokeDopt_TitleImageInnerContainer {
+    width: 150px;
+    height: 150px;
+    border: 5px solid black;
+    border-radius: 100%;
+    background-image: linear-gradient(to bottom right, #4E1764, #7A4190, #4E1764);
+    box-shadow: 5px -5px 30px black inset;
+    flex-direction: column;
+}
+.PokeDopt_TitleImage {
+    width: 100px;
+    height: 100px;
+}
+
+.PokeDopt_TitleNameContainer {
+    border-radius: 50px;
+    padding: 10px;
+}
+.PokeDopt_TitleName {
+    font-family: "BlackwoodCastleShadow";
+    font-size: 120px;
+    text-shadow: 0px 0px 250px white;
+    background: linear-gradient(to bottom right, #280137, #7A4190,#280137);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    letter-spacing: 5px;
+}
+
+.PokeDopt_InfoContainer_Right {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+/* 
 .pokemonImageLeft, .pokemonImageRight {
     margin: 25px;
     margin-left: 0px;
@@ -47,7 +109,7 @@ body {
     margin-right: 0px;
 }
 .pokemonName {
-    font-size: 100px;
+    font-size: 125px;
     color: ghostwhite;
     background-color: #280137;
     border-radius: 10px;
@@ -63,4 +125,4 @@ a {
     display: none;
     font-size: 25px;
     color: ghostwhite;
-}
+} */
