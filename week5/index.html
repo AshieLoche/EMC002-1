@@ -38,27 +38,42 @@
             document.body.innerHTML += `<br>x = ${x}<br>y = ${y}<br>result = ${result}`;
         }
 
-        function PrimeOrComposite(){
-            let userInput = prompt("Enter Number:");
-            let isprime= false;
-            let status = "";
+        function PrimeOrComposite() {
+            let userInput;
+            let isPrime = false;
+            let status;
 
-            for (let i = 2; i <= parseInt(userInput); i++) {
-                if (parseInt(userInput) % i === 0) {
-                    isprime = false;
+            while (true) {
+                userInput = prompt("Enter Number: ");
+
+                if (isNaN(userInput)) {
+                    alert("Invalid input. Please enter a valid number");
+                    errorCheck = true;
+                    continue;
+                }
+                else {
                     break;
                 }
             }
-
-            for (let i = 0; i < cars.length; i++) {
-                text += cars[i] + "<br>";
-            }
-
-            if (isprime == true) {
-                status = "Prime";
-            }
-            else {
-                status = "Composite";
+            
+            if (userInput < 2 || userInput % 1 != 0) {
+                status = "Neither";
+            } else {
+                for (let i = 2; i <= Math.sqrt(userInput); i++) {
+                    if (userInput % i == 0) {
+                        isPrime = false;
+                        break;
+                    } else {
+                        isPrime = true;
+                    }
+                }
+                
+                if (isPrime == true) {
+                    status = "Prime";
+                }
+                else {
+                    status = "Composite";
+                }
             }
 
             document.body.innerHTML += `<br><br>User Input: ${userInput}<br>Result: ${status}`;
