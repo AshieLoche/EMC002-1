@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 3</title>
+
+    <script>
+        function ChangeContent() {
+            document.getElementById("chandelure").innerHTML = "I LOVE CHANDELURE!!!";
+        }
+
+        function ChangeFontStyle() {
+            document.getElementById("chandelure").style.fontFamily = "arial";
+        }
+        
+        function HideElement() {
+            document.getElementById("chandelure").style.display= "none";
+        }
+
+        function ShowElement() {
+            document.getElementById("chandelure").style.display= "block";
+        }
+
+        function ConsoleDisplay() {
+            console.log("Hello World");
+        }
+
+        function AlertBoxDisplay() {
+            alert("Welcome to CIIT");
+        }
+
+        function MathDisplay() {
+            let x = 5;
+            let y = 3;
+            let result = Math.pow(x,y);
+            document.body.innerHTML += `<br>x = ${x}<br>y = ${y}<br>result = ${result}`;
+        }
+
+        function PrimeOrComposite(){
+            let userInput = prompt("Enter Number:");
+            let isprime= false;
+            let status = "";
+
+            for (let i = 2; i <= parseInt(userInput); i++) {
+                if (parseInt(userInput) % i === 0) {
+                    isprime = false;
+                    break;
+                }
+            }
+
+            for (let i = 0; i < cars.length; i++) {
+                text += cars[i] + "<br>";
+            }
+
+            if (isprime == true) {
+                status = "Prime";
+            }
+            else {
+                status = "Composite";
+            }
+
+            document.body.innerHTML += `<br><br>User Input: ${userInput}<br>Result: ${status}`;
+        }
+    </script>
+</head>
+<body>
+    <h1 id="chandelure">Chandelure</h1>
+    <button id="changeContent" onclick="ChangeContent()">Change Content</button><br>
+    <button id="changeFontStyle" onclick="ChangeFontStyle()">Change Font Style</button><br>
+    <button id="hideElement" onclick="HideElement()">Hide Element</button><br>
+    <button id="showElement" onclick="ShowElement()">Show Element</button><br>
+    <button id="consoleDisplay" onclick="ConsoleDisplay()">Console Display</button><br>
+    <button id="alertBoxDisplay" onclick="AlertBoxDisplay()">Alert Box Display</button><br>
+    <button id="mathDisplay" onclick="MathDisplay()">Math Display</button><br>
+    <button id="primeOrComposite" onclick="PrimeOrComposite()">Prime or Composite</button>
+</body>
+</html>
