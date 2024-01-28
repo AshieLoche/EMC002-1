@@ -16,13 +16,17 @@
     color: ghostwhite;
 }
 
+*::-webkit-scrollbar, *::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     background: black url("../week2/images/pokemon_background.jpg") center no-repeat border-box border-box fixed;
     background-size: 100vw 100vh;
     height: 100vh;
 }
 
-header, aside, main, footer {
+header, main, aside, section, div.funFactsSection, div.skillTableSection, footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,6 +34,7 @@ header, aside, main, footer {
 }
 
 header {
+    border: 1px solid black;
     background-color: rgba(49,0,71,0.95);
     box-shadow: 0px 0px 50px black inset;
     padding: 25px;
@@ -37,10 +42,9 @@ header {
     overflow: hidden;
 }
 
-header > h1.headerTitle {
+h1.headerTitle {
     font-size: 75px;
     font-family: "BlackwoodCastleShadow";
-    color: ghostwhite;
     text-shadow: 0px 0px 10px black;
 }
 
@@ -50,15 +54,16 @@ main {
     flex-direction: row;
 }
 
-main > aside {
+aside, section {
     padding: 15px;
     height: inherit;
     justify-content: flex-start;
 }
 
-main > aside > a.links {
+a.links {
+    border: 1px solid black;
     border-radius: 25px;
-    background-color: rgba(49,0,71,0.95);
+    background-color: rgb(49,0,71);
     box-shadow: 0px 0px 50px black inset;
     margin: 5px;
     padding: 10px;
@@ -66,30 +71,140 @@ main > aside > a.links {
     text-decoration: none;
 }
 
-main > aside > a.links > p.linkName {
+p.linkName {
     font-size: 35px;
     font-family: "BlackwoodCastleShadow";
-    color: ghostwhite;
     text-shadow: 0px 0px 10px black;
 }
 
-main > aside > button.switchMode {
+button.switchMode {
+    border: 1px solid black;
     border-radius: 25px;
+    background-color: ghostwhite;
+    box-shadow: 0px 0px 50px rgb(49,0,71) inset;
     margin-top: 15px;
     padding: 10px;
+    width: 40%;
 }
 
-main > aside > button.switchMode > h5.buttonName {
+p.buttonName {
+    font-size: 30px;
+    font-family: "BlackwoodCastle";
     color: black;
+    text-shadow: 0px 0px 10px ghostwhite;
 }
-
 
 section {
-    height: inherit;
+    padding: 15px;
+    justify-content: initial;
+    align-items: initial;
+}
+
+h2.sectionTitles {
+    font-size: 50px;
+    font-family: "BlackwoodCastle";
+    color: black;
+    text-shadow: 0px 0px 10px ghostwhite;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+p.sectionText {
+    font-size: 25px;
+    text-shadow: 0px 0px 10px black;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+div.funFactsSection {
+    flex-grow: 1;
+    flex-direction: row;
+}
+
+article.funFact {
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: rgb(49,0,71);
+    box-shadow: 0px 0px 50px black inset;
+    width: 32%;
+    height: 100%;
+    margin-right: 2%;
+}
+
+article.funFact:last-of-type {
+    margin: 0px;
+}
+
+img.funFactImage {
+    border-bottom: 1px solid black;
+    border-radius: 25px 25px 25px 25px;
+    width: 100%;
+    height: 50%;
+    margin-bottom: 15px;
+    padding: 5px 5px 0px 5px;
+}
+
+h5.funFactDescription {
+    padding: 0px 15px;
+    font-size: 25px;
+    text-shadow: 0px 0px 10px black;
+}
+
+div.skillTableSection {
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: rgb(49,0,71);
+    box-shadow: 0px 0px 50px black inset;
+    width: 98%;
+    padding: 25px 20px;
+}
+
+table.skillTable {
+    width: 100%;
+}
+
+h3.skillTableHeaderTitle {
+    font-size: 50px;
+    font-family: "BlackwoodCastleShadow";
+    text-shadow: 0px 0px 10px black;
+    margin: 10px 0px 15px 0px;
+}
+
+td.skillTableColumnCell, td.skillTableColumn1Cell, td.skillTableColumn2Cell {
+    border: 2.5px solid ghostwhite;
+    width: 50%;
+    padding: 5px;
+}
+
+td.skillTableColumnCell:first-of-type {
+    border-top-left-radius: 25px;
+}
+
+td.skillTableColumnCell:last-of-type {
+    border-top-right-radius: 25px;
+}
+
+tr:last-of-type > td.skillTableColumn1Cell {
+    border-bottom-left-radius: 25px;
+}
+
+tr:last-of-type > td.skillTableColumn2Cell {
+    border-bottom-right-radius: 25px;
+}
+
+h4.skillTableColumnTitle {
+    font-size: 30px;
+    text-shadow: 0px 0px 10px black;
+}
+
+p.skillTableColumn1Text, p.skillTableColumn2Text {
+    font-size: 22.5px;
+    text-shadow: 0px 0px 10px black;
 }
 
 footer {
-    background-color: rgba(49,0,71,0.95);
+    border: 1px solid black;
+    background-color: rgba(49,0,71,0.85);
     box-shadow: 0px 0px 50px black inset;
     height: 7.5vh;
 }
@@ -100,65 +215,89 @@ footer > h6.footerTitle {
     color: ghostwhite;
     text-shadow: 0px 0px 10px black;
 }
-/* a {
-    color: whitesmoke;
-    font-size: 50px;
-}
 
-body {
-    background: black url("../week2/images/pokemon_background.jpg") center no-repeat padding-box padding-box fixed;
-    background-size: 100vw 100vh;
-}
-
-#header {
-    margin: 10px;
-    background-color: rgba(49,0,71);
-    padding: 25px;
-    box-shadow: 0px 0px 50px black inset;
-}
-
-#headerTitle {
-    text-align: center;
-    font-size: 75px;
-    
-    font-family: "BlackwoodCastleShadow";
-    color: black;
-    text-shadow: 0px 0px 10px ghostwhite;
-}
-
-#links {
-    height: ;
-}
-
-.businessfy {
-    width: 80%;
-    font-size: 25px;
-}
-
-.businessfy:active {
-    body
-}
-
-#links {
-    background-color: red;
-    float: left;
-}
-
-#info {
-    background-color: orange;
-    float: left;
-}
-
-#trivia {
-    background-color: purple;
-    float: left;
-}
-
+/* Phone Size */
 @media only screen and (max-width: 700px) {
-    body {
-        background-color: blue;
+    main {
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow: auto;
     }
-} */
+
+    aside.col-3, section.col-6 {
+        width: 100%;
+    }
+
+    section {
+        padding: 20px;
+    }
+}
+
+/* Tablet Size */
+@media screen and (min-width: 701px) and (max-width: 1024px) {
+    main {
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow: auto;
+    }
+
+    aside.col-3, section.col-6 {
+        width: 100%;
+    }
+
+    section {
+        padding: 20px;
+    }
+}
+
+/* 1920 Monitor */
+@media screen and (min-width: 1025px) and (max-width: 1324px) {
+    main {
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow: auto;
+    }
+
+    aside.col-3, section.col-6 {
+        width: 100%;
+    }
+
+    section {
+        padding: 20px;
+    }
+}
+
+@media screen and (min-width: 1700px) and (min-height: 1200px) {
+    h1.headerTitle {
+        font-size: 125px;
+    }
+
+    p.linkName {
+        font-size: 50px;
+    }
+
+    button.switchMode {
+        width: 60%;
+    }
+
+    p.buttonName {
+        font-size: 40px;
+    }
+
+    h2.sectionTitles, h3.skillTableHeaderTitle {
+        font-size: 60px;
+    }
+
+    p.sectionText, h5.funFactDescription,
+    h4.skillTableColumnTitle, p.skillTableColumn1Text,
+    p.skillTableColumn2Text {
+        font-size: 35px;
+    }
+
+    p.sectionText {
+        margin-bottom: 25px;
+    }
+}
 
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
