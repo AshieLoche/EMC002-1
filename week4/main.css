@@ -218,14 +218,33 @@ footer > h6.footerTitle {
 
 /* Phone Size */
 @media only screen and (max-width: 700px) {
+    body {
+
+        overflow: auto;
+    }
+
     main {
         flex-direction: column;
         justify-content: flex-start;
-        overflow: auto;
+        height: auto;
     }
 
     aside.col-3, section.col-6 {
         width: 100%;
+    }
+
+    img.funFactImage {
+        max-height: 180px;
+    }
+
+    article.funFact {
+        width: 100%;
+        height: 25%;
+        margin-bottom: 50px;
+    }
+
+    div.funFactsSection {
+        flex-direction: column;
     }
 
     section {
@@ -239,6 +258,7 @@ footer > h6.footerTitle {
         flex-direction: column;
         justify-content: flex-start;
         overflow: auto;
+        height: auto;
     }
 
     aside.col-3, section.col-6 {
@@ -247,15 +267,28 @@ footer > h6.footerTitle {
 
     section {
         padding: 20px;
+    }
+
+    article.funFact {
+        height: 250px;
+    }
+
+    div.funFactsSection {
+        height: auto;
+    }
+
+    img.funFactImage {
+        max-height: 180px;
     }
 }
 
 /* 1920 Monitor */
-@media screen and (min-width: 1025px) and (max-width: 1324px) {
+@media screen and (min-width: 1025px) and (max-width: 1700px) {
     main {
         flex-direction: column;
         justify-content: flex-start;
         overflow: auto;
+        height: auto;
     }
 
     aside.col-3, section.col-6 {
@@ -265,9 +298,21 @@ footer > h6.footerTitle {
     section {
         padding: 20px;
     }
+
+    article.funFact {
+        height: auto;
+    }
+
+    div.funFactsSection {
+        height: auto;
+    }
+
+    img.funFactImage {
+        max-height: 180px;
+    }
 }
 
-@media screen and (min-width: 1700px) and (min-height: 1200px) {
+@media screen and (min-width: 1701px) and (min-height: 1200px) {
     h1.headerTitle {
         font-size: 125px;
     }
