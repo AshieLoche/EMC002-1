@@ -25,12 +25,12 @@
         img {
             height: 30px;
             width: 30px;
-            /* display: none; */
+            display: none;
         }
         div.usernameRequirementsContainer, div.passwordRequirementsContainer {
             margin: 10px 0px 0px 10px;
             flex-direction: column;
-            /* display: none; */
+            display: none;
             width: 400px;
         }
         div.passwordRequirementsContainer {
@@ -47,8 +47,11 @@
 
     <script>
         $(document).ready(function(){
+            let usernamePattern = new RegExp(/^(?=.*_)[\w_]{6,}$/);
             let usernameCheck = false;
+            let passwordPattern = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/);
             let passwordCheck = false;
+            inputCheck();
 
             $("input.username").click(function(){
                 $("div.usernameRequirementsContainer").css({"display": "block"});
@@ -68,21 +71,48 @@
                     $("div.passwordRequirementsContainer").css({"display": "none"});
                 }
             });
+
             $("input.username").on("input", function(){
-                if ($("input.username").val().length >= 6) {
-                    usernameCheck = true;
-                    passwordCheck = true;
+                let username = $("input.username").val();
+                $("img.usernameStatus").css({"display": "block"});
+                
+                (/^.{6,}$/.test(username)) ? $("p#usernameLength").css({"color": "green"}) : $("p#usernameLength").css({"color": "red"});
+                (/^(?=.*_)[\w_]*$/.test(username)) ? $("p#usernameUnderscore").css({"color": "green"}) : $("p#usernameUnderscore").css({"color": "red"});
+
+                if (usernamePattern.test(username)) {
+                    usernameCheck = true
+                    $("img.usernameStatus").attr("src", "images/correct.png");
                 }
                 else {
-                    usernameCheck = false;
-                    passwordCheck = false;
+                    usernameCheck = false
+                    $("img.usernameStatus").attr("src", "images/wrong.png");
+                }
+
+                inputCheck();
+            });
+            $("input.password").on("input", function(){
+                let password = $("input.password").val();
+                $("img.passwordStatus").css({"display": "block"});
+                
+                (/^.{8,}$/.test(password)) ? $("p#passwordLength").css({"color": "green"}) : $("p#passwordLength").css({"color": "red"});
+                (/^(?=.*[a-z])(?=.*[A-Z]).*$/.test(password)) ? $("p#passwordCases").css({"color": "green"}) : $("p#passwordCases").css({"color": "red"});
+                (/[0-9]{1,}/.test(password)) ? $("p#passwordDigit").css({"color": "green"}) : $("p#passwordDigit").css({"color": "red"});
+                (/[\W_]{1,}/.test(password)) ? $("p#passwordSpecial").css({"color": "green"}) : $("p#passwordSpecial").css({"color": "red"});
+
+                if (passwordPattern.test(password)) {
+                    passwordCheck = true
+                    $("img.passwordStatus").attr("src", "images/correct.png");
+                }
+                else {
+                    passwordCheck = false
+                    $("img.passwordStatus").attr("src", "images/wrong.png");
                 }
 
                 inputCheck();
             });
 
             function inputCheck() {
-                if (usernameCheck && passwordCheck) {
+                if (usernameCheck === true && passwordCheck === true) {
                     $("button.Submit").prop("disabled", false);
                 }
                 else {
@@ -93,39 +123,41 @@
     </script>
 </head>
 <body>
-    <h1>JavaScript Validation</h1>
-    <div class="usernameContainer">
-        <input class="username" type="text" placeholder="Username">
-        <img class="usernameStatus" src="images/wrong.png" alt="wrong">
-    </div>
-    <div class="usernameRequirementsContainer">
-        <p class="usernameRequirements">
-            - Must have at least 6 characters long
-        </p>
-        <p class="usernameRequirements">
-            - Must not contain special characters except underscore "_"
-        </p>
-    </div>
-    <br>
-    <div class="passwordContainer">
-        <input class="password" type="password" placeholder="Password">
-        <img class="passwordStatus" src="images/wrong.png" alt="wrong">
-    </div>
-    <div class="passwordRequirementsContainer">
-        <p class="passwordRequirements">
-            - Must have at least 8 characters long
-        </p>
-        <p class="passwordRequirements">
-            - Must be a combination of upper & lower charse
-        </p>
-        <p class="passwordRequirements">
-            - Must have at least 1 digit
-        </p>
-        <p class="passwordRequirements">
-            - Must have at least 1 special character
-        </p>
-    </div>
-    <br>
-    <button class="Submit" type="submit">Submit</button>
+    <form action="">
+        <h1>JavaScript Validation</h1>
+        <div class="usernameContainer">
+            <input class="username" type="text" placeholder="Username">
+            <img class="usernameStatus" src="images/wrong.png" alt="wrong">
+        </div>
+        <div class="usernameRequirementsContainer">
+            <p class="usernameRequirements" id="usernameLength">
+                - Must have at least 6 characters long
+            </p>
+            <p class="usernameRequirements" id="usernameUnderscore">
+                - Must not contain special characters except underscore "_"
+            </p>
+        </div>
+        <br>
+        <div class="passwordContainer">
+            <input class="password" type="password" placeholder="Password">
+            <img class="passwordStatus" src="images/wrong.png" alt="wrong">
+        </div>
+        <div class="passwordRequirementsContainer">
+            <p class="passwordRequirements" id="passwordLength">
+                - Must have at least 8 characters long
+            </p>
+            <p class="passwordRequirements" id="passwordCases">
+                - Must be a combination of upper & lower charse
+            </p>
+            <p class="passwordRequirements" id="passwordDigit">
+                - Must have at least 1 digit
+            </p>
+            <p class="passwordRequirements" id="passwordSpecial">
+                - Must have at least 1 special character
+            </p>
+        </div>
+        <br>
+        <button class="Submit" type="submit">Submit</button>
+    </form>
 </body>
 </html>
