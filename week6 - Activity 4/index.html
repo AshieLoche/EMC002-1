@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        * {
+            color: ghostwhite ;
+        }
+        body {
+            background-color: black;
+        }
+        div {
+            display: flex;
+            flex-direction: row;
+        }
+        input {
+            height: 25px;
+            width: 200px;
+            margin: 0px 10px 0px 10px;
+            color: black;
+        }
+        img {
+            height: 30px;
+            width: 30px;
+            /* display: none; */
+        }
+        div.usernameRequirementsContainer, div.passwordRequirementsContainer {
+            margin: 10px 0px 0px 10px;
+            flex-direction: column;
+            /* display: none; */
+            width: 400px;
+        }
+        div.passwordRequirementsContainer {
+            width: 350px;
+        }
+        p {
+            margin: 0px;
+        }
+        button {
+            margin: 0px 0px 0px 10px;
+            color: black;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function(){
+            let usernameCheck = false;
+            let passwordCheck = false;
+
+            $("input.username").click(function(){
+                $("div.usernameRequirementsContainer").css({"display": "block"});
+            });
+            $(document).click(function(event){
+                if ($(event.target).closest("input.username").length === 0 &&
+                $(event.target).closest("div.usernameRequirementsContainer").length === 0) {
+                    $("div.usernameRequirementsContainer").css({"display": "none"});
+                }
+            });
+            $("input.password").click(function(){
+                $("div.passwordRequirementsContainer").css({"display": "block"});
+            });
+            $(document).click(function(event){
+                if ($(event.target).closest("input.password").length === 0 &&
+                $(event.target).closest("div.passwordRequirementsContainer").length === 0) {
+                    $("div.passwordRequirementsContainer").css({"display": "none"});
+                }
+            });
+            $("input.username").on("input", function(){
+                if ($("input.username").val().length >= 6) {
+                    usernameCheck = true;
+                    passwordCheck = true;
+                }
+                else {
+                    usernameCheck = false;
+                    passwordCheck = false;
+                }
+
+                inputCheck();
+            });
+
+            function inputCheck() {
+                if (usernameCheck && passwordCheck) {
+                    $("button.Submit").prop("disabled", false);
+                }
+                else {
+                 $("button.Submit").prop("disabled", true);
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>JavaScript Validation</h1>
+    <div class="usernameContainer">
+        <input class="username" type="text" placeholder="Username">
+        <img class="usernameStatus" src="images/wrong.png" alt="wrong">
+    </div>
+    <div class="usernameRequirementsContainer">
+        <p class="usernameRequirements">
+            - Must have at least 6 characters long
+        </p>
+        <p class="usernameRequirements">
+            - Must not contain special characters except underscore "_"
+        </p>
+    </div>
+    <br>
+    <div class="passwordContainer">
+        <input class="password" type="password" placeholder="Password">
+        <img class="passwordStatus" src="images/wrong.png" alt="wrong">
+    </div>
+    <div class="passwordRequirementsContainer">
+        <p class="passwordRequirements">
+            - Must have at least 8 characters long
+        </p>
+        <p class="passwordRequirements">
+            - Must be a combination of upper & lower charse
+        </p>
+        <p class="passwordRequirements">
+            - Must have at least 1 digit
+        </p>
+        <p class="passwordRequirements">
+            - Must have at least 1 special character
+        </p>
+    </div>
+    <br>
+    <button class="Submit" type="submit">Submit</button>
+</body>
+</html>
