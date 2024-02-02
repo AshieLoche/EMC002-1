@@ -1,0 +1,49 @@
+/* p.error {
+    color: red;
+}
+
+p.success {
+    color: blue;
+}
+
+p.success.feedback {
+    border: 1px dashed orange;
+}
+
+div#content {
+    background-color: #ebebeb;
+}
+
+div .error {
+    color: purple;
+}
+
+
+a[href*="google"] {
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+a[href^="https"] {
+    background-color: red;
+} 
+a[href$=".com"] {
+    color: green;
+}  */
+
+div {
+    color: lightcoral;
+    border: 1px solid black;
+    margin: 10px;
+    font-weight: bold;
+}
+div p {
+    border: inherit;
+    margin: inherit;
+    color: crimson;
+}
+p {
+    color: orange;
+}
