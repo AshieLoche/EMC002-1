@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: "BlackwoodCastle";
     src: url("../week2/fonts/BlackwoodCastle.ttf");
 }
@@ -98,4 +98,26 @@ input.searchBar {
 .col-9 {width: 75%;}
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
+.col-12 {width: 100%;} */
+
+/* Variables */
+
+/* Reset */
+
+/* Base Style */
+
+/* Fonts */
+
+/* Mobile Styles */
+
+/* Small Tablet Styles */
+@media screen and (min-width: 620px) {
+}
+
+/* Large Tablets & Laptop Styles */
+@media screen and (min-width: 960px) {
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 1020px) {
+}
