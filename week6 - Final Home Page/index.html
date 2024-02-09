@@ -16,136 +16,165 @@
     <link rel="icon" type="image/x-icon" href="../week2/images/favicon.ico">
     <title>PokéDopt</title>
 
-    <!-- <link rel="stylesheet" href="main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="main.js"></script> -->
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <!-- <script src="main.js"></script> -->
+    <style>
+        .form-control::-webkit-input-placeholder {
+            color: white;
+        }
+        .navbar-toggler {
+            display: inline !important;
+        }
+    </style>
 </head>
-<body>
-    <!-- <div class="grid content">
-        <header class="grid">
-            <div class="profile">
-                <img class="profilePic" src="assets/img/ashie_loche.png" alt="Profile Pic">
-                <div class="menu">
-                    <div class="top"></div>
-                    <div class="mid"></div>
-                    <div class="bot"></div>
+<body class="bg-secondary">
+    <!-- Content Container -->
+    <div class="container-fluid p-0">
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-collapse navbar-expand-lg navbar-dark bg-dark px-2 py-3">
+            <div class="container-xxl">
+                <div class="row col-12 m-0">    
+                    <!-- Header Navbar Toggler(Mobile) & Filter Button -->
+                    <div class="col-6 col-md-3 order-2 order-md-1 d-inline-flex justify-content-start align-items-center px-3">
+                        <!-- Header Navbar Toggler (Mobile) -->
+                        <button class="navbar-toggler btn btn-outline-light" id="search-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#header-nav" aria-controls="header-nav" aria-expanded="false" aria-label="Toggle Header Navbar">
+                            <i class="bi bi-search-heart text-light fs-2" id="search-icon"></i>
+                        </button>
+                        <!-- Header Navbar Toggler (Mobile) -->
+                        
+                        <button class="navbar-toggler btn btn-outline-light mx-3 " type="button">
+                            <i class="bi bi-funnel-fill text-light fs-2"></i>
+                        </button>
+                    </div>
+        
+                    <!-- Navbar Logo -->
+                    <div class="col-md-6 order-1 order-md-2 p-3 p-md-0 d-inline-flex justify-content-center align-items-center" id="navbarLogo">
+                        <a href="#" id="pokedoptLogo" class="navbar-brand m-0 py-2 px-3 d-inline-flex gap-3 btn btn-outline-light border-0 rounded-3">
+                            <img class="img-fluid" src="assets/img/favicon.ico" alt="PokéDopt Icon">
+                            <h1 class="fw-bold m-0">PokéDopt</h1>
+                        </a>
+                    </div>
+                    <!-- Navbar Logo -->
+        
+                    <div class="col-6 col-md-3 order-3 d-inline-flex justify-content-end align-items-center px-3">
+                        <button class="navbar-toggler btn btn-outline-light me-4">
+                            <i class="bi bi-bell-fill text-light fs-2"></i>
+                        </button>
+                        <button class="btn btn-outline-light">
+                            <span class="fw-bold fs-4">
+                                PokéList
+                            </span>
+                        </button>
+                    </div>
+        
+                    <!-- Navbar Items -->
+                    <div class="collapse navbar-collapse col-12 order-4 mb-2 mt-3 px-3" id="header-nav">
+                        <div class="input-group m-0 p-0">
+                            <input type="search" class="form-control nav-item m-0 bg-transparent text-light" placeholder="Search..." aria-label="Search" aria-describedby="search-group">
+                            <span class="input-group-text bg-transparent"  id="search-group">
+                                <i class="bi bi-search-heart text-light"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- Navbar Items -->
                 </div>
             </div>
-            <div class="logo">
-                <img src="assets/img/pokedopt_icon.png" alt="PokéDopt Icon">
-                <h1>PokéDopt</h1>
-            </div>
-            <div class="notif">
-                <img src="assets/img/notif.png" alt="Notification Icon">
-                <button>PokéList</button>
-            </div>
-        </header>
-    </div> -->
-    <!-- <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-6 bg-warning">OwO</div>
-        </div>
-    </div> -->
-    
-    <!-- Header Navbar -->
-    <nav class="navbar navbar-collapse navbar-expand-md navbar-light">
-        <!-- Header Navbar Container -->
-        <div class="container-xxl">
-            <!-- Mobile Nav Toggle Button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header-nav" aria-controls="header-nav" aria-expanded="false" aria-label="Toggle Header Navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Mobile Nav Toggle Button -->
+        </nav>
+        <!-- Header Navbar -->
 
-            <!-- Logo -->
-            <a href="index.html" class="navbar-brand">
-                <span class="fw-bold text-secondary">
-                    <img class="img-fluid" width="50px" height="50px" src="assets/img/pokedopt_icon.png" alt="PokeDopt Icon">
-                    <span class="display-3 fw-bold">
-                        PokéDopt
+
+        <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">Column 1</div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">Column 2</div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">Column 3</div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">Column 4</div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">Column 5</div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">Column 6</div>
+            </div>
+          </div>
+
+<!-- navbar links -->
+<div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a href="#topics" class="nav-link">About The Book</a>
+        </li>
+        <li class="nav-item">
+            <a href="#reviews" class="nav-link">Reviews</a>
+        </li>
+        <li class="nav-item">
+            <a href="#contacts" class="nav-link">Get in Touch</a>
+        </li>
+        <li class="nav-item d-md-none">
+            <a href="#pricing" class="nav-link">Pricing</a>
+        </li>
+        <li class="nav-item ms-2 d-none d-md-inline">
+            <a href="#pricing" class="btn btn-secondary">Buy Now</a>
+        </li>
+    </ul>
+</div>
+</div>
+
+<!-- toggle button for mobile nav -->
+
+        <nav class="navbar navbar-collapse navbar-expand-md navbar-light">
+            <div class="container fixed-end">
+                <a href="#intro" class="navbar-brand">
+                    <span class="fw-bold text-secondary">
+                        <i class="bi bi-book-half"></i>
+                        Net Ninja Pro - the Book
                     </span>
-                </span>
-            </a>
-            
-            <!-- <a href="#intro" class="navbar-brand">
-                <span class="fw-bold text-secondary">
-                    <i class="bi bi-book-half"></i>
-                    Net Ninja Pro - the Book
-                </span>
-            </a> -->
-        </div>
-        <!-- Header Navbar Container -->
-    </nav>
-    <!-- Header Navbar -->
+                </a>
 
-    
+                <!-- toggle button for mobile nav -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <!-- Navbar Links -->
-            <div class="collapse navbar-collapse justify-content-start align-items-center" id="header-nav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="pages/profile.html" class="nav-link">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pages/about.html" class="nav-link">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pages/customer.html" class="nav-link">Customer Care</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pages/settings.html" class="nav-link">Settings</a>
-                    </li>
-                    <li class="nav-item row">
-                        <div class="col-1">
-                            <i class="bi bi-discord"></i>
-                        </div>
-                        <div class="col-1">
-                            <i class="bi bi-telegram"></i>
-                        </div>
-                    </li>
-                </ul>
+                <!-- navbar links -->
+                <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#topics" class="nav-link">About The Book</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#reviews" class="nav-link">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contacts" class="nav-link">Get in Touch</a>
+                        </li>
+                        <li class="nav-item d-md-none">
+                            <a href="#pricing" class="nav-link">Pricing</a>
+                        </li>
+                        <li class="nav-item ms-2 d-none d-md-inline">
+                            <a href="#pricing" class="btn btn-secondary">Buy Now</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <!-- Navbar Links -->
-
-    <!-- navbar -->
-    <nav class="navbar navbar-collapse navbar-expand-md navbar-light  bg-info">
-        <div class="container-xxl">
-            <a href="#intro" class="navbar-brand">
-                <span class="fw-bold text-secondary">
-                    <i class="bi bi-book-half"></i>
-                    Net Ninja Pro - the Book
-                </span>
-            </a>
-
-            <!-- toggle button for mobile nav -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- navbar links -->
-            <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="#topics" class="nav-link">About The Book</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#reviews" class="nav-link">Reviews</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contacts" class="nav-link">Get in Touch</a>
-                    </li>
-                    <li class="nav-item d-md-none">
-                        <a href="#pricing" class="nav-link">Pricing</a>
-                    </li>
-                    <li class="nav-item ms-2 d-none d-md-inline">
-                        <a href="#pricing" class="btn btn-secondary">Buy Now</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+        </nav>
+    </div>
+    <!-- Content Container -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button.navbar-toggler").hover(function(){
+                $(this).find("i").removeClass("text-light").addClass("text-dark");
+            }, function(){
+                $(this).find("i").removeClass("text-dark").addClass("text-light");
+            });
+            
+            $("div#navbarLogo").hover(function(){
+                $(this).find("h1").removeClass("text-light").addClass("text-dark");
+                $(this).find("img").css("filter", "brightness(50%) contrast(120%)");
+            }, function(){
+                $(this).find("h1").removeClass("text-dark").addClass("text-light");
+                $(this).find("img").css("filter", "none");
+            });
+        });
+    </script>
 </body>
 </html>
