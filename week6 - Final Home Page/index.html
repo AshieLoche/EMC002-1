@@ -19,94 +19,16 @@
     <title>PokéDopt</title>
     <!-- Website Header -->
 
-    <!-- <link rel="stylesheet" href="main.css"> -->
-    <!-- <script src="main.js"></script> -->
-    <style>
-        .form-control::-webkit-input-placeholder {
-            color: white;
-        }
-        .navbar-toggler {
-            display: inline !important;
-        }
-        /* div.content {
-            display: grid;
-            padding: 0;
-            margin: 0;
-            grid-gap: 0;
-            grid-template-columns: repeat(12, 1fr);
-            grid-auto-rows: minmax(200px, auto);
-            grid-template-areas: 
-            "section header"
-            "section main";
-            background-color: red;
-        } */
-        /* header {
-            grid-column: span 10;
-            grid-row: 1;
-            order: 2;
-            grid-area: header;
-        }
-        section {
-            grid-column: span 2;
-            grid-row: 2;
-            order: 1;
-            height: 100vh;
-            grid-area: section;
-        }
-        main {
-            grid-column: span 10;
-            grid-row: 2;
-            order: 3;
-            height: ;
-            grid-area: main;
-        } */
-        div.main {
-            height: 100vh;
-            overflow: auto;
-            padding: 0;
-            flex: 1;
-        }
-        div.side {
-            flex-basis: 5rem;
-        }
-        div.side button {
-            
-                height: 5rem;
-                width: 5rem;
-        }
-        @media screen and (min-width: 768px) {
-            div.container-fluid .side {
-                position: static;
-                height: 100vh;
-            }
-            .main {
-                position: static;
-            }
-            .main * {
-                margin: 0;
-            }
-            .uwu {
-                background-color: yellow;
-            }
-            button {
-                border-radius: 0 !important;
-            }
-            .side button {
-                height: 7.5rem;
-            }
-        }
-        @media screen and (min-width: 992px) {
-            .main {
-            }
-            .side {
-                /* width: 5rem; */
-            }
-        }
-    </style>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="main.css">
+    <!-- External CSS -->
 </head>
 <body class="bg-secondary">
+    <!-- Content Container -->
     <div class="container-fluid">
+        <!-- Content Row -->
         <div class="row no-gutters">
+            <!-- Main Content Container -->
             <div class="main col-md-11 order-md-2 sticky-top">
                 <!-- Header Navbar -->
                 <nav class="navbar navbar-collapse navbar-dark bg-dark p-2d-inline-flex justify-content-center">
@@ -177,7 +99,7 @@
                                 <!-- Header Navbar Input Group -->
                                 <div class="input-group m-0 p-0">
                                     <!-- Header Navbar Search Input -->
-                                    <input type="search" class="form-control nav-item m-0 bg-transparent text-light fs-4" placeholder="Search..." aria-label="Search" aria-describedby="search-button">
+                                    <input name="search" type="search" class="form-control nav-item m-0 bg-transparent text-light fs-4" placeholder="Search..." aria-label="Search" aria-describedby="search-button">
                                     <!-- Header Navbar Search Input -->
                                     
                                     <!-- Header Navbar Search Button Icon-->
@@ -196,65 +118,127 @@
                 </nav>
                 <!-- Header Navbar -->
                 
-                footer
+                <!-- footer -->
             </div>
-            <div class="side col-md-1 bg-dark order-md-1 fixed-bottom p-3 p-md-0 d-inline-flex justify-content-around justify-content-md-start flex-md-column">
-                <button class="btn btn-outline-light border-0 border-bottom d-inline-flex justify-content-center align-items-center flex-md-column">
-                    <i class="bi bi-person-circle fs-1"></i>
-                    <span class="fw-bold fs-2">
-                        Profile
-                    </span>
-                </button>
-                <button class="btn btn-outline-light border-0 border-bottom p-2">
-                    <img class="img-fluid" src="assets/img/favicon.ico" alt="PokéDopt Icon" style="
-                    filter: brightness(0%) invert(1); width: 3.5rem;">
-                </button>
-                <button class="btn btn-outline-light border-0 border-bottom">
-                    <img class="img-fluid" src="assets/img/poketrade.ico" alt="PokéDopt Icon" style="width: 4rem;">
-                </button>
-                <button class="btn btn-outline-light border-0 border-bottom">
-                    <i class="bi bi-chat-dots-fill fs-1"></i>
-                </button>
-                <button class="btn btn-outline-light border-0 border-bottom">
-                    <i class="bi bi-calendar-event fs-1"></i>
-                </button>
-                <button class="btn btn-outline-light border-0 border-bottom">
-                    <i class="bi bi-chat-dots-fill fs-1"></i>
-                </button>
-                <button class="btn btn-outline-light fixed-bottom border-0 border-top d-none d-md-block">
-                    <i class="bi bi-box-arrow-down-left fs-1"></i>
-                </button>
-            </div>
-        </div>
-    </div>
+            <!-- Main Content Container -->
 
+            <!-- Side Content Container -->
+            <div class="side-expanded col-md-1 bg-dark order-md-1 fixed-bottom p-3 p-md-0 d-inline-flex justify-content-around justify-content-md-start flex-md-column" id="side">
+                <!-- Side Content Carousel -->
+                <div class="carousel-buttons p-0 gap-md-0">
+                    <!-- Profile Button -->
+                    <button class="btn btn-outline-light d-inline-flex justify-content-center align-items-center flex-column p-5">
+                        <!-- Profile Button Icon -->
+                        <i class="bi bi-person-circle fs-1"></i>
+                        <!-- Profile Button Icon -->
+                        
+                        <!-- Profile Button Title -->
+                        <span class="fs-5 fs-md-2">
+                            Profile
+                        </span>
+                        <!-- Profile Button Title -->
+                    </button>
+                    <!-- Profile Button -->
+
+                    <!-- PokéDopt Button -->
+                    <button class="btn btn-outline-light d-inline-flex justify-content-center align-items-center flex-column p-5">
+                        <!-- PokéDopt Button Icon -->
+                        <i class="fs-1">
+                            <img class="img mb-1" src="assets/img/favicon.ico" alt="PokéDopt Icon">
+                        </i>
+                        <!-- PokéDopt Button Icon -->
+
+                        <!-- PokéDopt Button Title -->
+                        <span class="fs-5 fs-md-2">
+                            PokéDopt
+                        </span>
+                        <!-- PokéDopt Button Title -->
+                    </button>
+                    <!-- PokéDopt Button -->
+
+                    <!-- PokéTrade Button -->
+                    <button class="btn btn-outline-light d-inline-flex justify-content-center align-items-center flex-column p-5">
+                        <!-- PokéTrade Button Icon -->
+                        <i class="fs-1 ">
+                            <img class="img mb-1" src="assets/img/poketrade.ico" alt="PokéDopt Icon">
+                        </i>
+                        <!-- PokéTrade Button Icon -->
+
+                        <!-- PokéTrade Button Title -->
+                        <span class="fs-5 fs-md-2">
+                            PokéTrade
+                        </span>
+                        <!-- PokéTrade Button Title -->
+                    </button>
+                    <!-- PokéTrade Button -->
+                    
+                    <!-- PokéPals Button -->
+                    <button class="btn btn-outline-light d-inline-flex justify-content-center align-items-center flex-column p-5">
+                        <!-- PokéPals Button Icon -->
+                        <i class="fs-1 ">
+                            <img class="img" src="assets/img/socials.ico" alt="PokéDopt Icon">
+                        </i>
+                        <!-- PokéPals Button Icon -->
+                        
+                        <!-- PokéPals Button Title-->
+                        <span class="fs-5 fs-md-2">
+                            PokéPals
+                        </span>
+                        <!-- PokéPals Button Title-->
+                    </button>
+                    <!-- PokéPals Button -->
+
+                    <!-- PokÉvents Button -->
+                    <button class="btn btn-outline-light d-inline-flex justify-content-center align-items-center flex-column p-5">
+                        <!-- PokÉvents Button Icon -->
+                        <i class="bi bi-calendar-event fs-1"></i>
+                        <!-- PokÉvents Button Icon -->
+                        
+                        <!-- PokÉvents Button Title -->
+                        <span class="fs-5 fs-md-2">
+                            PokÉvents
+                        </span>
+                        <!-- PokÉvents Button Title -->
+                    </button>
+                    <!-- PokÉvents Button -->
+
+                    <!-- PokéChat Button -->
+                    <button class="btn btn-outline-light d-inline-flex justify-content-center align-items-center flex-column p-5">
+                        <!-- PokéChat Button Icon -->
+                        <i class="bi bi-chat-dots-fill fs-1"></i>
+                        <!-- PokéChat Button Icon -->
+
+                        <!-- PokéChat Button Title -->
+                        <span class="fs-5 fs-md-2">
+                            PokéChat
+                        </span>
+                        <!-- PokéChat Button Title -->
+                    </button>
+                    <!-- PokéChat Button -->
+
+                    <button class="btn btn-outline-light fixed-bottom d-none d-md-block" id="side-toggler">
+                        <i class="bi bi-box-arrow-in-down-left fs-1" id="shrink-icon"></i>
+                        <i class="bi bi-box-arrow-up-right fs-1 d-none" id="expand-icon"></i>
+                    </button>
+                </div>
+                <!-- Side Content Carousel -->
+            </div>
+            <!-- Side Content Container -->
+        </div>
+        <!-- Content Row -->
+    </div>
+    <!-- Content Container -->
 
     <!-- Bootstrap JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- Bootstrap JS CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $("button.navbar-toggler, button#search-button").hover(function(){
-                $(this).find("i").removeClass("text-light").addClass("text-dark");
-            }, function(){
-                $(this).find("i").removeClass("text-dark").addClass("text-light");
-            });
-            
-            $("div#navbarLogo").hover(function(){
-                $(this).find("h1").removeClass("text-light").addClass("text-dark");
-                $(this).find("img").css("filter", "brightness(100%) contrast(120%)");
-            }, function(){
-                $(this).find("h1").removeClass("text-dark").addClass("text-light");
-                $(this).find("img").css("filter", "none");
-            });
 
-            $("div.side button").hover(function(){
-                $(this).find("img").css("filter", "brightness(0%)");
-            }, function(){
-                $(this).find("img").css("filter", "brightness(0%) invert(1)");
-            });
-        });
-    </script>
+    <!-- JQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- JQuery CDN -->
+
+    <!-- External JavaScript -->
+    <script src="main.js"></script>
+    <!-- External JavaScript -->
 </body>
 </html>

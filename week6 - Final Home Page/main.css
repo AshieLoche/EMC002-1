@@ -7,85 +7,28 @@
 /* Reset */
 
 /* Base Style */
-* {
-    margin: 0;
+.form-control::-webkit-input-placeholder {
+    color: white;
+}
+.navbar-toggler {
+    display: inline !important;
+}
+div.main {
+    height: 100vh;
+    overflow: auto;
     padding: 0;
+    flex: 1;
 }
-body {
-    background-color: darkgrey;
+div.side-expanded {
+    flex-basis: 5rem;
 }
-header.grid {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    background-color: var(--primary);
-    box-shadow: 0px 0px 50px black inset;
-    border: 1px solid black;
-    grid-gap: 10px;
+div.side-shrunk {
+    position: static;
+    height: 100vh;
+    width: 5rem;
 }
-.logo *, .notif * {
-    width: 50px;
-    height: 50px;
-    max-width: 100%;
-}
-.logo {
-    grid-column: 4 / 10;
-    background-color: beige;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.logo img {
-    width: 50px;
-}
-.notif {
-    grid-column: 10 / 13;
-    background-color: beige;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-.profile {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: beige;
-    grid-column: 1 / 4;
-    border-radius: 50px;
-    height: auto;
-    justify-self: start;
-    margin: 20px;
-}
-.profilePic {
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    margin: 10px;
-}
-.menu {
-    width: 25px;
-    height: 25px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    grid-gap: 5px;
-    cursor: pointer;
-    margin: auto 25px auto 10px;
-}
-.menu * {
-    grid-column: span 1;
-    grid-row: span 1;
-    border: 1px solid black;
-    border-radius: 20%;
-    background-color: black;
-    transition: 0.4s;
-}
-.clicked .top {
-  transform: translate(0, 11px) rotate(-45deg);
-}
-.clicked .mid {opacity: 0;}
-.clicked .bot {
-  transform: translate(0, -11px) rotate(45deg);
+div.side-shrunk span {
+    display: none;
 }
 
 /* Fonts */
@@ -99,18 +42,105 @@ header.grid {
     src: url("../week2/fonts/BlackwoodCastleShadow.ttf");
 }
 
-/* Mobile Styles */
+/* Extra Small Breakpoint */
+.carousel-buttons {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
 
-/* Small Tablet Styles */
-@media screen and (min-width: 620px) {
-    body {
+.carousel-buttons::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-buttons button {
+    flex: none;
+    scroll-snap-align: start;
+    height: 5rem;
+    width: 5rem;
+}
+
+.carousel-buttons button:first-child {
+    margin-left: 0;
+}
+
+.carousel-buttons button:nth-child(2),
+.carousel-buttons button:nth-child(3),
+.carousel-buttons button:nth-child(5) {
+    width: 7rem;
+}
+
+.carousel-buttons button:nth-child(2) img {
+    filter: brightness(0%) invert(1);
+    width: 2.5rem;
+}
+
+.carousel-buttons button:nth-child(3) img {
+    width: 3rem;
+}
+
+.carousel-buttons button:nth-child(4) {
+    width: 6.5rem;
+}
+
+.carousel-buttons button:nth-child(4) img {
+    filter: brightness(0%) invert(1);
+    width: 3.5rem;
+}
+
+.carousel-buttons button:nth-child(6) {
+    width: 6.75rem;
+}
+
+/* Small Breakpoint */
+@media screen and (min-width: 576px) {
+    
+}
+
+/* Medium Breakpoint */
+@media screen and (min-width: 768px) {
+    div.side-expanded {
+        position: static;
+        height: 100vh;
+        width: 7rem;
+    }
+    .carousel-buttons {
+        flex-direction: column;
+        overflow-x: visible;
+        scroll-snap-type: none;
+        /* overflow: hidden; */
+    }
+    .carousel-buttons button {
+        border-radius: 0;
+        border: 0;
+        border-bottom: 1px solid;
+    }
+    .carousel-buttons button:nth-child(7) {
+        border: 0;
+        border-top: 1px solid;
+    }
+    div.side-expanded .carousel-buttons button {
+        width: 7rem !important;
+    }
+    div.side-shrunk .carousel-buttons button {
+        width: 5rem !important;
+        padding: 0 !important;
     }
 }
 
-/* Large Tablets & Laptop Styles */
-@media screen and (min-width: 960px) {
+/* Large Breakpoint */
+@media screen and (min-width: 992px) {
+    
 }
 
-/* Desktop Styles */
-@media screen and (min-width: 1020px) {
+/* Extra Large Breakpoint */
+@media screen and (min-width: 1200px) {
+}
+
+/* Extra Extra Large Breakpoint */
+@media screen and (min-width: 1400px) {
 }
