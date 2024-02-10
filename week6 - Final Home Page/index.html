@@ -8,13 +8,16 @@
 
     <!-- Bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Bootstrap CDN -->
 
     <!-- Bootstrap Icon CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Bootstrap Icon CDN -->
 
     <!-- Website Header -->
     <link rel="icon" type="image/x-icon" href="../week2/images/favicon.ico">
     <title>PokéDopt</title>
+    <!-- Website Header -->
 
     <!-- <link rel="stylesheet" href="main.css"> -->
     <!-- <script src="main.js"></script> -->
@@ -25,69 +28,214 @@
         .navbar-toggler {
             display: inline !important;
         }
+        /* div.content {
+            display: grid;
+            padding: 0;
+            margin: 0;
+            grid-gap: 0;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: minmax(200px, auto);
+            grid-template-areas: 
+            "section header"
+            "section main";
+            background-color: red;
+        } */
+        /* header {
+            grid-column: span 10;
+            grid-row: 1;
+            order: 2;
+            grid-area: header;
+        }
+        section {
+            grid-column: span 2;
+            grid-row: 2;
+            order: 1;
+            height: 100vh;
+            grid-area: section;
+        }
+        main {
+            grid-column: span 10;
+            grid-row: 2;
+            order: 3;
+            height: ;
+            grid-area: main;
+        } */
+        div.main {
+            height: 100vh;
+            overflow: auto;
+            padding: 0;
+            flex: 1;
+        }
+        div.side {
+            flex-basis: 5rem;
+        }
+        div.side button {
+            
+                height: 5rem;
+                width: 5rem;
+        }
+        @media screen and (min-width: 768px) {
+            div.container-fluid .side {
+                position: static;
+                height: 100vh;
+            }
+            .main {
+                position: static;
+            }
+            .main * {
+                margin: 0;
+            }
+            .uwu {
+                background-color: yellow;
+            }
+            button {
+                border-radius: 0 !important;
+            }
+            .side button {
+                height: 7.5rem;
+            }
+        }
+        @media screen and (min-width: 992px) {
+            .main {
+            }
+            .side {
+                /* width: 5rem; */
+            }
+        }
     </style>
 </head>
 <body class="bg-secondary">
-    <!-- Content Container -->
-    <div class="container-fluid p-0">
-        <!-- Header Navbar -->
-        <nav class="navbar navbar-collapse navbar-dark bg-dark px-2 py-3">
-            <div class="container-xxl">
-                <div class="row col-12 m-0">    
-                    <!-- Header Navbar Toggler(Mobile) & Filter Button -->
-                    <div class="col-6 col-md-3 order-2 order-md-1 d-inline-flex justify-content-start align-items-center px-3">
-                        <!-- Header Navbar Toggler (Mobile) -->
-                        <button class="navbar-toggler btn btn-outline-light" id="search-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#header-nav" aria-controls="header-nav" aria-expanded="false" aria-label="Toggle Header Navbar">
-                            <i class="bi bi-search-heart text-light fs-2" id="search-icon"></i>
-                        </button>
-                        <!-- Header Navbar Toggler (Mobile) -->
-                        
-                        <button class="navbar-toggler btn btn-outline-light mx-3 " type="button">
-                            <i class="bi bi-funnel-fill text-light fs-2"></i>
-                        </button>
-                    </div>
+    <div class="container-fluid">
+        <div class="row no-gutters">
+            <div class="main col-md-11 order-md-2 sticky-top">
+                <!-- Header Navbar -->
+                <nav class="navbar navbar-collapse navbar-dark bg-dark p-2d-inline-flex justify-content-center">
+                    <!-- Header Navbar Container -->
+                    <div class="container-xxl p-0">
+                        <!-- Header Navbar Rows -->
+                        <div class="row col-12 m-0">    
+                            <!-- Header Navbar Toggler (Search) & Filter Buttons -->
+                            <div class="col-6 col-md-3 order-2 order-md-1 d-inline-flex justify-content-start align-items-center px-3">
+                                <!-- Header Navbar Toggler (Search) Button -->
+                                <button class="navbar-toggler btn btn-outline-light" id="search-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#header-nav" aria-controls="header-nav" aria-expanded="false" aria-label="Toggle Header Navbar">
+                                    <!-- Header Navbar Toggler (Search) Icon -->
+                                    <i class="bi bi-search-heart text-light fs-2" id="search-icon"></i>
+                                    <!-- Header Navbar Toggler (Search) Icon -->
+                                </button>
+                                <!-- Header Navbar Toggler (Search) Button -->
+                                
+                                <!-- Header Navbar Filter Button -->
+                                <button class="navbar-toggler btn btn-outline-light mx-3 " type="button">
+                                    <!-- Header Navbar Filter Icon -->
+                                    <i class="bi bi-funnel-fill text-light fs-2"></i>
+                                    <!-- Header Navbar Filter Icon -->
+                                </button>
+                                <!-- Header Navbar Filter Button -->
+                            </div>
+                            <!-- Header Navbar Toggler (Search) & Filter Buttons -->
+                
+                            <!-- Header Navbar Brand -->
+                            <div class="col-md-6 order-1 order-md-2 p-3 p-md-0 d-inline-flex justify-content-center align-items-center" id="navbarLogo">
+                                <!-- Header Navbar Brand Link -->
+                                <a href="#" id="pokedoptLogo" class="navbar-brand m-0 py-2 px-3 d-inline-flex gap-3 btn btn-outline-light border-0 rounded-3">
+                                    <!-- Header Navbar Brand Icon -->
+                                    <img class="img-fluid" src="assets/img/favicon.ico" alt="PokéDopt Icon">
+                                    <!-- Header Navbar Brand Icon -->
         
-                    <!-- Navbar Logo -->
-                    <div class="col-md-6 order-1 order-md-2 p-3 p-md-0 d-inline-flex justify-content-center align-items-center" id="navbarLogo">
-                        <a href="#" id="pokedoptLogo" class="navbar-brand m-0 py-2 px-3 d-inline-flex gap-3 btn btn-outline-light border-0 rounded-3">
-                            <img class="img-fluid" src="assets/img/favicon.ico" alt="PokéDopt Icon">
-                            <h1 class="fw-bold m-0">PokéDopt</h1>
-                        </a>
-                    </div>
-                    <!-- Navbar Logo -->
+                                    <!-- Header Navbar Brand Title -->
+                                    <h1 class="fw-bold m-0">PokéDopt</h1>
+                                    <!-- Header Navbar Brand Title -->
+                                </a>
+                                <!-- Header Navbar Brand Link -->
+                            </div>
+                            <!-- Header Navbar Brand -->
+                            
+                            <!-- Header Navbar Notification & PokéList Buttons -->
+                            <div class="col-6 col-md-3 order-3 d-inline-flex justify-content-end align-items-center px-3">
+                                <!-- Header Navbar Notification Button -->
+                                <button class="navbar-toggler btn btn-outline-light me-4">
+                                    <!-- Header Navbar Notification Icon -->
+                                    <i class="bi bi-bell-fill text-light fs-2"></i>
+                                    <!-- Header Navbar Notification Icon -->
+                                </button>
+                                <!-- Header Navbar Notification Button -->
         
-                    <div class="col-6 col-md-3 order-3 d-inline-flex justify-content-end align-items-center px-3">
-                        <button class="navbar-toggler btn btn-outline-light me-4">
-                            <i class="bi bi-bell-fill text-light fs-2"></i>
-                        </button>
-                        <button class="btn btn-outline-light">
-                            <span class="fw-bold fs-4">
-                                PokéList
-                            </span>
-                        </button>
-                    </div>
-        
-                    <!-- Navbar Items -->
-                    <div class="collapse navbar-collapse col-12 order-4 mb-2 mt-3 px-3" id="header-nav">
-                        <div class="input-group m-0 p-0">
-                            <input type="search" class="form-control nav-item m-0 bg-transparent text-light" placeholder="Search..." aria-label="Search" aria-describedby="search-group">
-                            <span class="input-group-text bg-transparent"  id="search-group">
-                                <i class="bi bi-search-heart text-light"></i>
-                            </span>
+                                <!-- Header Navbar PokéList Button -->
+                                <button class="btn btn-outline-light">
+                                    <!-- Header Navbar PokéList Button Title -->
+                                    <span class="fw-bold fs-4">
+                                        PokéList
+                                    </span>
+                                    <!-- Header Navbar PokéList Button Title -->
+                                </button>
+                                <!-- Header Navbar PokéList Button -->
+                            </div>
+                            <!-- Header Navbar Notification & PokéList Buttons -->
+                
+                            <!-- Header Navbar Collapsable Items -->
+                            <div class="collapse navbar-collapse col-12 order-4 mb-2 mt-3 px-3" id="header-nav">
+                                <!-- Header Navbar Input Group -->
+                                <div class="input-group m-0 p-0">
+                                    <!-- Header Navbar Search Input -->
+                                    <input type="search" class="form-control nav-item m-0 bg-transparent text-light fs-4" placeholder="Search..." aria-label="Search" aria-describedby="search-button">
+                                    <!-- Header Navbar Search Input -->
+                                    
+                                    <!-- Header Navbar Search Button Icon-->
+                                    <button class="btn btn-outline-light" type="button" id="search-button">
+                                        <i class="bi bi-search-heart text-light fs-4"></i>
+                                    </button>
+                                    <!-- Header Navbar Search Input -->
+                                </div>
+                                <!-- Header Navbar Input Group -->
+                            </div>
+                            <!-- Header Navbar Collapsable Items -->
                         </div>
+                        <!-- Header Navbar Rows -->
                     </div>
-                    <!-- Navbar Items -->
-                </div>
+                    <!-- Header Navbar Container -->
+                </nav>
+                <!-- Header Navbar -->
+                
+                footer
             </div>
-        </nav>
-        <!-- Header Navbar -->
+            <div class="side col-md-1 bg-dark order-md-1 fixed-bottom p-3 p-md-0 d-inline-flex justify-content-around justify-content-md-start flex-md-column">
+                <button class="btn btn-outline-light border-0 border-bottom d-inline-flex justify-content-center align-items-center flex-md-column">
+                    <i class="bi bi-person-circle fs-1"></i>
+                    <span class="fw-bold fs-2">
+                        Profile
+                    </span>
+                </button>
+                <button class="btn btn-outline-light border-0 border-bottom p-2">
+                    <img class="img-fluid" src="assets/img/favicon.ico" alt="PokéDopt Icon" style="
+                    filter: brightness(0%) invert(1); width: 3.5rem;">
+                </button>
+                <button class="btn btn-outline-light border-0 border-bottom">
+                    <img class="img-fluid" src="assets/img/poketrade.ico" alt="PokéDopt Icon" style="width: 4rem;">
+                </button>
+                <button class="btn btn-outline-light border-0 border-bottom">
+                    <i class="bi bi-chat-dots-fill fs-1"></i>
+                </button>
+                <button class="btn btn-outline-light border-0 border-bottom">
+                    <i class="bi bi-calendar-event fs-1"></i>
+                </button>
+                <button class="btn btn-outline-light border-0 border-bottom">
+                    <i class="bi bi-chat-dots-fill fs-1"></i>
+                </button>
+                <button class="btn btn-outline-light fixed-bottom border-0 border-top d-none d-md-block">
+                    <i class="bi bi-box-arrow-down-left fs-1"></i>
+                </button>
+            </div>
+        </div>
     </div>
 
+
+    <!-- Bootstrap JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
-            $("button.navbar-toggler").hover(function(){
+            $("button.navbar-toggler, button#search-button").hover(function(){
                 $(this).find("i").removeClass("text-light").addClass("text-dark");
             }, function(){
                 $(this).find("i").removeClass("text-dark").addClass("text-light");
@@ -95,10 +243,16 @@
             
             $("div#navbarLogo").hover(function(){
                 $(this).find("h1").removeClass("text-light").addClass("text-dark");
-                $(this).find("img").css("filter", "brightness(50%) contrast(120%)");
+                $(this).find("img").css("filter", "brightness(100%) contrast(120%)");
             }, function(){
                 $(this).find("h1").removeClass("text-dark").addClass("text-light");
                 $(this).find("img").css("filter", "none");
+            });
+
+            $("div.side button").hover(function(){
+                $(this).find("img").css("filter", "brightness(0%)");
+            }, function(){
+                $(this).find("img").css("filter", "brightness(0%) invert(1)");
             });
         });
     </script>
