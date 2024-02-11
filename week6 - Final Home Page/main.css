@@ -14,6 +14,9 @@
 .navbar-toggler {
     display: inline !important;
 }
+div#navbarLogo:hover * img {
+    filter: brightness(0);
+}
 div.main {
     overflow: auto;
     flex: 1;
@@ -21,8 +24,10 @@ div.main {
 div.main::-webkit-scrollbar {
     display: none;
 }
-div#navbarLogo:hover * img {
-    filter: brightness(0);
+.card img {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom: 1px solid;
 }
 div.side-shrunk {
     position: static;
@@ -144,11 +149,13 @@ div.main {
 
 /* Large Breakpoint */
 @media screen and (min-width: 992px) {
-    
 }
 
 /* Extra Large Breakpoint */
 @media screen and (min-width: 1200px) {
+    .display-3 {
+        font-size: 3rem;
+    }
 }
 
 /* Extra Extra Large Breakpoint */

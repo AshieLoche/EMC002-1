@@ -39,13 +39,38 @@ $(document).ready(function() {
     });
     // Like Mechanics
 
-    // Card Mechanics
-    // let cardSize = 0;
+    // Card Size
+    let cardSize = 0;
+    let cardImageSize = 0;
+    
+    $(window).on("resize", function() {
+        cardResize();
+    });
 
-    // $(".card").each(function() {
-
-    // });
-    // Card Mechanics
+    function cardResize() {
+        if ($(window).width() >= 992) {
+            $(".card").each(function() {
+                cardSize = $(this).height() > cardSize ? $(this).height() : cardSize;
+            });
+            
+            $(".card").height(cardSize);
+        }
+        else {
+            $(".card").height("initial");
+        }
+        
+        if ($(window).width() >= 1200) {
+            $(".card img").each(function() {
+                cardImageSize = $(this).height() > cardImageSize ? $(this).height() : cardImageSize;
+            });
+            
+            $(".card img").height(cardImageSize);
+        }
+        else {
+            $(".card img").height("initial");
+        }
+    }
+    // Card Size
 
     // Side Toggle Mechanics
     const side = document.querySelector('#side');
@@ -128,5 +153,6 @@ $(document).ready(function() {
     // On Start
     toggler();
     mainResize();
+    cardResize();
     // On Start
 });
