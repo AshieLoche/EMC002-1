@@ -29,6 +29,10 @@ div.main::-webkit-scrollbar {
     border-bottom-right-radius: 0 !important;
     border-bottom: 1px solid;
 }
+.card-body {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
 div.side-shrunk {
     position: static;
     height: 100vh;
@@ -160,4 +164,7 @@ div.main {
 
 /* Extra Extra Large Breakpoint */
 @media screen and (min-width: 1400px) {
+    .display-3 {
+        font-size: 2.75rem;
+    }
 }

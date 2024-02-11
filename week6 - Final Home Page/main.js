@@ -39,36 +39,48 @@ $(document).ready(function() {
     });
     // Like Mechanics
 
-    // Card Size
-    let cardSize = 0;
-    let cardImageSize = 0;
-    
+    // Card Size    
     $(window).on("resize", function() {
-        cardResize();
+        var storedCardImageSize = 0;
+        $(".card img").each(function() {
+            cardImageSize = $(this).height();
+
+            if (cardImageSize > storedCardImageSize) {
+                storedCardImageSize = cardImageSize;
+            }
+        });
+            
+        $(".card img").css({
+            "min-height": `${storedCardImageSize}px`,
+            "max-height": `${storedCardImageSize}px`
+        });
     });
 
     function cardResize() {
-        if ($(window).width() >= 992) {
-            $(".card").each(function() {
-                cardSize = $(this).height() > cardSize ? $(this).height() : cardSize;
-            });
-            
-            $(".card").height(cardSize);
-        }
-        else {
-            $(".card").height("initial");
-        }
+        var maxHeight = 0;
+        $('.card').each(function() {
+          var height = $(this).outerHeight();
+          if (height > maxHeight) {
+            maxHeight = height;
+          }
+        });
+        $('.card').each(function() {
+          $(this).outerHeight(maxHeight);
+        });
         
-        if ($(window).width() >= 1200) {
-            $(".card img").each(function() {
-                cardImageSize = $(this).height() > cardImageSize ? $(this).height() : cardImageSize;
-            });
+        var storedCardImageSize = 0;
+        $(".card img").each(function() {
+            cardImageSize = $(this).height();
+
+            if (cardImageSize > storedCardImageSize) {
+                storedCardImageSize = cardImageSize;
+            }
+        });
             
-            $(".card img").height(cardImageSize);
-        }
-        else {
-            $(".card img").height("initial");
-        }
+        $(".card img").css({
+            "min-height": `${storedCardImageSize}px`,
+            "max-height": `${storedCardImageSize}px`
+        });
     }
     // Card Size
 
