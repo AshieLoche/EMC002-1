@@ -1,8 +1,9 @@
 /* Variables */
-:root {
+/* :root {
     --primary: rgba(49,0,71,1);
     
-}
+} */
+/* Variables */
 
 /* Reset */
 
@@ -14,13 +15,14 @@
     display: inline !important;
 }
 div.main {
-    height: 100vh;
     overflow: auto;
-    padding: 0;
     flex: 1;
 }
-div.side-expanded {
-    flex-basis: 5rem;
+div.main::-webkit-scrollbar {
+    display: none;
+}
+div#navbarLogo:hover * img {
+    filter: brightness(0);
 }
 div.side-shrunk {
     position: static;
@@ -30,9 +32,10 @@ div.side-shrunk {
 div.side-shrunk span {
     display: none;
 }
+/* Base Style */
 
 /* Fonts */
-@font-face {
+/* @font-face {
     font-family: "BlackwoodCastle";
     src: url("../week2/fonts/BlackwoodCastle.ttf");
 }
@@ -40,14 +43,15 @@ div.side-shrunk span {
 @font-face {
     font-family: "BlackwoodCastleShadow";
     src: url("../week2/fonts/BlackwoodCastleShadow.ttf");
-}
+} */
+/* Fonts */
 
 /* Extra Small Breakpoint */
+div.main {
+    height: calc(100vh - 130px);
+}
 .carousel-buttons {
-    display: flex;
     overflow-x: auto;
-    gap: 1rem;
-    padding: 0.5rem 0;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -58,14 +62,9 @@ div.side-shrunk span {
 }
 
 .carousel-buttons button {
-    flex: none;
     scroll-snap-align: start;
     height: 5rem;
     width: 5rem;
-}
-
-.carousel-buttons button:first-child {
-    margin-left: 0;
 }
 
 .carousel-buttons button:nth-child(2),
@@ -95,6 +94,7 @@ div.side-shrunk span {
 .carousel-buttons button:nth-child(6) {
     width: 6.75rem;
 }
+/* Extra Small Breakpoint */
 
 /* Small Breakpoint */
 @media screen and (min-width: 576px) {
@@ -103,16 +103,26 @@ div.side-shrunk span {
 
 /* Medium Breakpoint */
 @media screen and (min-width: 768px) {
+    div.main {
+        height: 100vh;
+    }
+    nav.navbar {
+        border-bottom: 1.5px solid white;
+    }
+    footer {
+        border-top: 1.5px solid white;
+    }
+    div#side {
+        border-right: 1.5px solid white;
+    }
     div.side-expanded {
         position: static;
         height: 100vh;
         width: 7rem;
     }
     .carousel-buttons {
-        flex-direction: column;
         overflow-x: visible;
         scroll-snap-type: none;
-        /* overflow: hidden; */
     }
     .carousel-buttons button {
         border-radius: 0;

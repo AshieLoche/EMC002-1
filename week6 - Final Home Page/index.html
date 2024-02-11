@@ -23,21 +23,21 @@
     <link rel="stylesheet" href="main.css">
     <!-- External CSS -->
 </head>
-<body class="bg-secondary">
+<body>
     <!-- Content Container -->
     <div class="container-fluid">
         <!-- Content Row -->
         <div class="row no-gutters">
             <!-- Main Content Container -->
-            <div class="main col-md-11 order-md-2 sticky-top">
+            <div class="main col-md-11 order-md-2 p-0 top-0 m-0">
                 <!-- Header Navbar -->
-                <nav class="navbar navbar-collapse navbar-dark bg-dark p-2d-inline-flex justify-content-center">
+                <nav class="navbar navbar-collapse navbar-dark bg-dark p-2 pb-3 pb-md-2 sticky-top">
                     <!-- Header Navbar Container -->
                     <div class="container-xxl p-0">
                         <!-- Header Navbar Rows -->
                         <div class="row col-12 m-0">    
                             <!-- Header Navbar Toggler (Search) & Filter Buttons -->
-                            <div class="col-6 col-md-3 order-2 order-md-1 d-inline-flex justify-content-start align-items-center px-3">
+                            <div class="col-6 col-md-3 order-2 order-md-1 d-inline-flex justify-content-start align-items-center px-3 gap-3">
                                 <!-- Header Navbar Toggler (Search) Button -->
                                 <button class="navbar-toggler btn btn-outline-light" id="search-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#header-nav" aria-controls="header-nav" aria-expanded="false" aria-label="Toggle Header Navbar">
                                     <!-- Header Navbar Toggler (Search) Icon -->
@@ -47,7 +47,7 @@
                                 <!-- Header Navbar Toggler (Search) Button -->
                                 
                                 <!-- Header Navbar Filter Button -->
-                                <button class="navbar-toggler btn btn-outline-light mx-3 " type="button">
+                                <button class="navbar-toggler btn btn-outline-light" type="button">
                                     <!-- Header Navbar Filter Icon -->
                                     <i class="bi bi-funnel-fill text-light fs-2"></i>
                                     <!-- Header Navbar Filter Icon -->
@@ -57,9 +57,9 @@
                             <!-- Header Navbar Toggler (Search) & Filter Buttons -->
                 
                             <!-- Header Navbar Brand -->
-                            <div class="col-md-6 order-1 order-md-2 p-3 p-md-0 d-inline-flex justify-content-center align-items-center" id="navbarLogo">
+                            <div class="col-md-6 order-1 order-md-2 pt-2 p-md-0 d-inline-flex justify-content-center justify-content-md-start justify-content-lg-center align-items-center" id="navbarLogo">
                                 <!-- Header Navbar Brand Link -->
-                                <a href="#" id="pokedoptLogo" class="navbar-brand m-0 py-2 px-3 d-inline-flex gap-3 btn btn-outline-light border-0 rounded-3">
+                                <a href="#" class="navbar-brand m-0 py-2 px-3 d-inline-flex gap-2 gap-md-3 btn btn-outline-light border-0 rounded-3">
                                     <!-- Header Navbar Brand Icon -->
                                     <img class="img-fluid" src="assets/img/favicon.ico" alt="PokéDopt Icon">
                                     <!-- Header Navbar Brand Icon -->
@@ -73,9 +73,9 @@
                             <!-- Header Navbar Brand -->
                             
                             <!-- Header Navbar Notification & PokéList Buttons -->
-                            <div class="col-6 col-md-3 order-3 d-inline-flex justify-content-end align-items-center px-3">
+                            <div class="col-6 col-md-3 order-3 d-inline-flex justify-content-end align-items-center px-3 gap-3">
                                 <!-- Header Navbar Notification Button -->
-                                <button class="navbar-toggler btn btn-outline-light me-4">
+                                <button class="navbar-toggler btn btn-outline-light">
                                     <!-- Header Navbar Notification Icon -->
                                     <i class="bi bi-bell-fill text-light fs-2"></i>
                                     <!-- Header Navbar Notification Icon -->
@@ -95,18 +95,20 @@
                             <!-- Header Navbar Notification & PokéList Buttons -->
                 
                             <!-- Header Navbar Collapsable Items -->
-                            <div class="collapse navbar-collapse col-12 order-4 mb-2 mt-3 px-3" id="header-nav">
+                            <div class="collapse navbar-collapse col-12 order-4 mt-3 my-md-2" id="header-nav">
                                 <!-- Header Navbar Input Group -->
-                                <div class="input-group m-0 p-0">
+                                <div class="input-group">
                                     <!-- Header Navbar Search Input -->
-                                    <input name="search" type="search" class="form-control nav-item m-0 bg-transparent text-light fs-4" placeholder="Search..." aria-label="Search" aria-describedby="search-button">
+                                    <input name="search" type="search" class="form-control nav-item bg-transparent text-light fs-4" placeholder="Search..." aria-label="Search" aria-describedby="search-button">
                                     <!-- Header Navbar Search Input -->
                                     
-                                    <!-- Header Navbar Search Button Icon-->
+                                    <!-- Header Navbar Search Button -->
                                     <button class="btn btn-outline-light" type="button" id="search-button">
+                                        <!-- Header Navbar Search Button Icon -->
                                         <i class="bi bi-search-heart text-light fs-4"></i>
+                                        <!-- Header Navbar Search Button Icon -->
                                     </button>
-                                    <!-- Header Navbar Search Input -->
+                                    <!-- Header Navbar Search Button -->
                                 </div>
                                 <!-- Header Navbar Input Group -->
                             </div>
@@ -117,15 +119,263 @@
                     <!-- Header Navbar Container -->
                 </nav>
                 <!-- Header Navbar -->
+
+                <!-- Main -->
+                <main class="bg-secondary">
+                    <!-- Main Container -->
+                    <div class="container-fluid p-0">
+                        <!-- Main Row -->
+                        <div class="row m-0 align-items-center justify-content-center g-3 gap-3">
+                            <!-- Pokémon 1 -->
+                            <div class="col-10 col-lg-6 col-xl-4 col-xxl-3 my-4 p-0">
+                                <!-- Pokémon 1 Card -->
+                                <div class="card bg-dark text-light rounded-5 p-3">
+                                    <!-- Pokémon 1 Card Image -->
+                                    <img src="assets/img/chandelure.jpg" alt="Poké Img" class="img-fluid card-img-top rounded-5">
+                                    <!-- Pokémon 1 Card Image -->
+
+                                    <!-- Pokémon 1 Card Body -->
+                                    <div class="card-body p-3 d-flex flex-column gap-3">
+                                        <!-- Pokémon 1 Card Title Container -->
+                                        <div class="border-bottom pb-2 p-0 container-fluid">
+                                            <!-- Pokémon 1 Card Title Container Row -->
+                                            <div class="row">
+                                                <!-- Pokémon 1 Card Title -->
+                                                <span class="card-title display-3 col-6 m-0">
+                                                    Amier
+                                                </span>
+                                                <!-- Pokémon 1 Card Title -->
+                                                
+                                                <!-- Pokémon 1 Card Title Button Container -->
+                                                <span class="col-6 d-inline-flex justify-content-end p-0">
+                                                    <!-- Pokémon 1 Card Title Button -->
+                                                    <button class="btn btn-outline-light border-0">
+                                                        <i class="bi bi-suit-heart display-3"></i>
+                                                    </button>
+                                                    <!-- Pokémon 1 Card Title Button -->
+                                                </span>
+                                                <!-- Pokémon 1 Card Title Button Container -->
+                                            </div>
+                                            <!-- Pokémon 1 Card Title Container Row -->
+                                        </div>
+                                        <!-- Pokémon 1 Card Title Container -->
+                                        
+                                        <!-- Pokémon 1 Card Subtitle -->
+                                        <span class="card-title display-4 fs-2">
+                                            Chandelure
+                                        </span>
+                                        <!-- Pokémon 1 Card Subtitle -->
+                                        
+                                        <!-- Pokémon 1 Card Description -->
+                                        <span class="card-text display-5 fs-4 lh-sm">
+                                            A gentle and emotional pokémon that enjoys floating about in broad daylight anywhere there are flowers.
+                                        </span>
+                                        <!-- Pokémon 1 Card Description -->
+                                    </div>
+                                    <!-- Pokémon 1 Card Body -->
+                                </div>
+                                <!-- Pokémon 1 Card -->
+                            </div>
+                            <!-- Pokémon 1 -->
+
+                            <!-- Pokémon 2 -->
+                            <div class="col-10 col-lg-6 col-xl-4 col-xxl-3 my-4 p-0">
+                                <div class="card bg-dark text-light rounded-5 p-3">
+                                    <img src="assets/img/gengar.jpg" alt="Poké Img" class="img-fluid rounded-5">
+                                    <div class="p-3 d-flex flex-column gap-3">
+                                        <div class="border-bottom pb-2 p-0 container-fluid">
+                                            <div class="row">
+                                                <span class="display-3 col-6 m-0">
+                                                    Leiroh
+                                                </span>
+                                                <span class="col-6 d-inline-flex justify-content-end p-0">
+                                                    <button class="btn btn-outline-light border-0">
+                                                        <i class="bi bi-suit-heart display-3"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <span class="display-4 fs-2">
+                                            Chandelure
+                                        </span>
+                                        <span class="display-5 fs-4 lh-sm">
+                                            A creative and shy pokémon that really enjoys some peace and quiet. When disturbed from his artist zone, he will throw a temper tantrum.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Pokémon 2 -->
+
+                            <!-- Pokémon 3 -->
+                            <div class="col-10 col-lg-6 col-xl-4 col-xxl-3 my-4 p-0">
+                                <div class="card bg-dark text-light rounded-5 p-3">
+                                    <img src="assets/img/magnezone.jpg" alt="Poké Img" class="img-fluid rounded-5">
+                                    <div class="p-3 d-flex flex-column gap-3">
+                                        <div class="border-bottom pb-2 p-0 container-fluid">
+                                            <div class="row">
+                                                <span class="display-3 col-6 m-0">
+                                                    Amier
+                                                </span>
+                                                <span class="col-6 d-inline-flex justify-content-end p-0">
+                                                    <button class="btn btn-outline-light border-0">
+                                                        <i class="bi bi-suit-heart display-3"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <span class="display-4 fs-2">
+                                            Chandelure
+                                        </span>
+                                        <span class="display-5 fs-4 lh-sm">
+                                            A gentle and emotional pokémon that enjoys floating about in broad daylight anywhere there are flowers.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Pokémon 3 -->
+                            
+                            <!-- Pokémon 4 -->
+                            <div class="col-10 col-lg-6 col-xl-4 col-xxl-3 my-4 p-0">
+                                <div class="card bg-dark text-light rounded-5 p-3">
+                                    <img src="assets/img/dragonite.jpg" alt="Poké Img" class="img-fluid rounded-5">
+                                    <div class="p-3 d-flex flex-column gap-3">
+                                        <div class="border-bottom pb-2 p-0 container-fluid">
+                                            <div class="row">
+                                                <span class="display-3 col-6 m-0">
+                                                    Leiroh
+                                                </span>
+                                                <span class="col-6 d-inline-flex justify-content-end p-0">
+                                                    <button class="btn btn-outline-light border-0">
+                                                        <i class="bi bi-suit-heart display-3"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <span class="display-4 fs-2">
+                                            Chandelure
+                                        </span>
+                                        <span class="display-5 fs-4 lh-sm">
+                                            A creative and shy pokémon that really enjoys some peace and quiet. When disturbed from his artist zone, he will throw a temper tantrum.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Pokémon 4 -->
+
+                            <!-- Pokémon 5 -->
+                            <div class="col-10 col-lg-6 col-xl-4 col-xxl-3 my-4 p-0">
+                                <div class="card bg-dark text-light rounded-5 p-3">
+                                    <img src="assets/img/lugia.jpg" alt="Poké Img" class="img-fluid rounded-5">
+                                    <div class="p-3 d-flex flex-column gap-3">
+                                        <div class="border-bottom pb-2 p-0 container-fluid">
+                                            <div class="row">
+                                                <span class="display-3 col-6 m-0">
+                                                    Amier
+                                                </span>
+                                                <span class="col-6 d-inline-flex justify-content-end p-0">
+                                                    <button class="btn btn-outline-light border-0">
+                                                        <i class="bi bi-suit-heart display-3"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <span class="display-4 fs-2">
+                                            Chandelure
+                                        </span>
+                                        <span class="display-5 fs-4 lh-sm">
+                                            A gentle and emotional pokémon that enjoys floating about in broad daylight anywhere there are flowers.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Pokémon 5 -->
+                            
+                            <!-- Pokémon 6 -->
+                            <div class="col-10 col-lg-6 col-xl-4 col-xxl-3 my-4 p-0">
+                                <div class="card bg-dark text-light rounded-5 p-3">
+                                    <img src="assets/img/incineroar.png" alt="Poké Img" class="img-fluid rounded-5">
+                                    <div class="p-3 d-flex flex-column gap-3">
+                                        <div class="border-bottom pb-2 p-0 container-fluid">
+                                            <div class="row">
+                                                <span class="display-3 col-6 m-0">
+                                                    Leiroh
+                                                </span>
+                                                <span class="col-6 d-inline-flex justify-content-end p-0">
+                                                    <button class="btn btn-outline-light border-0">
+                                                        <i class="bi bi-suit-heart display-3"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <span class="display-4 fs-2">
+                                            Chandelure
+                                        </span>
+                                        <span class="display-5 fs-4 lh-sm">
+                                            A creative and shy pokémon that really enjoys some peace and quiet. When disturbed from his artist zone, he will throw a temper tantrum.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Pokémon 6 -->
+                        </div>
+                        <!-- Main Row -->
+                    </div>
+                    <!-- Main Container -->
+                </main>
+                <!-- Main -->
                 
-                <!-- footer -->
+                <!-- Footer -->
+                <footer class="bg-dark m-0">
+                    <!-- Footer Container -->
+                    <div class="container-xxl p-0">
+                        <!-- Footer Row -->
+                        <div class="row m-0">
+                            <!-- Footer Copyright -->
+                            <div class="col-12 col-lg-6 d-inline-flex justify-content-center
+                            justify-content-lg-start align-items-centera pt-4 p-lg-3">
+                                <!-- Footer Copyright Link -->
+                                <a href="#" class=" text-light m-0 fs-5 d-inline-flex gap-2">
+                                    <!-- Footer Copyright Link Icon -->
+                                    <i class="bi bi-c-circle"></i>
+                                    <!-- Footer Copyright Link Icon-->
+
+                                    <!-- Footer Copyright Link Title-->
+                                    <span>
+                                        2024 PokéDopt by Ashie Loche
+                                    </span>
+                                </a>
+                                <!-- Footer Copyright Link -->
+                            </div>
+                            <!-- Footer Copyright -->
+
+                            <div class="col-12 col-lg-6 d-inline-flex flex-column flex-lg-row text-center
+                            justify-content-lg-end align-items-centera p-3 gap-1 gap-lg-3">
+                                <a href="#" class="text-light m-0 fs-5">
+                                    About Us
+                                </a>
+                                <a href="#" class="text-light m-0 fs-5">
+                                    Customer Care
+                                </a>
+                                <a href="#" class="text-light m-0 fs-5">
+                                    <i class="bi bi-discord"></i>
+                                </a>
+                                <a href="#" class="text-light m-0 fs-5">
+                                    <i class="bi bi-telegram"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Footer Row -->
+                    </div>
+                    <!-- Footer Container -->
+                </footer>
+                <!-- Footer -->
             </div>
             <!-- Main Content Container -->
 
             <!-- Side Content Container -->
-            <div class="side-expanded col-md-1 bg-dark order-md-1 fixed-bottom p-3 p-md-0 d-inline-flex justify-content-around justify-content-md-start flex-md-column" id="side">
+            <div class="side-expanded bg-dark col-md-1 order-md-1 fixed-bottom p-3 p-md-0" id="side">
                 <!-- Side Content Carousel -->
-                <div class="carousel-buttons p-0 gap-md-0">
+                <div class="carousel-buttons p-0 d-flex flex-md-column gap-3 gap-md-0">
                     <!-- Profile Button -->
                     <button class="btn btn-outline-light d-inline-flex justify-content-center align-items-center flex-column p-5">
                         <!-- Profile Button Icon -->
@@ -133,7 +383,7 @@
                         <!-- Profile Button Icon -->
                         
                         <!-- Profile Button Title -->
-                        <span class="fs-5 fs-md-2">
+                        <span class="fs-5">
                             Profile
                         </span>
                         <!-- Profile Button Title -->
@@ -149,7 +399,7 @@
                         <!-- PokéDopt Button Icon -->
 
                         <!-- PokéDopt Button Title -->
-                        <span class="fs-5 fs-md-2">
+                        <span class="fs-5">
                             PokéDopt
                         </span>
                         <!-- PokéDopt Button Title -->
@@ -159,13 +409,13 @@
                     <!-- PokéTrade Button -->
                     <button class="btn btn-outline-light d-inline-flex justify-content-center align-items-center flex-column p-5">
                         <!-- PokéTrade Button Icon -->
-                        <i class="fs-1 ">
+                        <i class="fs-1">
                             <img class="img mb-1" src="assets/img/poketrade.ico" alt="PokéDopt Icon">
                         </i>
                         <!-- PokéTrade Button Icon -->
 
                         <!-- PokéTrade Button Title -->
-                        <span class="fs-5 fs-md-2">
+                        <span class="fs-5">
                             PokéTrade
                         </span>
                         <!-- PokéTrade Button Title -->
@@ -175,13 +425,13 @@
                     <!-- PokéPals Button -->
                     <button class="btn btn-outline-light d-inline-flex justify-content-center align-items-center flex-column p-5">
                         <!-- PokéPals Button Icon -->
-                        <i class="fs-1 ">
+                        <i class="fs-1">
                             <img class="img" src="assets/img/socials.ico" alt="PokéDopt Icon">
                         </i>
                         <!-- PokéPals Button Icon -->
                         
                         <!-- PokéPals Button Title-->
-                        <span class="fs-5 fs-md-2">
+                        <span class="fs-5">
                             PokéPals
                         </span>
                         <!-- PokéPals Button Title-->
@@ -195,7 +445,7 @@
                         <!-- PokÉvents Button Icon -->
                         
                         <!-- PokÉvents Button Title -->
-                        <span class="fs-5 fs-md-2">
+                        <span class="fs-5">
                             PokÉvents
                         </span>
                         <!-- PokÉvents Button Title -->
@@ -209,17 +459,20 @@
                         <!-- PokéChat Button Icon -->
 
                         <!-- PokéChat Button Title -->
-                        <span class="fs-5 fs-md-2">
+                        <span class="fs-5">
                             PokéChat
                         </span>
                         <!-- PokéChat Button Title -->
                     </button>
                     <!-- PokéChat Button -->
 
+                    <!-- Side Toggler Button -->
                     <button class="btn btn-outline-light fixed-bottom d-none d-md-block" id="side-toggler">
-                        <i class="bi bi-box-arrow-in-down-left fs-1" id="shrink-icon"></i>
-                        <i class="bi bi-box-arrow-up-right fs-1 d-none" id="expand-icon"></i>
+                        <!-- Side Toggler Button Icon -->
+                        <i class="bi bi-box-arrow-in-down-left fs-1" id="side-toggler-icon"></i>
+                        <!-- Side Toggler Button Icon -->
                     </button>
+                    <!-- Side Toggler Button -->
                 </div>
                 <!-- Side Content Carousel -->
             </div>

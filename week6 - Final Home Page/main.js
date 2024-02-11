@@ -1,33 +1,56 @@
-$(document).ready(function(){
+$(document).ready(function() {
     // Hover Mechanics
-    $("button.navbar-toggler, button#search-button").hover(function(){
+    $("button.navbar-toggler, button#search-button").hover(function() {
         $(this).find("i").removeClass("text-light").addClass("text-dark");
-    }, function(){
+    }, function() {
         $(this).find("i").removeClass("text-dark").addClass("text-light");
     });
 
-    $("div#navbarLogo").hover(function(){
+    $("div#navbarLogo").hover(function() {
         $(this).find("h1").removeClass("text-light").addClass("text-dark");
-        $(this).find("img").css("filter", "brightness(100%) contrast(120%)");
-    }, function(){
+    }, function() {
         $(this).find("h1").removeClass("text-dark").addClass("text-light");
-        $(this).find("img").css("filter", "none");
     });
 
-    $("div.side button").hover(function(){
+    $(".carousel-buttons button").hover(function() {
         $(this).find("img").css("filter", "brightness(0%)");
-    }, function(){
+    }, function() {
         $(this).find("img").css("filter", "brightness(0%) invert(1)");
     });
     // Hover Mechanics
 
-    // Side Toggle Mechanic
-    const sideToggler = document.querySelector('#side-toggler');
-    const side = document.querySelector('#side');
-    const expandIcon = document.querySelector('#expand-icon');
-    const shrinkIcon = document.querySelector('#shrink-icon');
+    // Like Mechanics
+    let likeButton;
+    let liked = false;
 
-    toggler();
+    $(".card button").click(function() {
+        likeButton = $(this).find("i");
+        liked = likeButton.hasClass("bi-suit-heart-fill") ? true : false;
+
+        if (liked) {
+            likeButton.addClass("bi-suit-heart");
+            likeButton.removeClass("bi-suit-heart-fill");
+            liked = false;
+        } else {
+            likeButton.removeClass("bi-suit-heart");
+            likeButton.addClass("bi-suit-heart-fill");
+            liked = true;
+        }
+    });
+    // Like Mechanics
+
+    // Card Mechanics
+    // let cardSize = 0;
+
+    // $(".card").each(function() {
+
+    // });
+    // Card Mechanics
+
+    // Side Toggle Mechanics
+    const side = document.querySelector('#side');
+    const sideToggler = document.querySelector('#side-toggler');
+    const sideTogglerIcon = document.querySelector('#side-toggler-icon');
 
     $(sideToggler).click(function() {
         if (side.classList.contains("side-expanded")) {
@@ -44,12 +67,16 @@ $(document).ready(function(){
 
     function toggler() {
         if (side.classList.contains("side-expanded")) {
-            expandIcon.classList.add("d-none");
-            shrinkIcon.classList.remove("d-none");
+            if(!sideTogglerIcon.classList.contains("bi-box-arrow-in-down-left")) {
+                sideTogglerIcon.classList.remove("bi-box-arrow-up-right");
+                sideTogglerIcon.classList.add("bi-box-arrow-in-down-left");
+            }
         }
         else {
-            shrinkIcon.classList.add("d-none");
-            expandIcon.classList.remove("d-none");
+            if(!sideTogglerIcon.classList.contains("bi-box-arrow-up-right")) {
+                sideTogglerIcon.classList.remove("bi-box-arrow-in-down-left");
+                sideTogglerIcon.classList.add("bi-box-arrow-up-right");
+            }
         }
     }
 
@@ -61,13 +88,12 @@ $(document).ready(function(){
             }
         }
     });
-    // Side Toggle Mechanic
+    // Side Toggle Mechanics
 
     // Mobile Buttons Scrolling
     const carouselButtons = document.querySelector('.carousel-buttons');
     const arrowButtons = document.querySelectorAll('.btn-arrow');
 
-    // Add click event listeners to the arrow buttons
     arrowButtons.forEach(button => {
         button.addEventListener('click', () => {
             const direction = button.dataset.direction;
@@ -79,4 +105,28 @@ $(document).ready(function(){
         })
     });
     // Mobile Buttons Scrolling
+
+    // Zoom Mechanics
+    let mainHeight = 0;
+
+    $(window).on("resize", function() {
+        mainResize();
+    });
+
+    function mainResize() {
+        mainHeight = $("body").outerHeight() - $("nav").outerHeight() - $("footer").outerHeight();
+        
+        if ($("body").outerHeight() >= 1818) {
+            $("main").outerHeight(mainHeight);
+        }
+        else {
+            $("main").css({"height": "initial"});
+        }
+    }
+    // Zoom Mechanics
+
+    // On Start
+    toggler();
+    mainResize();
+    // On Start
 });
