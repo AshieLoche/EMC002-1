@@ -8,6 +8,15 @@
 /* Reset */
 
 /* Base Style */
+/* nav {
+    height: 7vh;
+}
+main {
+    height: 90vh;
+}
+footer {
+    height: 3vh;
+} */
 .form-control::-webkit-input-placeholder {
     color: white;
 }
@@ -29,10 +38,10 @@ div.main::-webkit-scrollbar {
     border-bottom-right-radius: 0 !important;
     border-bottom: 1px solid;
 }
-.card-body {
+/* .card-body {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-}
+} */
 div.side-shrunk {
     position: static;
     height: 100vh;
@@ -153,6 +162,22 @@ div.main {
 
 /* Large Breakpoint */
 @media screen and (min-width: 992px) {
+    main .card  {
+        /* height: 10px; */
+        min-height: 670px;
+        max-height: 670px;
+    }
+
+    main .card img  {
+        min-height: 200px;
+        max-height: 200px;
+    }
+
+    main .display-5 {
+        overflow: auto;
+        height: 300px;
+        padding-right: 10px;
+    }
 }
 
 /* Extra Large Breakpoint */
@@ -160,11 +185,27 @@ div.main {
     .display-3 {
         font-size: 3rem;
     }
+    
+    main .card  {
+        /* height: 10px; */
+        min-height: 500px;
+        max-height: 500px;
+    }
+
+    main .display-5 {
+        overflow: auto;
+        height: 100px;
+        padding-right: 10px;
+    }
 }
 
 /* Extra Extra Large Breakpoint */
 @media screen and (min-width: 1400px) {
     .display-3 {
         font-size: 2.75rem;
+    }
+
+    .main main {
+        height: 90vh !important;
     }
 }
