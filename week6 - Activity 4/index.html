@@ -47,7 +47,7 @@
 
     <script>
         $(document).ready(function(){
-            let usernamePattern = new RegExp(/^(?=.*_)[\w_]{6,}$/);
+            let usernamePattern = new RegExp(/^[\w_]{6,}$/);
             let usernameCheck = false;
             let passwordPattern = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/);
             let passwordCheck = false;
@@ -77,7 +77,7 @@
                 $("img.usernameStatus").css({"display": "block"});
                 
                 (/^.{6,}$/.test(username)) ? $("p#usernameLength").css({"color": "green"}) : $("p#usernameLength").css({"color": "red"});
-                (/^(?=.*_)[\w_]*$/.test(username)) ? $("p#usernameUnderscore").css({"color": "green"}) : $("p#usernameUnderscore").css({"color": "red"});
+                (/^[\w_]*$/.test(username)) ? $("p#usernameUnderscore").css({"color": "green"}) : $("p#usernameUnderscore").css({"color": "red"});
 
                 if (usernamePattern.test(username)) {
                     usernameCheck = true
@@ -134,7 +134,7 @@
                 - Must be at least 6 characters long
             </p>
             <p class="usernameRequirements" id="usernameUnderscore">
-                - Must not contain special characters except underscore "_"
+                - Must not contain special characters except for an optional underscore "_"
             </p>
         </div>
         <br>
