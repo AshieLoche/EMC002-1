@@ -15,7 +15,7 @@
     <!-- Bootstrap Icon CDN -->
 
     <!-- Website Header -->
-    <link rel="icon" type="image/x-icon" href="../week2/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <title>PokéDopt</title>
     <!-- Website Header -->
 
@@ -24,13 +24,31 @@
     <!-- External CSS -->
 </head>
 <body>
+    <style>
+        iframe.header {
+            max-height: 6.1%;
+            display: block;
+        }
+        nav {
+            min-height: 6%;
+        }
+        main {
+            min-height: 90%;
+        }
+        footer {
+            min-height: 4%;
+        }
+    </style>
+
     <!-- Content Container -->
     <div class="container-fluid">
         <!-- Content Row -->
         <div class="row no-gutters">
             <!-- Main Content Container -->
             <div class="main col-md-11 order-md-2 p-0 top-0 m-0">
-                <iframe src="header.html" width="100%" height="200px"></iframe>
+                <!-- Header Navbar -->
+                <iframe src="headerNav.html" width="100%" class="header"></iframe>
+                <!-- Header Navbar -->
 
                 <!-- Main -->
                 <main class="bg-secondary">
@@ -422,109 +440,7 @@
             <!-- Main Content Container -->
 
             <!-- Side Content Container -->
-            <div class="side-expanded bg-dark col-md-1 order-md-1 fixed-bottom p-3 p-md-0" id="side">
-                <!-- Side Content Carousel -->
-                <div class="carousel-buttons p-0 d-flex flex-md-column gap-3 gap-md-0">
-                    <!-- Profile Button -->
-                    <button class="btn btn-outline-light d-inline-flex justify-content-center align-items-center flex-column p-5">
-                        <!-- Profile Button Icon -->
-                        <i class="bi bi-person-circle fs-1"></i>
-                        <!-- Profile Button Icon -->
-                        
-                        <!-- Profile Button Title -->
-                        <span class="fs-5">
-                            Profile
-                        </span>
-                        <!-- Profile Button Title -->
-                    </button>
-                    <!-- Profile Button -->
-
-                    <!-- PokéDopt Button -->
-                    <button class="btn btn-outline-light d-inline-flex justify-content-center align-items-center flex-column p-5">
-                        <!-- PokéDopt Button Icon -->
-                        <i class="fs-1">
-                            <img class="img mb-1" src="assets/img/favicon.ico" alt="PokéDopt Icon">
-                        </i>
-                        <!-- PokéDopt Button Icon -->
-
-                        <!-- PokéDopt Button Title -->
-                        <span class="fs-5">
-                            PokéDopt
-                        </span>
-                        <!-- PokéDopt Button Title -->
-                    </button>
-                    <!-- PokéDopt Button -->
-
-                    <!-- PokéTrade Button -->
-                    <button class="btn btn-outline-light d-inline-flex justify-content-center align-items-center flex-column p-5">
-                        <!-- PokéTrade Button Icon -->
-                        <i class="fs-1">
-                            <img class="img mb-1" src="assets/img/poketrade.ico" alt="PokéDopt Icon">
-                        </i>
-                        <!-- PokéTrade Button Icon -->
-
-                        <!-- PokéTrade Button Title -->
-                        <span class="fs-5">
-                            PokéTrade
-                        </span>
-                        <!-- PokéTrade Button Title -->
-                    </button>
-                    <!-- PokéTrade Button -->
-                    
-                    <!-- PokéPals Button -->
-                    <button class="btn btn-outline-light d-inline-flex justify-content-center align-items-center flex-column p-5">
-                        <!-- PokéPals Button Icon -->
-                        <i class="fs-1">
-                            <img class="img" src="assets/img/socials.ico" alt="PokéDopt Icon">
-                        </i>
-                        <!-- PokéPals Button Icon -->
-                        
-                        <!-- PokéPals Button Title-->
-                        <span class="fs-5">
-                            PokéPals
-                        </span>
-                        <!-- PokéPals Button Title-->
-                    </button>
-                    <!-- PokéPals Button -->
-
-                    <!-- PokÉvents Button -->
-                    <button class="btn btn-outline-light d-inline-flex justify-content-center align-items-center flex-column p-5">
-                        <!-- PokÉvents Button Icon -->
-                        <i class="bi bi-calendar-event fs-1"></i>
-                        <!-- PokÉvents Button Icon -->
-                        
-                        <!-- PokÉvents Button Title -->
-                        <span class="fs-5">
-                            PokÉvents
-                        </span>
-                        <!-- PokÉvents Button Title -->
-                    </button>
-                    <!-- PokÉvents Button -->
-
-                    <!-- PokéChat Button -->
-                    <button class="btn btn-outline-light d-inline-flex justify-content-center align-items-center flex-column p-5">
-                        <!-- PokéChat Button Icon -->
-                        <i class="bi bi-chat-dots-fill fs-1"></i>
-                        <!-- PokéChat Button Icon -->
-
-                        <!-- PokéChat Button Title -->
-                        <span class="fs-5">
-                            PokéChat
-                        </span>
-                        <!-- PokéChat Button Title -->
-                    </button>
-                    <!-- PokéChat Button -->
-
-                    <!-- Side Toggler Button -->
-                    <button class="btn btn-outline-light fixed-bottom d-none d-md-block" id="side-toggler">
-                        <!-- Side Toggler Button Icon -->
-                        <i class="bi bi-box-arrow-in-down-left fs-1" id="side-toggler-icon"></i>
-                        <!-- Side Toggler Button Icon -->
-                    </button>
-                    <!-- Side Toggler Button -->
-                </div>
-                <!-- Side Content Carousel -->
-            </div>
+                <iframe src="sideNav.html" width="100%" class="col-md-1 order-md-1 fixed-bottom p-3 p-md-0"></iframe>
             <!-- Side Content Container -->
         </div>
         <!-- Content Row -->
