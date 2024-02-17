@@ -79,37 +79,37 @@ div.main {
     display: none;
 }
 
-.carousel-buttons button {
+.carousel-buttons a, .carousel-buttons button {
     scroll-snap-align: start;
     height: 5rem;
     width: 5rem;
 }
 
-.carousel-buttons button:nth-child(2),
-.carousel-buttons button:nth-child(3),
-.carousel-buttons button:nth-child(5) {
+.carousel-buttons a:nth-child(2),
+.carousel-buttons a:nth-child(3),
+.carousel-buttons a:nth-child(5) {
     width: 7rem;
 }
 
-.carousel-buttons button:nth-child(2) img {
+.carousel-buttons a:nth-child(2) img {
     filter: brightness(0%) invert(1);
     width: 2.5rem;
 }
 
-.carousel-buttons button:nth-child(3) img {
+.carousel-buttons a:nth-child(3) img {
     width: 3rem;
 }
 
-.carousel-buttons button:nth-child(4) {
+.carousel-buttons a:nth-child(4) {
     width: 6.5rem;
 }
 
-.carousel-buttons button:nth-child(4) img {
+.carousel-buttons a:nth-child(4) img {
     filter: brightness(0%) invert(1);
     width: 3.5rem;
 }
 
-.carousel-buttons button:nth-child(6) {
+.carousel-buttons a:nth-child(6) {
     width: 6.75rem;
 }
 /* Extra Small Breakpoint */
@@ -142,19 +142,19 @@ div.main {
         overflow-x: visible;
         scroll-snap-type: none;
     }
-    .carousel-buttons button {
+    .carousel-buttons a, .carousel-buttons button {
         border-radius: 0;
         border: 0;
         border-bottom: 1px solid;
     }
-    .carousel-buttons button:nth-child(7) {
+    .carousel-buttons button {
         border: 0;
         border-top: 1px solid;
     }
-    div.side-expanded .carousel-buttons button {
+    div.side-expanded .carousel-buttons a, div.side-expanded .carousel-buttons button {
         width: 7rem !important;
     }
-    div.side-shrunk .carousel-buttons button {
+    div.side-shrunk .carousel-buttons a, div.side-shrunk .carousel-buttons button {
         width: 5rem !important;
         padding: 0 !important;
     }
@@ -163,7 +163,6 @@ div.main {
 /* Large Breakpoint */
 @media screen and (min-width: 992px) {
     main .card  {
-        /* height: 10px; */
         min-height: 670px;
         max-height: 670px;
     }
@@ -220,9 +219,5 @@ div.main {
 @media screen and (min-width: 1400px) {
     .display-3 {
         font-size: 2.75rem;
-    }
-
-    .main main {
-        height: 90vh !important;
     }
 }

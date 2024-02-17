@@ -20,6 +20,28 @@
         @media screen and (min-width: 111px) {
             .carousel-buttons {
                 height: 100%;
+                gap: 0 !important;
+                flex-direction: column;
+            }
+            .carousel-buttons button {
+                width: 100% !important;
+                border-radius: 0;
+                border: 0;
+                border-bottom: 1px solid;
+                padding: 3rem 0 !important;
+            }
+            .carousel-buttons button i {
+                font-size: 3rem !important;
+                padding: 0 !important;
+            }
+            .carousel-buttons button img {
+                height: 3rem !important;
+                width: 3rem !important;
+            }
+            #side-toggler {
+                display: block !important;
+                border: 0;
+                border-top: 1px solid;
             }
         }
 
@@ -28,7 +50,7 @@
 <body>
 
     <!-- Side Content Carousel -->
-    <div class="carousel-buttons p-0 d-flex flex-md-column gap-3 gap-md-0 m-0 justify-content-center align-items-center">
+    <div class="carousel-buttons p-0 d-flex gap-4 m-0 justify-content-start align-items-center">
         <!-- Profile Button -->
         <button class="btn btn-outline-light d-inline-flex justify-content-center align-items-center flex-column p-5">
             <!-- Profile Button Icon -->
@@ -120,9 +142,9 @@
         <!-- PokéChat Button -->
 
         <!-- Side Toggler Button -->
-        <button class="btn btn-outline-light fixed-bottom d-none d-md-block" id="side-toggler">
+        <button class="btn btn-outline-light fixed-bottom d-none" id="side-toggler">
             <!-- Side Toggler Button Icon -->
-            <i class="bi bi-box-arrow-in-down-left fs-1" id="side-toggler-icon"></i>
+            <i class="bi bi-box-arrow-in-down-left" id="side-toggler-icon"></i>
             <!-- Side Toggler Button Icon -->
         </button>
         <!-- Side Toggler Button -->

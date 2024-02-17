@@ -521,6 +521,9 @@
             <!-- Main Content Container -->
 
             <style>
+                body::-webkit-scrollbar {
+                    display: none;
+                }
                 #side {
                     height: 150px;
                 }
@@ -533,7 +536,7 @@
             </style>
 
             <!-- Side Content Container -->
-            <div class="side-expanded bg-dark col-md-1 order-md-1 fixed-bottom p-0" id="side">
+            <div class="side-expanded bg-dark col-md-1 order-md-1 fixed-bottom py-0 px-3 p-md-0" id="side">
                 <iframe src="sideNav.html" width="100%" height="100%" frameborder="0"></iframe>
             </div>
             <!-- Side Content Container -->
