@@ -1,5 +1,5 @@
 <!-- Main Content -->
-<main class="bg-secondary">
+<main class="bg-secondary pokedoptables">
     <!-- Main Container -->
     <div class="container-fluid p-0">
         <!-- Main Row -->

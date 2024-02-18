@@ -1,4 +1,33 @@
 $(document).ready(function() {
+    let signToggler;
+    let signToggled = false;
+
+
+    $(".sign-toggler").click(function() {
+        signToggler = $(this).find("span");
+        signToggled = signToggler.text() == "<" ? true : false;
+
+        if (signToggled) {
+            $(this).find("span").text(">");
+            signToggled = false;
+            $(".horizontal-collapse").css({
+                "transition" : "transform 0.5s ease, visibility 0.5s, opacity 0.5s",
+                "tranform" : "translateX(100%)",
+                "visibility" : "hidden",
+                "opacity" : "0"
+            });
+        } else {
+            $(this).find("span").text("<");
+            $(".horizontal-collapse").css({
+                "transition" : "transform 0.5s ease, visibility 0.5s, opacity 0.5s",
+                "tranform" : "translateX(0%)",
+                "visibility" : "visible",
+                "opacity" : "1"
+            });
+            signToggled = true;
+        }
+    });
+
     // Hover Mechanics
     $("button.navbar-toggler, button#search-button").hover(function() {
         $(this).find("i").removeClass("text-light").addClass("text-dark");
@@ -33,7 +62,6 @@ $(document).ready(function() {
         }
     }
     // Card Size
-
 
     // Like Mechanics
     let likeButton;

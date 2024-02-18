@@ -1,18 +1,14 @@
 <?php
 
     $signInStatus = false;
-
-    if ($signInStatus) {
-        $headerNav = 'components/headerNav.php';
-        $mainContent = 'components/mainContent.php';
-        $footer = 'components/footer.php';
-        $sideNav = 'components/sideNav.php';
-    } else {
-        $headerNav = 'components/headerNav.php';
-        $mainContent = 'components/guest.php';
-        $footer = 'components/footer.php';
-        $sideNav = 'components/sideNav.php';
-    }
+    $headerNav = 'components/headerNav.php';
+    $mainContent = 'components/mainContent.php';
+    $footer = 'components/footer.php';
+    $sideNav = 'components/sideNav.php';
+    $signUp = 'signUp.php';
+    $signIn = 'signIn.php';
+    
+    $mainContent = $signInStatus ? 'components/mainContent.php' : 'components/guest.php';
 
 ?>
 
@@ -63,34 +59,12 @@
             <!-- Main Content Container -->
 
             <!-- Side Content Container -->
-                <?php require_once $sideNav ; ?>
+                <?php require_once $sideNav; ?>
             <!-- Side Content Container -->
         </div>
         <!-- Content Row -->
     </div>
     <!-- Content Container -->
-
-    <div class="modal fade" id="sign-in-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-                 
-        <div class="modal-dialog d-flex justify-content-center align-items-center">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modal-title">Get the Latest Updates</h5>
-                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-labelledby="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod eum iste blanditiis architecto beatae necessitatibus quisquam at aperiam veritatis neque numquam ab placeat, temporibus provident.</p>
-                    <label for="modal-email" class="form-label">Your email address:</label>
-                    <input type="text" class="form-control" id="modal-email" placeholder="e.g. mario@example.com">
-                </div>
-
-                <div class="modal-footer">
-                    <button class="btn btn-primary" type="submit">Submit</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Bootstrap JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

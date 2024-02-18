@@ -61,7 +61,7 @@
                 <!-- Header Navbar PokéList Button -->
         
                 <!-- Header Navbar PokéList Button -->
-                <button class="btn btn-outline-light py-2" autofocus>
+                <button class="btn btn-outline-light p-2" data-bs-toggle="modal" data-bs-target="#sign-up-modal" autofocus>
                     <!-- Header Navbar PokéList Button Title -->
                     <span class="fw-bold fs-4" id="sign-up">
                         Sign Up

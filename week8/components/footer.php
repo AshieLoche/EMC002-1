@@ -24,10 +24,15 @@
 
             <div class="col-12 col-lg-6 d-inline-flex flex-column flex-lg-row text-center
             justify-content-lg-end align-items-centera p-3 gap-1 gap-lg-3">
-                <a href="#" class="text-light m-0 fs-5">
-                    About Us
-                </a>
-                <a href="#" class="text-light m-0 fs-5">
+                <form method="post" action="#">
+                    <input type="hidden" name="clicked" value="true">
+                    <button class="btn border-0 p-0" type="submit" onclick="checkClicked()">
+                        <span class="text-light m-0 fs-5 border-bottom lh-2">
+                            About Us
+                        </span>
+                    </button>
+                </form>
+                <a href="components/customerCare.php" class="text-light m-0 fs-5">
                     Customer Care
                 </a>
                 <a href="#" class="text-light m-0 fs-5">
