@@ -1,0 +1,25 @@
+DROP DATABASE IF EXISTS ninja_pizza;
+CREATE DATABASE IF NOT EXISTS  ninja_pizza;
+
+CREATE TABLE IF NOT EXISTS ninja_pizza.pizzas (
+    id INT,
+    title VARCHAR(255),
+    ingredients VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO ninja_pizza.pizzas (title, ingredients, email)
+VALUES
+	('Ninja Supreme', 'Tomato, Cheese, Tofu', 'ninja@gmail.com'),
+	('Mario Supreme', 'Tomato, Cheese, Mushroom', 'mario@gmail.com')
+ON DUPLICATE KEY UPDATE
+    title = VALUES(title),
+    ingredients = VALUES(ingredients),
+    email = VALUES(email),
+    created_at = VALUES(created_at);
+
+DROP USER 'ashie'@'localhost';
+CREATE USER IF NOT EXISTS 'ashie'@'localhost' IDENTIFIED BY 'test12345';
+
