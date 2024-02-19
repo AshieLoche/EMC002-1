@@ -75,15 +75,15 @@
         <h4 class="center">Add a Pizza</h4>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="white" method="POST" id="addPizza">
             <label for="email">Your Email</label>
-            <input type="text" name="email" id="email" value="<?php echo htmlspecialchars($email) ?>" requireda>
+            <input type="text" name="email" id="email" value="<?php echo htmlspecialchars($email) ?>" requireda placeholder="ashie@xmaple.com">
             <div class="red-text"><?php echo $errors['email']; ?></div>
 
             <label for="title">Pizza Title</label>
-            <input type="text" name="title" id="title" value="<?php echo htmlspecialchars($title) ?>" requireda>
+            <input type="text" name="title" id="title" value="<?php echo htmlspecialchars($title) ?>" requireda placeholder="Ashie Supreme">
             <div class="red-text"><?php echo $errors['title']; ?></div>
 
             <label for="ingredients">Ingredients</label>
-            <input type="text" name="ingredients" id="ingredients" value="<?php echo htmlspecialchars($ingredients) ?>" requireda>
+            <input type="text" name="ingredients" id="ingredients" value="<?php echo htmlspecialchars($ingredients) ?>" requireda placeholder="Tomato, Cheese, ...">
             <div class="red-text"><?php echo $errors['ingredients']; ?></div>
 
             <div class="center">

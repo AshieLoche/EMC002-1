@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS ninja_pizza;
 CREATE DATABASE IF NOT EXISTS  ninja_pizza;
 
 CREATE TABLE IF NOT EXISTS ninja_pizza.pizzas (
-    id INT,
+    id INT AUTO_INCREMENT,
     title VARCHAR(255),
     ingredients VARCHAR(255),
     email VARCHAR(255) UNIQUE,
@@ -10,16 +10,20 @@ CREATE TABLE IF NOT EXISTS ninja_pizza.pizzas (
     PRIMARY KEY (id)
 );
 
-INSERT INTO ninja_pizza.pizzas (title, ingredients, email)
+INSERT INTO ninja_pizza.pizzas (id, title, ingredients, email)
 VALUES
-	('Ninja Supreme', 'Tomato, Cheese, Tofu', 'ninja@gmail.com'),
-	('Mario Supreme', 'Tomato, Cheese, Mushroom', 'mario@gmail.com')
+	(1, 'Ninja Supreme', 'Tomato, Cheese, Tofu', 'ninja@gmail.com'),
+	(2, 'Mario Supreme', 'Tomato, Cheese, Mushroom', 'mario@gmail.com')
 ON DUPLICATE KEY UPDATE
     title = VALUES(title),
     ingredients = VALUES(ingredients),
     email = VALUES(email),
     created_at = VALUES(created_at);
 
-DROP USER 'ashie'@'localhost';
+DROP USER IF EXISTS 'ashie'@'localhost';
 CREATE USER IF NOT EXISTS 'ashie'@'localhost' IDENTIFIED BY 'test12345';
+GRANT ALL PRIVILEGES ON *.* TO 'ashie'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+SHOW GRANTS FOR  'ashie'@'localhost';
 
+SELECT * FROM ninja_pizza.pizzas;
