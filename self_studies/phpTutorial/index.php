@@ -37,6 +37,8 @@
 
                     <div class="card z-depth-0">
 
+                        <img src="img/pizza.svg" alt="" class="pizza">
+
                         <div class="card-content center">
 
                             <h6>
@@ -54,7 +56,7 @@
                         </div>
 
                         <div class="card-action right-align">
-                            <a href="#" class="brand-text">More Info</a>
+                            <a href="details.php?id=<?php echo $pizza['id'] ?>" class="brand-text">More Info</a>
                         </div>
 
                     </div>
