@@ -53,6 +53,7 @@ section.btn-carousel a i, section.btn-carousel a img, section.btn-carousel butto
     line-height: 3rem;
 }
 /*#endregion*/
+/* Side Nav */
 
 /* Large Breakpoint */
 @media screen and (min-width: 992px) {
@@ -74,12 +75,6 @@ section.btn-carousel a i, section.btn-carousel a img, section.btn-carousel butto
         width: 5rem !important;
         padding: 0 !important;
     }
-    
-    /* div.side-shrunk .carousel-buttons a, div.side-shrunk .carousel-buttons button {
-        height: 5rem !important;
-        width: 5rem !important;
-        padding: 0 !important;
-    } */
 
     section.btn-carousel {
         overflow-x: visible;
@@ -98,23 +93,15 @@ section.btn-carousel a i, section.btn-carousel a img, section.btn-carousel butto
         border-top: 1px solid;
     }
 
-
-
-    .carousel-buttons a:nth-child(2) img {
+    section.btn-carousel a:nth-child(2) img, section.btn-carousel a:nth-child(4) img {
         filter: brightness(0%) invert(1);
-        width: 2.5rem;
-    }
-    
-    .carousel-buttons a:nth-child(3) img {
-        width: 3rem;
     }
 
-    .carousel-buttons a:nth-child(4) img {
-        filter: brightness(0%) invert(1);
-        width: 3.5rem;
+    section.btn-carousel a:nth-child(2):hover img, section.btn-carousel a:nth-child(3):hover img, section.btn-carousel a:nth-child(4):hover img {
+        filter: brightness(0%) invert(0);
     }
     /*#endregion*/
-
+    /* Side Nav */
 
 }
 /* Large Breakpoint */
