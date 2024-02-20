@@ -1,0 +1,31 @@
+section.btn-carousel {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+section.btn-carousel::-webkit-scrollbar {
+    margin-top: 10px;
+    width: 10px;
+    background-color: #343a40;
+}
+  
+section.btn-carousel::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #4e555b;
+}
+  
+section.btn-carousel::-webkit-scrollbar-thumb:hover {
+    background-color: #454d55;
+}
+  
+section.btn-carousel::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+section.btn-carousel a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

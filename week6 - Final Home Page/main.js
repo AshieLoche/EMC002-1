@@ -1,4 +1,33 @@
 $(document).ready(function() {
+    let signToggler;
+    let signToggled = false;
+
+
+    $(".sign-toggler").click(function() {
+        signToggler = $(this).find("span");
+        signToggled = signToggler.text() == "<" ? true : false;
+
+        if (signToggled) {
+            $(this).find("span").text(">");
+            signToggled = false;
+            $(".horizontal-collapse").css({
+                "transition" : "transform 0.5s ease, visibility 0.5s, opacity 0.5s",
+                "tranform" : "translateX(100%)",
+                "visibility" : "hidden",
+                "opacity" : "0"
+            });
+        } else {
+            $(this).find("span").text("<");
+            $(".horizontal-collapse").css({
+                "transition" : "transform 0.5s ease, visibility 0.5s, opacity 0.5s",
+                "tranform" : "translateX(0%)",
+                "visibility" : "visible",
+                "opacity" : "1"
+            });
+            signToggled = true;
+        }
+    });
+
     // Hover Mechanics
     $("button.navbar-toggler, button#search-button").hover(function() {
         $(this).find("i").removeClass("text-light").addClass("text-dark");
@@ -12,12 +41,27 @@ $(document).ready(function() {
         $(this).find("h1").removeClass("text-dark").addClass("text-light");
     });
 
-    $(".carousel-buttons button").hover(function() {
+    $(".carousel-buttons a").hover(function() {
         $(this).find("img").css("filter", "brightness(0%)");
     }, function() {
         $(this).find("img").css("filter", "brightness(0%) invert(1)");
     });
     // Hover Mechanics
+
+    // Card Size
+    $(window).on("resize", function() {
+        cardSize();
+    });
+
+    function cardSize() {
+        if ($(window).width() >= 1980) {
+            $(".pokemon").removeClass("col-sm-10 col-md-8 col-lg-6 col-xl-4 col-xxl-3").addClass("col-2");
+        }
+        else {
+            $(".pokemon").addClass("col-sm-10 col-md-8 col-lg-6 col-xl-4 col-xxl-3").removeClass("col-2");
+        }
+    }
+    // Card Size
 
     // Like Mechanics
     let likeButton;
@@ -98,27 +142,8 @@ $(document).ready(function() {
     });
     // Mobile Buttons Scrolling
 
-    // Zoom Mechanics
-    let mainHeight = 0;
-
-    $(window).on("resize", function() {
-        mainResize();
-    });
-
-    function mainResize() {
-        mainHeight = $("body").outerHeight() - $("nav").outerHeight() - $("footer").outerHeight();
-        
-        if ($("body").outerHeight() >= 1818) {
-            $("main").outerHeight(mainHeight);
-        }
-        else {
-            $("main").css({"height": "initial"});
-        }
-    }
-    // Zoom Mechanics
-
     // On Start
     toggler();
-    mainResize();
+    cardSize();
     // On Start
 });

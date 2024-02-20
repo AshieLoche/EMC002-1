@@ -8,15 +8,22 @@
 /* Reset */
 
 /* Base Style */
-/* nav {
-    height: 7vh;
+nav {
+    min-height: 6%;
 }
-main {
-    height: 90vh;
+main.pokedoptables {
+    min-height: 90%;
 }
 footer {
-    height: 3vh;
-} */
+    min-height: 4%;
+}
+.modal-dialog {
+    height: 100vh;
+    min-width: 100vw;
+}
+.modal-content {
+    max-width: 600px;
+}
 .form-control::-webkit-input-placeholder {
     color: white;
 }
@@ -38,10 +45,6 @@ div.main::-webkit-scrollbar {
     border-bottom-right-radius: 0 !important;
     border-bottom: 1px solid;
 }
-/* .card-body {
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-} */
 div.side-shrunk {
     position: static;
     height: 100vh;
@@ -79,37 +82,37 @@ div.main {
     display: none;
 }
 
-.carousel-buttons button {
+.carousel-buttons a, .carousel-buttons button {
     scroll-snap-align: start;
     height: 5rem;
     width: 5rem;
 }
 
-.carousel-buttons button:nth-child(2),
-.carousel-buttons button:nth-child(3),
-.carousel-buttons button:nth-child(5) {
+.carousel-buttons a:nth-child(2),
+.carousel-buttons a:nth-child(3),
+.carousel-buttons a:nth-child(5) {
     width: 7rem;
 }
 
-.carousel-buttons button:nth-child(2) img {
+.carousel-buttons a:nth-child(2) img {
     filter: brightness(0%) invert(1);
     width: 2.5rem;
 }
 
-.carousel-buttons button:nth-child(3) img {
+.carousel-buttons a:nth-child(3) img {
     width: 3rem;
 }
 
-.carousel-buttons button:nth-child(4) {
+.carousel-buttons a:nth-child(4) {
     width: 6.5rem;
 }
 
-.carousel-buttons button:nth-child(4) img {
+.carousel-buttons a:nth-child(4) img {
     filter: brightness(0%) invert(1);
     width: 3.5rem;
 }
 
-.carousel-buttons button:nth-child(6) {
+.carousel-buttons a:nth-child(6) {
     width: 6.75rem;
 }
 /* Extra Small Breakpoint */
@@ -142,19 +145,19 @@ div.main {
         overflow-x: visible;
         scroll-snap-type: none;
     }
-    .carousel-buttons button {
+    .carousel-buttons a, .carousel-buttons button {
         border-radius: 0;
         border: 0;
         border-bottom: 1px solid;
     }
-    .carousel-buttons button:nth-child(7) {
+    .carousel-buttons button {
         border: 0;
         border-top: 1px solid;
     }
-    div.side-expanded .carousel-buttons button {
+    div.side-expanded .carousel-buttons a, div.side-expanded .carousel-buttons button {
         width: 7rem !important;
     }
-    div.side-shrunk .carousel-buttons button {
+    div.side-shrunk .carousel-buttons a, div.side-shrunk .carousel-buttons button {
         width: 5rem !important;
         padding: 0 !important;
     }
@@ -162,21 +165,38 @@ div.main {
 
 /* Large Breakpoint */
 @media screen and (min-width: 992px) {
-    main .card  {
-        /* height: 10px; */
+    main.pokedoptables .card  {
         min-height: 670px;
         max-height: 670px;
     }
 
-    main .card img  {
+    main.pokedoptables .card img  {
         min-height: 200px;
         max-height: 200px;
     }
 
-    main .display-5 {
+    main.pokedoptables .display-5 {
         overflow: auto;
         height: 300px;
         padding-right: 10px;
+    }
+
+    main.pokedoptables .display-5::-webkit-scrollbar {
+        width: 10px;
+        background-color: #343a40;
+    }
+      
+    main.pokedoptables .display-5::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: #4e555b;
+    }
+      
+    main.pokedoptables .display-5::-webkit-scrollbar-thumb:hover {
+        background-color: #454d55;
+    }
+      
+    main.pokedoptables .display-5::-webkit-scrollbar-corner {
+        background-color: transparent;
     }
 }
 
@@ -186,13 +206,12 @@ div.main {
         font-size: 3rem;
     }
     
-    main .card  {
-        /* height: 10px; */
+    main.pokedoptables .card  {
         min-height: 500px;
         max-height: 500px;
     }
 
-    main .display-5 {
+    main.pokedoptables .display-5 {
         overflow: auto;
         height: 100px;
         padding-right: 10px;
@@ -203,9 +222,5 @@ div.main {
 @media screen and (min-width: 1400px) {
     .display-3 {
         font-size: 2.75rem;
-    }
-
-    .main main {
-        height: 90vh !important;
     }
 }
