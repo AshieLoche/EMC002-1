@@ -2,7 +2,6 @@ $(document).ready(function() {
     let signToggler;
     let signToggled = false;
 
-
     $(".sign-toggler").click(function() {
         signToggler = $(this).find("span");
         signToggled = signToggler.text() == "<" ? true : false;
