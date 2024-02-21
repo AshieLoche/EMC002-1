@@ -52,6 +52,14 @@ section.btn-carousel a i, section.btn-carousel a img, section.btn-carousel butto
     width: 50px;
     line-height: 3rem;
 }
+
+section.btn-carousel a:nth-child(2) img, section.btn-carousel a:nth-child(4) img {
+    filter: brightness(0%) invert(1);
+}
+
+section.btn-carousel a:nth-child(2):hover img, section.btn-carousel a:nth-child(3):hover img, section.btn-carousel a:nth-child(4):hover img {
+    filter: brightness(0%) invert(0);
+}
 /*#endregion*/
 /* Side Nav */
 
@@ -91,14 +99,6 @@ section.btn-carousel a i, section.btn-carousel a img, section.btn-carousel butto
         border-radius: 0;
         border: 0;
         border-top: 1px solid;
-    }
-
-    section.btn-carousel a:nth-child(2) img, section.btn-carousel a:nth-child(4) img {
-        filter: brightness(0%) invert(1);
-    }
-
-    section.btn-carousel a:nth-child(2):hover img, section.btn-carousel a:nth-child(3):hover img, section.btn-carousel a:nth-child(4):hover img {
-        filter: brightness(0%) invert(0);
     }
     /*#endregion*/
     /* Side Nav */
