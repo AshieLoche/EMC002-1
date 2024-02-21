@@ -4,7 +4,7 @@ section.primary {
 
 /* Header Nav */
 /*#region*/
-#header-nav-logo:hover #header-nav-logo-icon, #header-nav-logo:hover span {
+#header-nav-logo-link:hover #header-nav-logo-icon, #header-nav-logo-link:hover span {
     filter: brightness(0%) invert(0);
 }
 

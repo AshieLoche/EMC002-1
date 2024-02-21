@@ -1,0 +1,62 @@
+DROP DATABASE IF EXISTS pokedopt;
+CREATE DATABASE IF NOT EXISTS pokedopt;
+
+CREATE TABLE IF NOT EXISTS pokedopt.type (
+	id INT AUTO_INCREMENT,
+    type VARCHAR(255) CHECK (type in ('Fire', 'Water', 'Electric', 'Grass', 'Ice', 'Fighting', 'Poison', 'Ground', ' Flying', 'Psychic', 'Bug', 'Normal', 'Rock', 'Ghost', 'Dragon', 'Dark', 'Steel', 'Fairy', 'Stellar')),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS pokedopt.species (
+	id INT AUTO_INCREMENT,
+    species VARCHAR(255) UNIQUE,
+    type1_id INT,
+    type2_id INT CHECK (type2_id != type1_id) ,
+    PRIMARY KEY (id),
+    FOREIGN KEY (type1_id) REFERENCES pokedopt.type (id),
+    FOREIGN KEY (type2_id) REFERENCES pokedopt.type (id)
+);
+
+CREATE TABLE IF NOT EXISTS pokedopt.pokemon (
+	id INT AUTO_INCREMENT,
+    name VARCHAR(255),
+    species_id INT,
+    PRIMARY KEY (id),
+    FOREIGN KEY (species_id) REFERENCES pokedopt.species (id)
+);
+
+INSERT INTO pokedopt.type (type)
+VALUES
+	('Fire'), ('Water'), ('Electric'), ('Grass'), ('Ice'), ('Fighting'), ('Poison'), ('Ground'), (' Flying'), ('Psychic'), ('Bug'), ('Normal'), ('Rock'), ('Ghost'), ('Dragon'), ('Dark'), ('Steel'), ('Fairy'), ('Stellar');
+    
+UPDATE pokedopt.types
+SET type = (SELECT type FROM pokedopt.types WHERE type > (SELECT type FROM pokedopt.types WHERE id = id) ORDER BY type LIMIT 1)
+WHERE id = id;
+
+CREATE PROCEDURE update_salary()
+BEGIN
+   DECLARE done INT DEFAULT FALSE;
+   DECLARE age INT;
+   DECLARE cur CURSOR FOR SELECT age FROM employees;
+   DECLARE curId CURSOR FOR SELECT id FROM pokedopt.type; 
+   DECLARE curType CURSOR FOR SELECT type FROM pokedopt.type; 
+   DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+   OPEN cur;
+
+   read_loop: LOOP
+      FETCH cur INTO age;
+
+      IF done THEN
+         LEAVE read_loop;
+      END IF;
+
+      IF age < 30 THEN
+         UPDATE employees SET salary = salary * 1.05 WHERE age = age;
+      ELSE
+         UPDATE employees SET salary = salary * 1.03 WHERE age = age;
+      END IF;
+   END LOOP;
+
+   CLOSE cur;
+END;
