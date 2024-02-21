@@ -29,7 +29,7 @@ $(document).ready(function() {
         }
 
         $(window).on('resize', function(){
-            if ($(window).width() < 992 && sideNav.get(0).classList.contains('side-nav-shrunk') && sideNavTogglerIcon.get(0).classList.contains("bi-box-arrow-up-right")) {
+            if ($(window).width() < 768 && sideNav.get(0).classList.contains('side-nav-shrunk') && sideNavTogglerIcon.get(0).classList.contains("bi-box-arrow-up-right")) {
                 sideNav.removeClass('side-nav-shrunk').addClass('side-nav-expanded');
                 sideNavTogglerIcon.removeClass('bi-box-arrow-up-right').addClass('bi-box-arrow-in-down-left');
             }
@@ -63,7 +63,7 @@ $(document).ready(function() {
         $('section.btn-carousel').on('wheel', function(event) {
             $(this).scrollLeft($(this).scrollLeft() - (event.originalEvent.deltaY * 30));
             event.preventDefault();
-          });
+        });
 
     }
     // Horizontal Button Carousel Scrolling (< MD)

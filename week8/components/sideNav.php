@@ -1,8 +1,8 @@
 <!-- Side Nav -->
-<nav class="side-nav-expanded bg-dark col-lg-1 order-lg-1 fixed-bottom p-3 p-lg-0" id="side-nav">
+<nav class="navbar side-nav-expanded bg-dark col-lg-1 order-lg-1 fixed-bottom p-3 p-lg-0" id="side-nav">
     
     <!-- Side Nav Button Carousel -->
-    <section class="btn-carousel p-0 pb-3 d-flex flex-lg-column gap-3 justify-content-start justify-content-md-evenly gap-lg-0">
+    <section class="col-12 btn-carousel p-0 pb-3 pb-md-0 d-flex flex-lg-column gap-3 gap-lg-0 justify-content-start justify-content-md-evenly">
         
         <!-- Profile Button -->
         <a href="#" class="btn btn-outline-light p-5">

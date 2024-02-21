@@ -1,7 +1,24 @@
+section.primary {
+    flex: 1;
+}
+
+/* Header Nav */
+/*#region*/
+#header-nav-logo:hover #header-nav-logo-icon, #header-nav-logo:hover span {
+    filter: brightness(0%) invert(0);
+}
+
+#header-nav-logo-icon {
+    height: 2rem;
+    width: 2rem;
+    filter: brightness(0%) invert(1);
+}
+/*#endregion*/
+/* Header Nav */
+
 /* Side Nav */
 /*#region*/
 nav.side-nav-shrunk {
-    position: static;
     height: 100vh;
     width: 5rem;
 }
@@ -64,16 +81,21 @@ section.btn-carousel a:nth-child(2):hover img, section.btn-carousel a:nth-child(
 /* Side Nav */
 
 /* Large Breakpoint */
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
 
     /* Side Nav */
     /*#region*/
     nav#side-nav {
         border-right: 1.5px solid white;
-    }
-    
-    nav.side-nav-expanded {
         position: static;
+    }
+
+    nav#header-nav {
+        border-bottom: 1.5px solid white;
+        position: static;
+    }
+
+    nav.side-nav-expanded {
         height: 100vh;
         width: 7rem;
     }
