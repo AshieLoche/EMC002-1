@@ -1,14 +1,18 @@
+DROP USER IF EXISTS 'ashie'@'localhost';
+CREATE USER IF NOT EXISTS 'ashie'@'localhost' IDENTIFIED BY 'test12345';
+GRANT ALL PRIVILEGES ON *.* TO 'ashie'@'localhost' WITH GRANT OPTION;
+
 DROP DATABASE IF EXISTS pokedopt;
 CREATE DATABASE IF NOT EXISTS pokedopt;
 
 CREATE TABLE IF NOT EXISTS pokedopt.type (
-	id INT AUTO_INCREMENT,
-    type VARCHAR(255) CHECK (type in ('Fire', 'Water', 'Electric', 'Grass', 'Ice', 'Fighting', 'Poison', 'Ground', ' Flying', 'Psychic', 'Bug', 'Normal', 'Rock', 'Ghost', 'Dragon', 'Dark', 'Steel', 'Fairy', 'Stellar')),
+    id INT AUTO_INCREMENT,
+    type VARCHAR(255) CHECK (type in ('FIRE', 'WATER', 'ELECTRIC', 'GRASS', 'ICE', 'FIGHTING', 'POISON', 'GROUND', 'FLYING', 'PSYCHIC', 'BUG', 'NORMAL', 'ROCK', 'GHOST', 'DRAGON', 'DARK', 'STEEL', 'FAIRY', 'STELLAR')),
     PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS pokedopt.species (
-	id INT AUTO_INCREMENT,
+    id INT AUTO_INCREMENT,
     species VARCHAR(255) UNIQUE,
     type1_id INT,
     type2_id INT CHECK (type2_id != type1_id) ,
@@ -18,7 +22,8 @@ CREATE TABLE IF NOT EXISTS pokedopt.species (
 );
 
 CREATE TABLE IF NOT EXISTS pokedopt.pokemon (
-	id INT AUTO_INCREMENT,
+    id INT AUTO_INCREMENT,
+    img LONGBLOB NOT NULL,
     name VARCHAR(255),
     species_id INT,
     PRIMARY KEY (id),
@@ -27,36 +32,66 @@ CREATE TABLE IF NOT EXISTS pokedopt.pokemon (
 
 INSERT INTO pokedopt.type (type)
 VALUES
-	('Fire'), ('Water'), ('Electric'), ('Grass'), ('Ice'), ('Fighting'), ('Poison'), ('Ground'), (' Flying'), ('Psychic'), ('Bug'), ('Normal'), ('Rock'), ('Ghost'), ('Dragon'), ('Dark'), ('Steel'), ('Fairy'), ('Stellar');
+('FIRE'), ('WATER'), ('ELECTRIC'), ('GRASS'), ('ICE'), ('FIGHTING'), ('POISON'), ('GROUND'), ('FLYING'), ('PSYCHIC'), ('BUG'), ('NORMAL'), ('ROCK'), ('GHOST'), ('DRAGON'), ('DARK'), ('STEEL'), ('FAIRY'), ('STELLAR');
+
+INSERT INTO pokedopt.species (species, type1_id, type2_id)
+VALUES
+	('Chandelure', '14', '1'),
+	('Gengar', '14', '7'),
+	('Magnezone', '3', '17'),
+	('Dragonite', '15', '9'),
+	('Lugia', '10', '9'),
+	('Incineroar', '1', '16');
     
-UPDATE pokedopt.types
-SET type = (SELECT type FROM pokedopt.types WHERE type > (SELECT type FROM pokedopt.types WHERE id = id) ORDER BY type LIMIT 1)
-WHERE id = id;
+INSERT INTO pokedopt.pokemon (img, name, species_id)
+VALUES
+	(LOAD_FILE('C:/xampp/htdocs/EMC002-1/week8/assets/img/chandelure.jpg'), 'Amier', '1'),
+    (LOAD_FILE('C:/xampp/htdocs/EMC002-1/week8/assets/img/gengar.jpg'), 'Leiroh', '2'),
+    (LOAD_FILE('C:/xampp/htdocs/EMC002-1/week8/assets/img/magnezone.jpg'), 'Paliz', '3'),
+    (LOAD_FILE('C:/xampp/htdocs/EMC002-1/week8/assets/img/dragonite.jpg'), 'Dergz', '4'),
+    (LOAD_FILE('C:/xampp/htdocs/EMC002-1/week8/assets/img/lugia.jpg'), 'Teraille', '5'),
+    (LOAD_FILE('C:/xampp/htdocs/EMC002-1/week8/assets/img/incineroar.jpg'), 'Ohnerion', '6');
 
-CREATE PROCEDURE update_salary()
-BEGIN
-   DECLARE done INT DEFAULT FALSE;
-   DECLARE age INT;
-   DECLARE cur CURSOR FOR SELECT age FROM employees;
-   DECLARE curId CURSOR FOR SELECT id FROM pokedopt.type; 
-   DECLARE curType CURSOR FOR SELECT type FROM pokedopt.type; 
-   DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+SELECT
+    pokemon.id,
+    pokemon.img,
+    pokemon.name,
+    species.species,
+    type1.type,
+    type2.type
+FROM pokedopt.pokemon as pokemon
+INNER JOIN pokedopt.species as species ON pokemon.species_id = species.id
+INNER JOIN pokedopt.type as type1 ON species.type1_id = type1.id
+INNER JOIN pokedopt.type as type2 ON species.type2_id = type2.id;
 
-   OPEN cur;
+Name:
+Species:
+Types:
+Description:
 
-   read_loop: LOOP
-      FETCH cur INTO age;
+Chandelure - GHOST FIRE - Amier
+Gengar - GHOST POISON - Leiroh
+Magnezone - ELECTRIC STEEL - Paliz
+Dragonite - DRAGON FLYING - Dergz
+Lugia - PSYCHIC FLYING - Teraille
+Incineroar - FIRE DARK - Ohnerion
 
-      IF done THEN
-         LEAVE read_loop;
-      END IF;
-
-      IF age < 30 THEN
-         UPDATE employees SET salary = salary * 1.05 WHERE age = age;
-      ELSE
-         UPDATE employees SET salary = salary * 1.03 WHERE age = age;
-      END IF;
-   END LOOP;
-
-   CLOSE cur;
-END;
+1 ('FIRE')
+2 ('WATER')
+3 ('ELECTRIC')
+4 ('GRASS')
+5 ('ICE')
+6 ('FIGHTING')
+7 ('POISON')
+8 ('GROUND')
+9 ('FLYING')
+10 ('PSYCHIC')
+11 ('BUG')
+12 ('NORMAL')
+13 ('ROCK')
+14 ('GHOST')
+15 ('DRAGON')
+16 ('DARK')
+17 ('STEEL')
+18 ('FAIRY')
+19 ('STELLAR')
