@@ -1,5 +1,10 @@
 section.primary {
     flex: 1;
+    height: 100vh;
+    overflow: auto;
+}
+.form-control::-webkit-input-placeholder {
+    color: white;
 }
 
 .card-header {
@@ -10,8 +15,37 @@ section.primary {
     font-weight: bold;
 }
     
-main .card  {
+.card  {
     max-width:  500px;
+}
+
+#header-nav {
+    min-height: 6%;
+}
+#main-content {
+    min-height: 90%;
+}
+footer {
+    min-height: 4%;
+}
+
+section.primary::-webkit-scrollbar {
+    margin-top: 10px;
+    width: 15px;
+    background-color: #4e555b;
+}
+
+section.primary::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #2f3235;
+}
+  
+section.primary::-webkit-scrollbar-thumb:hover {
+    background-color: #1a181d;
+}
+  
+section.primary::-webkit-scrollbar-corner {
+    background-color: transparent;
 }
 
 /* Header Nav */
@@ -48,12 +82,12 @@ section.btn-carousel {
 section.btn-carousel::-webkit-scrollbar {
     margin-top: 10px;
     width: 10px;
-    background-color: #343a40;
+    background-color: #4e555b;
 }
   
 section.btn-carousel::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background-color: #4e555b;
+    background-color: #343a40;
 }
   
 section.btn-carousel::-webkit-scrollbar-thumb:hover {
@@ -77,8 +111,9 @@ section.btn-carousel a, section.btn-carousel button {
 }
 
 section.btn-carousel a i, section.btn-carousel a img, section.btn-carousel button i {
-    height: 50px;
-    width: 50px;
+    min-height: 50px;
+    min-width: 50px;
+    font-size: 2.5rem;
     line-height: 3rem;
 }
 
@@ -98,12 +133,7 @@ section.btn-carousel a:nth-child(2):hover img, section.btn-carousel a:nth-child(
     /* Side Nav */
     /*#region*/
     nav#side-nav {
-        border-right: 1.5px solid white;
-        position: static;
-    }
-
-    nav#header-nav {
-        border-bottom: 1.5px solid white;
+        border-right: 1px solid white;
         position: static;
     }
 
@@ -136,12 +166,6 @@ section.btn-carousel a:nth-child(2):hover img, section.btn-carousel a:nth-child(
     }
     /*#endregion*/
     /* Side Nav */
-
-    
-    main .card  {
-        min-height: 670px;
-        max-height: 670px;
-    }
 
     main .card img  {
         min-height: 200px;

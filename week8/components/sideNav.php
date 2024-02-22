@@ -1,5 +1,5 @@
 
-<nav class="navbar side-nav-expanded bg-dark col-md-2 order-md-1 fixed-bottom p-3 p-md-0 d-flex align-items-md-start" id="side-nav">
+<nav class="navbar side-nav-expanded bg-dark col-md-2 order-md-1 fixed-bottom p-3 p-md-0 d-flex align-items-md-start border-top border-white" id="side-nav">
 
 <!-- Side Nav Button Carousel -->
 <section class="btn-carousel p-0 pb-3 pb-md-0 d-flex flex-md-column gap-3 gap-md-0 justify-content-start">
@@ -8,7 +8,7 @@
     <a href="#" class="btn btn-outline-light p-5">
 
         <!-- Profile Button Icon -->
-        <i class=" bi bi-person-circle fs-1"></i>
+        <i class=" bi bi-person-circle"></i>
         <!-- Profile Button Icon -->
 
         <!-- Profile Button Title -->
@@ -72,7 +72,7 @@
     <a href="#" class="btn btn-outline-light p-5">
 
         <!-- PokÉvents Button Icon -->
-         <i class="bi bi-calendar-event fs-1"></i>
+         <i class="bi bi-calendar-event"></i>
         <!-- PokÉvents Button Icon -->
         
         <!-- PokÉvents Button Title -->
@@ -88,7 +88,7 @@
     <a href="#" class="btn btn-outline-light p-5">
 
         <!-- PokéChat Button Icon -->
-        <i class="bi bi-chat-dots-fill fs-1"></i>
+        <i class="bi bi-chat-dots-fill"></i>
         <!-- PokéChat Button Icon -->
         
         <!-- PokéChat Button Title -->
@@ -104,7 +104,7 @@
     <button class="btn btn-outline-light fixed-bottom d-none d-md-block" id="side-nav-toggler">
 
         <!-- Side Nav Toggler Icon  -->
-        <i class="bi bi-box-arrow-in-down-left fs-1" id="side-nav-toggler-icon"></i>
+        <i class="bi bi-box-arrow-in-down-left" id="side-nav-toggler-icon"></i>
         <!-- Side Nav Toggler Icon  -->
 
     </button>

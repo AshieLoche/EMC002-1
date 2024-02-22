@@ -44,7 +44,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    
+        
         <!-- Meta -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -60,16 +60,17 @@
         <!-- Bootstrap Icon CDN -->
         
         <!-- Website Header -->
-        <link rel="icon" type="image/x-icon" href="assets/img/icons/pokedopt.ico">
+        <link rel="icon" type="image/x-icon" href="../assets/img/icons/favicon.ico">
         <title>PokéDopt</title>
         <!-- Website Header -->
         
-        <!-- Components CSS -->
-        <link rel="stylesheet" href="styles/components.css">
-        <!-- Components CSS -->
-    
+        <!-- External CSS -->
+        <link rel="stylesheet" href="../styles/components.css">
+        <!-- External CSS -->
+
     </head>
-    <body class="bg-secondary">
+
+    <body>
         
         <!-- Page Container -->
         <div class="container-fluid">
@@ -81,17 +82,17 @@
                 <section class="primary col-md-10 order-md-2 p-0">
                     
                     <!-- Header Nav -->
-                <?php require '../components/headerNav.php' ?>
+                    <?php require '../components/headerNav.php' ?>
                     <!-- Header Nav -->
 
                     <!-- Main -->
-                    <main class="bg-secondary">
+                    <main id="main-content" class="bg-secondary">
 
                         <!-- Main Container -->
-                        <div class="container-fluid bg-info">
+                        <div class="container-fluid">
                             
                             <!-- Main Row -->
-                            <div class="row gap-5 p-4 py-sm-5 justify-content-center bg-danger">
+                            <div class="row gap-5 p-4 py-sm-5 justify-content-center">
 
                                 <?php foreach ($pokemon as $poke) { ?>
 
@@ -168,6 +169,10 @@
                     </main>
                     <!-- Main -->
 
+                    <!-- Footer -->
+                    <?php require '../components/footer.php' ?>
+                    <!-- Footer -->
+
                 </section>
                 <!-- Primary Section -->
                 
@@ -190,7 +195,7 @@
         <!-- JQuery CDN -->
 
         <!-- Components JavaScript -->
-        <script src="javascripts/components.js"></script>
+        <script src="../javascripts/components.js"></script>
         <!-- Components JavaScript -->
 
     </body>

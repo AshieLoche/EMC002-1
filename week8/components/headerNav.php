@@ -1,32 +1,5 @@
-<head>
-    
-    <!-- Meta -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Meta -->
-    
-    <!-- Bootstrap CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <!-- Bootstrap CDN -->
-    
-    <!-- Bootstrap Icon CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Bootstrap Icon CDN -->
-    
-    <!-- Website Header -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/pokedopt.ico">
-    <title>PokéDopt</title>
-    <!-- Website Header -->
-    
-    <!-- External CSS -->
-    <link rel="stylesheet" href="../styles/components.css">
-    <!-- External CSS -->
-
-</head>
-
 <!-- Header Nav -->
-<nav class="navbar navbar-collapse navbar-dark bg-dark p-2 sticky-top" id="header-nav">
+<nav class="navbar navbar-collapse navbar-dark bg-dark p-2 border-bottom sticky-top" id="header-nav">
     
     <!-- Header Nav Container -->
     <div class="container-xxl p-0">
@@ -38,7 +11,7 @@
             <section class="col-6 col-md-4 order-2 order-md-1 d-flex justify-content-start align-items-center gap-2 gap-md-3 p-2 ps-md-3">
                 
                 <!-- Header Nav Search Button -->
-                <button class="navbar-toggler btn btn-outline-light border-0 p-2" id="search-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#search-bar" aria-controls="search-bar" aria-expanded="false" aria-label="Toggle Search Bar">
+                <button class="navbar-toggler btn btn-outline-light border-0 p-2" id="search-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#search-filter" aria-controls="search-filter" aria-expanded="false" aria-label="Toggle Search Bar">
 
                     <!-- Header Nav Search Icon -->
                     <i class="bi bi-search text-light fs-2" id="search-icon"></i>
@@ -67,7 +40,7 @@
                 <a href="#" class="navbar-brand btn btn-outline-light border-0 m-0 p-2 d-flex gap-2" id="header-nav-logo-link">
 
                     <!-- Header Nav Logo Icon -->
-                    <img src="../assets/img/pokedopt.ico" alt="PokéDopt Icon" class="img" id="header-nav-logo-icon">
+                    <img src="../assets/img/icons/pokedopt.ico" alt="PokéDopt Icon" class="img" id="header-nav-logo-icon">
                     <!-- Header Nav Logo Icon -->
 
                     <!-- Header Nav Logo Title -->
@@ -120,7 +93,7 @@
                 <!-- Header Nav Sign In Button -->
 
                 <!-- Header Nav Sign Up Button -->
-                <button class="navbar-toggler btn btn-outline-light p-2">
+                <button class="navbar-toggler btn btn-outline-light p-2" autofocus>
 
                     <!-- Header Nav Sign Up Title -->
                     <span class="fw-bold fs-4" id="sign-up">
@@ -133,6 +106,32 @@
 
             </section>
             <!-- Header Nav Action Buttons (Notif, PokéList, Sign In, Sign Up) -->
+
+            <!-- Header Nav Search Bar & Filters -->
+            <section class="collapse navbar-collapse col-12 order-4 mt-3 my-md-2" id="search-filter">
+
+                <!-- Neader Nav Search Bar Input Group -->
+                <section class="input-group">
+
+                    <!-- Header Nav Search Bar -->
+                    <input type="text" class="form-control nav-itm bg-transparent text-light fs-4" name="search-bar" placeholder="Search..." aria-label="Search Bar" aria-describedby="search-button">
+                    <!-- Header Nav Search Bar -->
+
+                    <!-- Header Nav Search Button -->
+                    <button class="btn btn-outline-light" id="search-button" type="button">
+
+                        <!-- Header Nav Search Button Icon -->
+                        <i class="bi bi-search text-light fs-4"></i>
+                        <!-- Header Nav Search Button Icon -->
+
+                    </button>
+                    <!-- Header Nav Search Button -->
+
+                </section>
+                <!-- Neader Nav Search Bar Input Group -->
+
+            </section>
+            <!-- Header Nav Search Bar & Filters -->
 
         </div>
         <!-- Header Nav Row -->
