@@ -2,6 +2,18 @@ section.primary {
     flex: 1;
 }
 
+.card-header {
+    font-weight: bolder;
+}
+
+.card-title {
+    font-weight: bold;
+}
+    
+main .card  {
+    max-width:  500px;
+}
+
 /* Header Nav */
 /*#region*/
 #header-nav-logo-link:hover #header-nav-logo-icon, #header-nav-logo-link:hover span {
@@ -125,5 +137,84 @@ section.btn-carousel a:nth-child(2):hover img, section.btn-carousel a:nth-child(
     /*#endregion*/
     /* Side Nav */
 
+    
+    main .card  {
+        min-height: 670px;
+        max-height: 670px;
+    }
+
+    main .card img  {
+        min-height: 200px;
+        max-height: 200px;
+    }
+
+    main card-text {
+        overflow: auto;
+        height: 300px;
+        padding-right: 10px;
+    }
+
+    main .card-text::-webkit-scrollbar {
+        width: 10px;
+        background-color: #343a40;
+    }
+      
+    main .card-text::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: #4e555b;
+    }
+      
+    main .card-text::-webkit-scrollbar-thumb:hover {
+        background-color: #454d55;
+    }
+      
+    main .card-text::-webkit-scrollbar-corner {
+        background-color: transparent;
+    }
+
 }
 /* Large Breakpoint */
+
+/* Extra Large Breakpoint */
+@media screen and (min-width: 1200px) {
+    .card-header {
+        font-size: 3rem;
+        font-weight: bolder;
+    }
+
+    .card-title {
+        font-size: 2rem !important;
+        font-weight: bold;
+    }
+
+    .card-text {
+        font-size: 1.5rem !important;
+    }
+    
+    main .card  {
+        min-height: 500px;
+        max-height: 500px;
+    }
+
+    .card-text {
+        overflow: auto;
+        height: 100px;
+        padding-right: 10px;
+    }
+}
+/* Extra Large Breakpoint */
+
+/* Extra Extra Large Breakpoint */
+@media screen and (min-width: 1400px) {
+    .card-header {
+        font-size: 2.75rem;
+
+    .card-title {
+        font-size: 1.75rem !important;
+    }
+
+    .card-text {
+        font-size: 1.25rem !important;
+    }
+}
+/* Extra Extra Large Breakpoint */
