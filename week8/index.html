@@ -1,7 +1,9 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    
+        
         <!-- Meta -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -17,16 +19,17 @@
         <!-- Bootstrap Icon CDN -->
         
         <!-- Website Header -->
-        <link rel="icon" type="image/x-icon" href="assets/img/icons/pokedopt.ico">
+        <link rel="icon" type="image/x-icon" href="assets/img/icons/favicon.ico">
         <title>PokéDopt</title>
         <!-- Website Header -->
         
-        <!-- Components CSS -->
+        <!-- External CSS -->
         <link rel="stylesheet" href="styles/components.css">
-        <!-- Components CSS -->
-    
+        <!-- External CSS -->
+
     </head>
-    <body class="bg-secondary">
+
+    <body>
         
         <!-- Page Container -->
         <div class="container-fluid">
@@ -38,193 +41,161 @@
                 <section class="primary col-md-10 order-md-2 p-0">
                     
                     <!-- Header Nav -->
-                    <nav class="navbar navbar-collapse navbar-dark bg-dark p-2 sticky-top" id="header-nav">
-                        
-                        <!-- Header Nav Container -->
-                        <div class="container-xxl p-0">
-                            
-                            <!-- Header Nav Row -->
-                            <div class="row col-12 m-0">
+                    <!-- Header Nav -->
+<nav class="navbar navbar-collapse navbar-dark bg-dark p-2 border-bottom sticky-top" id="header-nav">
+    
+    <!-- Header Nav Container -->
+    <div class="container-xxl p-0">
+        
+        <!-- Header Nav Row -->
+        <div class="row col-12 m-0">
 
-                                <!-- Header Nav Action Buttons (Search, Filter) -->
-                                <section class="col-6 col-md-4 order-2 order-md-1 d-flex justify-content-start align-items-center gap-2 gap-md-3 p-2 ps-md-3">
-                                    
-                                    <!-- Header Nav Search Button -->
-                                    <button class="navbar-toggler btn btn-outline-light border-0 p-2" id="search-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#search-bar" aria-controls="search-bar" aria-expanded="false" aria-label="Toggle Search Bar">
+            <!-- Header Nav Action Buttons (Search, Filter) -->
+            <section class="col-6 col-md-4 order-2 order-md-1 d-flex justify-content-start align-items-center gap-2 gap-md-3 p-2 ps-md-3">
+                
+                <!-- Header Nav Search Button -->
+                <button class="navbar-toggler btn btn-outline-light border-0 p-2" id="search-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#search-filter" aria-controls="search-filter" aria-expanded="false" aria-label="Toggle Search Bar">
 
-                                        <!-- Header Nav Search Icon -->
-                                        <i class="bi bi-search text-light fs-2" id="search-icon"></i>
-                                        <!-- Header Nav Search Icon -->
+                    <!-- Header Nav Search Icon -->
+                    <i class="bi bi-search text-light fs-2" id="search-icon"></i>
+                    <!-- Header Nav Search Icon -->
 
-                                    </button>
-                                    <!-- Header Nav Search Button -->
+                </button>
+                <!-- Header Nav Search Button -->
 
-                                    <!-- Header Nav Filter Button -->
-                                    <button class="navbar-toggler btn btn-outline-light border-0 p-2">
+                <!-- Header Nav Filter Button -->
+                <button class="navbar-toggler btn btn-outline-light border-0 p-2">
 
-                                        <!-- Header Nav Filter Icon -->
-                                        <i class="bi bi-funnel-fill text-light fs-2"></i>
-                                        <!-- Header Nav Filter Icon -->
+                    <!-- Header Nav Filter Icon -->
+                    <i class="bi bi-funnel-fill text-light fs-2"></i>
+                    <!-- Header Nav Filter Icon -->
 
-                                    </button>
-                                    <!-- Header Nav Filter Button -->
-                                    
-                                </section>
-                                <!-- Header Nav Action Buttons (Search, Filter) -->
+                </button>
+                <!-- Header Nav Filter Button -->
+                
+            </section>
+            <!-- Header Nav Action Buttons (Search, Filter) -->
 
-                                <!-- Header Nav Logo -->
-                                <section class="col-md-4 order-1 order-md-2 d-flex justify-content-center align-items-center">
+            <!-- Header Nav Logo -->
+            <section class="col-md-4 order-1 order-md-2 d-flex justify-content-center align-items-center">
 
-                                    <!-- Header Nav Logo Link -->
-                                    <a href="#" class="navbar-brand btn btn-outline-light border-0 m-0 p-2 d-flex gap-2" id="header-nav-logo-link">
+                <!-- Header Nav Logo Link -->
+                <a href="#" class="navbar-brand btn btn-outline-light border-0 m-0 p-2 d-flex gap-2" id="header-nav-logo-link">
 
-                                        <!-- Header Nav Logo Icon -->
-                                        <img src="assets/img/icons/pokedopt.ico" alt="PokéDopt Icon" class="img" id="header-nav-logo-icon">
-                                        <!-- Header Nav Logo Icon -->
+                    <!-- Header Nav Logo Icon -->
+                    <img src="assets/img/icons/pokedopt.ico" alt="PokéDopt Icon" class="img" id="header-nav-logo-icon">
+                    <!-- Header Nav Logo Icon -->
 
-                                        <!-- Header Nav Logo Title -->
-                                        <span class="h1 fs-bold m-0 fs-2 lh-1">
-                                            PokéDopt
-                                        </span>
-                                        <!-- Header Nav Logo Title -->
+                    <!-- Header Nav Logo Title -->
+                    <span class="h1 fs-bold m-0 fs-2 lh-1">
+                        PokéDopt
+                    </span>
+                    <!-- Header Nav Logo Title -->
 
-                                    </a>
-                                    <!-- Header Nav Logo Link -->
+                </a>
+                <!-- Header Nav Logo Link -->
 
-                                </section>
-                                <!-- Header Nav Logo -->
-                                
-                                <!-- Header Nav Action Buttons (Notif, PokéList, Sign In, Sign Up) -->
-                                <section class="col-6 col-md-4 order-3 d-flex justify-content-end align-itmes-center gap-2 gap-md-3 p-2 pe-md-3" id="actionBtns">
+            </section>
+            <!-- Header Nav Logo -->
+            
+            <!-- Header Nav Action Buttons (Notif, PokéList, Sign In, Sign Up) -->
+            <section class="col-6 col-md-4 order-3 d-flex justify-content-end align-items-center gap-2 gap-md-3 p-2 pe-md-3" id="actionBtns">
 
-                                    <!-- Header Nav Notif Button -->
-                                    <button class="navbar-toggler btn btn-outline-light border-0 p-2">
+                <!-- Header Nav Notif Button -->
+                <button class="navbar-toggler btn btn-outline-light border-0 p-2">
 
-                                        <!-- Header Notif Button Icon -->
-                                        <i class="bi bi-bell-fill fs-2"></i>
-                                        <!-- Header Notif Button Icon -->
+                    <!-- Header Notif Button Icon -->
+                    <i class="bi bi-bell-fill fs-2"></i>
+                    <!-- Header Notif Button Icon -->
 
-                                    </button>
-                                    <!-- Header Nav Notif Button -->
+                </button>
+                <!-- Header Nav Notif Button -->
 
-                                    <!-- Header Nav PokéList Button -->
-                                    <button class="navbar-toggler btn btn-outline-light p-2 d-none">
+                <!-- Header Nav PokéList Button -->
+                <button class="navbar-toggler btn btn-outline-light p-2 d-none">
 
-                                        <!-- Header Nav PokéList Title -->
-                                        <span class="fw-bold fs-4" id="pokelist">
-                                            PokéList
-                                        </span>
-                                        <!-- Header Nav PokéList Title -->
+                    <!-- Header Nav PokéList Title -->
+                    <span class="fw-bold fs-4" id="pokelist">
+                        PokéList
+                    </span>
+                    <!-- Header Nav PokéList Title -->
 
-                                    </button>
-                                    <!-- Header Nav PokéList Button -->
+                </button>
+                <!-- Header Nav PokéList Button -->
 
-                                    <!-- Header Nav Sign In Button -->
-                                    <button class="navbar-toggler btn btn-outline-light p-2 d-none d-xl-block">
+                <!-- Header Nav Sign In Button -->
+                <button class="navbar-toggler btn btn-outline-light p-2 d-none d-xl-block">
 
-                                        <!-- Header Nav Sign In Title -->
-                                        <span class="fw-bold fs-4" id="sign-in">
-                                            Sign In
-                                        </span>
-                                        <!-- Header Nav Sign In Title -->
+                    <!-- Header Nav Sign In Title -->
+                    <span class="fw-bold fs-4" id="sign-in">
+                        Sign In
+                    </span>
+                    <!-- Header Nav Sign In Title -->
 
-                                    </button>
-                                    <!-- Header Nav Sign In Button -->
+                </button>
+                <!-- Header Nav Sign In Button -->
 
-                                    <!-- Header Nav Sign Up Button -->
-                                    <button class="navbar-toggler btn btn-outline-light p-2">
+                <!-- Header Nav Sign Up Button -->
+                <button class="navbar-toggler btn btn-outline-light p-2" autofocus>
 
-                                        <!-- Header Nav Sign Up Title -->
-                                        <span class="fw-bold fs-4" id="sign-up">
-                                            Sign Up
-                                        </span>
-                                        <!-- Header Nav Sign Up Title -->
+                    <!-- Header Nav Sign Up Title -->
+                    <span class="fw-bold fs-4" id="sign-up">
+                        Sign Up
+                    </span>
+                    <!-- Header Nav Sign Up Title -->
 
-                                    </button>
-                                    <!-- Header Nav Sign Up Button -->
+                </button>
+                <!-- Header Nav Sign Up Button -->
 
-                                </section>
-                                <!-- Header Nav Action Buttons (Notif, PokéList, Sign In, Sign Up) -->
+            </section>
+            <!-- Header Nav Action Buttons (Notif, PokéList, Sign In, Sign Up) -->
 
-                            </div>
-                            <!-- Header Nav Row -->
+            <!-- Header Nav Search Bar & Filters -->
+            <section class="collapse navbar-collapse col-12 order-4 mt-3 my-md-2" id="search-filter">
 
-                        </div>
-                        <!-- Header Nav Container -->
+                <!-- Neader Nav Search Bar Input Group -->
+                <section class="input-group">
 
-                    </nav>
+                    <!-- Header Nav Search Bar -->
+                    <input type="text" class="form-control nav-itm bg-transparent text-light fs-4" name="search-bar" placeholder="Search..." aria-label="Search Bar" aria-describedby="search-button">
+                    <!-- Header Nav Search Bar -->
+
+                    <!-- Header Nav Search Button -->
+                    <button class="btn btn-outline-light" id="search-button" type="button">
+
+                        <!-- Header Nav Search Button Icon -->
+                        <i class="bi bi-search text-light fs-4"></i>
+                        <!-- Header Nav Search Button Icon -->
+
+                    </button>
+                    <!-- Header Nav Search Button -->
+
+                </section>
+                <!-- Neader Nav Search Bar Input Group -->
+
+            </section>
+            <!-- Header Nav Search Bar & Filters -->
+
+        </div>
+        <!-- Header Nav Row -->
+
+    </div>
+    <!-- Header Nav Container -->
+
+</nav>
+<!-- Header Nav -->         
                     <!-- Header Nav -->
 
                     <!-- Main -->
-                    <main class="bg-secondary">
+                    <main id="main-content" class="bg-secondary">
 
                         <!-- Main Container -->
-                        <div class="container-fluid bg-info">
+                        <div class="container-fluid">
                             
                             <!-- Main Row -->
-                            <div class="row gap-5 p-4 py-sm-5 justify-content-center bg-danger">
+                            <div class="row gap-5 p-4 py-sm-5 justify-content-center">
+
                                 
-                                <!-- Pokémon Card 1 -->
-                                <article class="card bg-dark text-light border-dark rounded-5 col-sm-10 col-md-8 col-lg-6 col-xl-4 col-xxl-3 p-0">
-                                    
-                                    <!-- Pokémon Card 1 Image -->
-                                    <img src="assets/img/pokemon/chandelure.jpg" alt="Chandelure" class="card-img-top img rounded-top-5 border-bottom border-bottom">
-                                    <!-- Pokémon Card 1 Image -->
-
-                                    <!-- Pokémon Card 1 Body -->
-                                    <section class="card-body pt-3 px-4 pb-5">
-                                        
-                                        <!-- Pokémon Card 1 Header Container -->
-                                        <div class="border-bottom pb-2 mb-3 container fluid">
-
-                                            <!-- Pokémon Card 1 Header Row -->
-                                            <div class="row">
-
-                                                <!-- Pokémon Card 1 Header -->
-                                                <a href="#" class="card-header display-3 col-10 col-lg-9 p-0 text-decoration-none border-0">
-                                                    Amier
-                                                </a>
-                                                <!-- Pokémon Card 1 Header -->
-
-                                                <!-- Pokémon Card 1 Button Span -->
-                                                <span class="col-2 col-lg-3 d-flex justify-content-end align-items-center p-0">
-                                                    
-                                                    <!-- Pokémon Card 1 Button -->
-                                                    <button class="btn btn-outline-light border-0 p-0 px-2">
-
-                                                        <!-- Pokémon Card 1 Button Title -->
-                                                        <i class="card-header p-0 bi bi-suit-heart display-3"></i>
-                                                        <!-- Pokémon Card 1 Button Title -->
-
-                                                    </button>
-                                                    <!-- Pokémon Card 1 Button -->
-
-                                                </span>
-                                                <!-- Pokémon Card 1 Button Span -->
-
-                                            </div>
-                                            <!-- Pokémon Card 1 Header Row -->
-
-                                        </div>
-                                        <!-- Pokémon Card 1 Header Container -->
-                                        
-                                        <!-- Pokémon Card 1 Title -->
-                                        <section class="card-title display-4 fs-2">
-                                            Chandelure
-                                        </section>
-                                        <!-- Pokémon Card 1 Title -->
-                                        
-                                        <!-- Pokémon Card 1 Description -->
-                                        <section class="card-text display-5 fs-4 lh-sm">
-                                            A gentle and emotional pokémon that enjoys floating about in broad daylight anywhere there are flowers.
-                                        </section>
-                                        <!-- Pokémon Card 1 Description -->
-
-                                    </section>
-                                    <!-- Pokémon Card 1 Body -->
-
-                                </article>
-                                <!-- Pokémon Card 1 -->
 
                             </div>
                             <!-- Main Row -->
@@ -235,125 +206,200 @@
                     </main>
                     <!-- Main -->
 
+                    <!-- Footer -->
+<footer class="bg-dark p-4 p-lg-3">
+    
+    <!-- Footer Container -->
+    <div class="container-xxl">
+        
+        <!-- Footer Row -->
+        <div class="row gap-3 gap-lg-0">
+            
+            <!-- Footer Copyright -->
+            <section class="col-12 col-lg-6 d-flex justify-content-center justify-content-lg-start align-items-center">
+                
+                <!-- Footer Copyright Link -->
+                <a href="#" class="text-light d-flex gap-2">
+                    
+                    <!-- Footer Copyright Symbol -->
+                    <i class="bi bi-c-circle fs-5"></i>
+                    <!-- Footer Copyright Symbol -->
+
+                    <!-- Footer Copyright Title -->
+                    <span class="fs-5">
+                        2024 PokéDopt by Ashie Loche
+                    </span>
+                    <!-- Footer Copyright Title -->
+
+                </a>
+                <!-- Footer Copyright Link -->
+
+            </section>
+            <!-- Footer Copyright -->
+            
+            <!-- Footer Company Links -->
+            <section class="col-12 col-lg-6 d-flex flex-column flex-lg-row justify-content-center justify-content-lg-end align-items-center gap-2 gap-lg-3">
+                
+                <!-- About Us Link -->
+                <a href="#" class="text-light fs-5">
+                    About Us
+                </a>
+                <!-- About Us Link -->
+                
+                <!-- Customer Care Link -->
+                <a href="#" class="text-light fs-5">
+                    Customer Care
+                </a>
+                <!-- Customer Care Link -->
+
+                <!-- Discord Button -->
+                <a href="#" class="btn btn-outline-light border-0 px-2 py-1">
+
+                    <!-- Discord Icon -->
+                    <i class="bi bi-discord fs-3"></i>
+                    <!-- Discord Icon -->
+
+                </a>
+                <!-- Discord Button -->
+
+                <!-- Telegram Button -->
+                <a href="#" class="btn btn-outline-light border-0 px-2 py-1">
+
+                    <!-- Telegram Icon -->
+                    <i class="bi bi-telegram fs-3"></i>
+                    <!-- Telegram Icon -->
+
+                </a>
+                <!-- Telegram Button -->
+
+            </section>
+            <!-- Footer Company Links -->
+
+        </div>
+        <!-- Footer Row -->
+
+    </div>
+    <!-- Footer Container -->
+
+</footer>
+<!-- Footer -->
+
                 </section>
                 <!-- Primary Section -->
                 
                 <!-- Side Nav -->
-                <nav class="navbar side-nav-expanded bg-dark col-md-2 order-md-1 fixed-bottom p-3 p-md-0 d-flex align-items-md-start" id="side-nav">
+                <nav class="navbar side-nav-expanded bg-dark col-md-2 order-md-1 fixed-bottom p-3 p-md-0 d-flex flex-md-column border-top border-white" id="side-nav">
 
                     <!-- Side Nav Button Carousel -->
-                    <section class="btn-carousel p-0 pb-3 pb-md-0 d-flex flex-md-column gap-3 gap-md-0 justify-content-start">
-
-                        <!-- Profile Button -->
-                        <a href="#" class="btn btn-outline-light p-5">
-
-                            <!-- Profile Button Icon -->
-                            <i class=" bi bi-person-circle fs-1"></i>
-                            <!-- Profile Button Icon -->
-
-                            <!-- Profile Button Title -->
-                            <span class="fs-5">
-                                Profile
-                            </span>
-                            <!-- Profile Button Title -->
-
-                        </a>
-                        <!-- Profile Button -->
-
-                        <!-- PokéDopt Button -->
-                        <a href="#" class="btn btn-outline-light p-5">
-
-                            <!-- PokéDopt Button Icon -->
-                            <img src="assets/img/icons/pokedopt.ico" alt="" class="img mb-1">
-                            <!-- PokéDopt Button Icon -->
-                            
-                            <!-- PokéDopt Button Title -->
-                            <span class="fs-5">
-                                PokéDopt
-                            </span>
-                            <!-- PokéDopt Button Title -->
-
-                        </a>
-                        <!-- PokéDopt Button -->
-
-                        <!-- PokéTrade Button -->
-                        <a href="#" class="btn btn-outline-light p-5">
-
-                            <!-- PokéTrade Button Icon -->
-                            <img src="assets/img/icons/poketrade.ico" alt="" class="img mb-1">
-                            <!-- PokéTrade Button Icon -->
-                            
-                            <!-- PokéTrade Button Title -->
-                            <span class="fs-5">
-                                PokéTrade
-                            </span>
-                            <!-- PokéTrade Button Title -->
-
-                        </a>
-                        <!-- PokéTrade Button -->
-
-                        <!-- PokéPals Button -->
-                        <a href="#" class="btn btn-outline-light p-5">
-
-                            <!-- PokéPals Button Icon -->
-                            <img src="assets/img/icons/pokepals.ico" alt="" class="img mb-1">
-                            <!-- PokéPals Button Icon -->
-                            
-                            <!-- PokéPals Button Title -->
-                            <span class="fs-5">
-                                PokéPals
-                            </span>
-                            <!-- PokéPals Button Title -->
-
-                        </a>
-                        <!-- PokéPals Button -->
-
-                        <!-- PokÉvents Button -->
-                        <a href="#" class="btn btn-outline-light p-5">
-
-                            <!-- PokÉvents Button Icon -->
-                             <i class="bi bi-calendar-event fs-1"></i>
-                            <!-- PokÉvents Button Icon -->
-                            
-                            <!-- PokÉvents Button Title -->
-                            <span class="fs-5">
-                                PokÉvents
-                            </span>
-                            <!-- PokÉvents Button Title -->
-
-                        </a>
-                        <!-- PokÉvents Button -->
-
-                        <!-- PokéChat Button -->
-                        <a href="#" class="btn btn-outline-light p-5">
-
-                            <!-- PokéChat Button Icon -->
-                            <i class="bi bi-chat-dots-fill fs-1"></i>
-                            <!-- PokéChat Button Icon -->
-                            
-                            <!-- PokéChat Button Title -->
-                            <span class="fs-5">
-                                PokéChat
-                            </span>
-                            <!-- PokéChat Button Title -->
-
-                        </a>
-                        <!-- PokéChat Button -->
-
-                        <!-- Side Nav Toggler -->
-                        <button class="btn btn-outline-light fixed-bottom d-none d-md-block" id="side-nav-toggler">
-
-                            <!-- Side Nav Toggler Icon  -->
-                            <i class="bi bi-box-arrow-in-down-left fs-1" id="side-nav-toggler-icon"></i>
-                            <!-- Side Nav Toggler Icon  -->
-
-                        </button>
-                        <!-- Side Side Nav Toggler -->
+                    <section class="btn-carousel p-0 pb-3 pb-md-0 d-flex flex-md-column gap-3 gap-md-0" >
+                  
+                            <!-- Profile Button -->
+                            <a href="#" class="btn btn-outline-light p-5">
                         
+                                <!-- Profile Button Icon -->
+                                <i class=" bi bi-person-circle"></i>
+                                <!-- Profile Button Icon -->
+                          
+                                <!-- Profile Button Title -->
+                                <span class="fs-5">
+                                  Profile
+                                </span>
+                                <!-- Profile Button Title -->
+                          
+                              </a>
+                              <!-- Profile Button -->
+                          
+                              <!-- PokéDopt Button -->
+                              <a href="#" class="btn btn-outline-light p-5">
+                          
+                                <!-- PokéDopt Button Icon -->
+                                <img src="assets/img/icons/pokedopt.ico" alt="" class="img mb-1">
+                                <!-- PokéDopt Button Icon -->
+                                
+                                <!-- PokéDopt Button Title -->
+                                <span class="fs-5">
+                                  PokéDopt
+                                </span>
+                                <!-- PokéDopt Button Title -->
+                          
+                              </a>
+                              <!-- PokéDopt Button -->
+                          
+                              <!-- PokéTrade Button -->
+                              <a href="#" class="btn btn-outline-light p-5">
+                          
+                                <!-- PokéTrade Button Icon -->
+                                <img src="assets/img/icons/poketrade.ico" alt="" class="img mb-1">
+                                <!-- PokéTrade Button Icon -->
+                                
+                                <!-- PokéTrade Button Title -->
+                                <span class="fs-5">
+                                  PokéTrade
+                                </span>
+                                <!-- PokéTrade Button Title -->
+                          
+                              </a>
+                              <!-- PokéTrade Button -->
+                          
+                              <!-- PokéPals Button -->
+                              <a href="#" class="btn btn-outline-light p-5">
+                          
+                                <!-- PokéPals Button Icon -->
+                                <img src="assets/img/icons/pokepals.ico" alt="" class="img mb-1">
+                                <!-- PokéPals Button Icon -->
+                                
+                                <!-- PokéPals Button Title -->
+                                <span class="fs-5">
+                                  PokéPals
+                                </span>
+                                <!-- PokéPals Button Title -->
+                          
+                              </a>
+                              <!-- PokéPals Button -->
+                          
+                              <!-- PokÉvents Button -->
+                              <a href="#" class="btn btn-outline-light p-5">
+                          
+                                <!-- PokÉvents Button Icon -->
+                                <i class="bi bi-calendar-event"></i>
+                                <!-- PokÉvents Button Icon -->
+                                
+                                <!-- PokÉvents Button Title -->
+                                <span class="fs-5">
+                                  PokÉvents
+                                </span>
+                                <!-- PokÉvents Button Title -->
+                          
+                              </a>
+                              <!-- PokÉvents Button -->
+                          
+                              <!-- PokéChat Button -->
+                              <a href="#" class="btn btn-outline-light p-5">
+                          
+                                <!-- PokéChat Button Icon -->
+                                <i class="bi bi-chat-dots-fill"></i>
+                                <!-- PokéChat Button Icon -->
+                                
+                                <!-- PokéChat Button Title -->
+                                <span class="fs-5">
+                                  PokéChat
+                                </span>
+                                <!-- PokéChat Button Title -->
+                          
+                              </a>
+                              <!-- PokéChat Button -->
+                  
+                        <!-- Side Nav Toggler -->
+                        <button class="btn btn-light d-none d-md-block" id="side-nav-toggler">
+                            <!-- Side Nav Toggler Icon  -->
+                            <i class="bi bi-box-arrow-in-down-left" id="side-nav-toggler-icon"></i>
+                            <!-- Side Nav Toggler Icon  -->
+                          </button>
+                          <!-- Side Side Nav Toggler -->
+
                     </section>
                     <!-- Side Nav Button Carousel -->
-
-                </nav>
+                  </nav>
                 <!-- Side Nav -->
 
             </div>

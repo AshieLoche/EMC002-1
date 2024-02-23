@@ -43,43 +43,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        
-        <!-- Meta -->
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Meta -->
-        
-        <!-- Bootstrap CDN -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <!-- Bootstrap CDN -->
-        
-        <!-- Bootstrap Icon CDN -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <!-- Bootstrap Icon CDN -->
-        
-        <!-- Website Header -->
-        <link rel="icon" type="image/x-icon" href="../assets/img/icons/favicon.ico">
-        <title>PokéDopt</title>
-        <!-- Website Header -->
-        
-        <!-- External CSS -->
-        <link rel="stylesheet" href="../styles/components.css">
-        <!-- External CSS -->
-
-    </head>
-
-    <body>
-        
-        <!-- Page Container -->
-        <div class="container-fluid">
-
-            <!-- Page Row -->
-            <div class="row">
-
-                <!-- Primary Section -->
-                <section class="primary col-md-10 order-md-2 p-0">
                     
                     <!-- Header Nav -->
                     <?php require '../components/headerNav.php' ?>
@@ -118,21 +81,21 @@
                                                     </a>
                                                     <!-- Pokémon Card Header -->
 
-                                                    <!-- Pokémon Card Button Span -->
+                                                    <!-- Pokémon Card Heart Button Span -->
                                                     <span class="col-2 col-lg-3 d-flex justify-content-end align-items-center p-0">
                                                         
-                                                        <!-- Pokémon Card Button -->
-                                                        <button class="btn btn-outline-light border-0 p-0 px-2">
+                                                        <!-- Pokémon Card Heart Button -->
+                                                        <button class="btn btn-outline-light border-0 p-0 px-2" id="heart">
 
-                                                            <!-- Pokémon Card Button Title -->
+                                                            <!-- Pokémon Card Heart Button Icon -->
                                                             <i class="card-header p-0 bi bi-suit-heart display-3"></i>
-                                                            <!-- Pokémon Card Button Title -->
+                                                            <!-- Pokémon Card Heart Button Icon -->
 
                                                         </button>
-                                                        <!-- Pokémon Card Button -->
+                                                        <!-- Pokémon Card HeartButton -->
 
                                                     </span>
-                                                    <!-- Pokémon Card Button Span -->
+                                                    <!-- Pokémon Card Heart Button Span -->
 
                                                 </div>
                                                 <!-- Pokémon Card Header Row -->
@@ -179,24 +142,14 @@
                 <!-- Side Nav -->
                 <?php require '../components/sideNav.php' ?>
                 <!-- Side Nav -->
+                
+                <!-- Sign In Modal -->
+                <?php require '../components/signIn.php' ?>
+                <!-- Sign In Modal -->
 
-            </div>
-            <!-- Page Row -->
+                <!-- Sign Up Modal -->
+                <?php require '../components/signUp.php' ?>
+                <!-- Sign Up Modal -->
 
-        </div>
-        <!-- Page Container -->
-    
-        <!-- Bootstrap JS CDN -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-        <!-- Bootstrap JS CDN -->
-        
-        <!-- JQuery CDN -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <!-- JQuery CDN -->
-
-        <!-- Components JavaScript -->
-        <script src="../javascripts/components.js"></script>
-        <!-- Components JavaScript -->
-
-    </body>
+            
 </html>

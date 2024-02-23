@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="bg-dark p-4">
+<footer class="bg-dark p-4 p-lg-3">
     
     <!-- Footer Container -->
     <div class="container-xxl">

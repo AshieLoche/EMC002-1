@@ -1,5 +1,23 @@
 $(document).ready(function() {
 
+    // Heart Mechanics
+    let heartIcon;
+    let hearted = false;
+
+    $("button#heart").click(function() {
+        heartIcon = $(this).find("i");
+        hearted = heartIcon.hasClass("bi-suit-heart-fill") ? true : false;
+
+        if (hearted) {
+            heartIcon.addClass("bi-suit-heart").removeClass("bi-suit-heart-fill");
+            hearted = false;
+        } else {
+            heartIcon.removeClass("bi-suit-heart").addClass("bi-suit-heart-fill");
+            hearted = true;
+        }
+    });
+    // Heart Mechanics
+
     // Side Toggle Mechanics
     {
         const sideNav = $('#side-nav');
@@ -37,35 +55,47 @@ $(document).ready(function() {
     }
     // Side Toggle Mechanics
 
-    // Hover Mechanics
-    $("button.navbar-toggler, button#search-button").hover(function() {
-        $(this).find("i").removeClass("text-light").addClass("text-dark");
-    }, function() {
-        $(this).find("i").removeClass("text-dark").addClass("text-light");
-    });
-
-    $("div#navbarLogo").hover(function() {
-        $(this).find("h1").removeClass("text-light").addClass("text-dark");
-    }, function() {
-        $(this).find("h1").removeClass("text-dark").addClass("text-light");
-    });
-
-    $(".carousel-buttons a").hover(function() {
-        $(this).find("img").css("filter", "brightness(0%)");
-    }, function() {
-        $(this).find("img").css("filter", "brightness(0%) invert(1)");
-    });
-    // Hover Mechanics
-
     // Horizontal Button Carousel Scrolling (< MD)
     {
 
-        $('section.btn-carousel').on('wheel', function(event) {
-            $(this).scrollLeft($(this).scrollLeft() - (event.originalEvent.deltaY * 30));
-            event.preventDefault();
+        $(window).on('resize', function() {
+            scrolling();
         });
+        
+        scrolling();
+
+        function scrolling() {
+            if ($('.btn-carousel').outerHeight() < $('body').outerHeight()) {
+                $('section.btn-carousel').on('wheel', function(event) {
+                    $(this).scrollLeft($(this).scrollLeft() + (event.originalEvent.deltaY * 60));
+                    event.preventDefault();
+                });
+            } else {
+                $('section.btn-carousel').off('wheel');
+            }
+        }
 
     }
     // Horizontal Button Carousel Scrolling (< MD)
+
+    // Modal Transfer
+    let signToggler;
+    let signToggled = false;
+
+    $(".sign-toggler").click(function() {
+        signToggler = $(this).find("span");
+        signToggled = signToggler.text() == "<" ? true : false;
+
+        if (signToggled) {
+            signToggler.text(">");
+            $(this).parent().parent().find('button.modal-switch').fadeOut('fast', 'swing');
+            signToggled = false;
+        } else {
+            signToggler.text("<");
+            $(this).parent().parent().find('button.modal-switch').fadeIn('fast', 'swing');
+            signToggled = true;
+        }
+    });
+    // Modal Transfer
 
 });

@@ -2,6 +2,11 @@
 
     require 'db_create.php';
 
+    $host = 'localhost';
+    $user = 'ashie';
+    $password = 'ThisIsMyDBYIPPIE!!!<3';
+    $db_name = 'pokedopt';
+
     // Connect to Database
     $conn = mysqli_connect($host, $user , $password, $db_name);
 
