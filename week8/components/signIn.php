@@ -89,7 +89,7 @@
       <div class="modal-footer bg-dark">
         
         <!-- Sign In Modal Submit -->
-        <button class="btn btn-primary" type="submit" form="signIn-form" name="submit" id="signUp-submit">Submit</button>
+        <button class="btn btn-secondary fw-bolder" type="submit" form="signIn-form" name="submit" id="signIn-submit">Submit</button>
         <!-- Sign In Modal Submit -->
 
       </div>

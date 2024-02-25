@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    alert($('#side-nav').outerHeight());
+
     // Heart Mechanics
     let heartIcon;
     let hearted = false;

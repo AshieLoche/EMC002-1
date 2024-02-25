@@ -64,14 +64,6 @@ section.primary::-webkit-scrollbar-corner {
         max-width: 500px;
     }
 
-    .card-header {
-        font-weight: bolder;
-    }
-
-    .card-title {
-        font-weight: bold;
-    }
-
 /* #endregion */
 /* Main Content Elements*/
 

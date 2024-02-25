@@ -59,7 +59,7 @@
       <section class="modal-body">
 
         <!-- Sign Up Modal Body Form -->
-        <form action="index.php" id="signUp-form" method="POST" class="bg-info">
+        <form action="index.php" id="signUp-form" method="POST">
           
           <!-- Account Credentials Fieldset -->
           <fieldset class="text-dark d-flex flex-column gap-2">
@@ -94,14 +94,34 @@
             <legend class="border-bottom border-dark my-2">Personal Information:</legend>
             <!-- Personal Information Fieldset Legend -->
 
+            <!-- Personal Information Name -->
+            <section class="d-flex gap-2">
+              
+              <!-- Personal Information First Name -->
+              <input type="text" class="form-control bg-dark text-light border-dark" placeholder="First Name" name="fname" required>
+              <!-- Personal Information First Name -->
+
+              <!-- Personal Information Last Name -->
+              <input type="text" class="form-control bg-dark text-light border-dark" placeholder="Last Name" name="lname">
+              <!-- Personal Information Last Name -->
+
+            </section>
+            <!-- Personal Information Name -->
 
             <section class="input-group">
-              <input type="text" class="form-control bg-dark text-light border-dark" placeholder="First Name" name="fname" required>
-
-              <input type="text" class="form-control bg-dark text-light border-dark" placeholder="Middle Name" name="mname">
-
-              <input type="text" class="form-control bg-dark text-light border-dark" placeholder="Last Name" name="lname">
+              <span class="input-group-text bg-dark text-light border-dark">+63</span>
+              <input type="tel" class="form-control bg-dark text-light border-dark" placeholder="Mobile Number" name="mobile-number" pattern="[0-9]{10}" required>
             </section>
+            
+            <section class="input-group">
+              
+              <span class="input-group-text bg-dark text-light border-dark" title="Birthday">
+                <i class="bi bi-cake2 fs-5"></i>
+              </span>
+              
+              <input type="date" class="form-control bg-dark text-light border-dark" placeholder="Birthday" name="birthday" required>
+            </section>
+
   
           </fieldset>
           <!-- Personal Information Fieldset -->
@@ -116,7 +136,7 @@
       <div class="modal-footer bg-dark">
         
         <!-- Sign Up Modal Submit -->
-        <button class="btn btn-primary" type="submit" form="signIn-form" name="submit" id="signUp-submit">Submit</button>
+        <button class="btn btn-secondary fw-bolder" type="submit" form="signIn-form" name="submit" id="signUp-submit">Submit</button>
         <!-- Sign Up Modal Submit -->
 
       </div>
