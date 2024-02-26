@@ -4,7 +4,7 @@
 
     $host = 'localhost';
     $user = 'ashie';
-    $password = 'ThisIsMyDBYIPPIE!!!<3';
+    $password = 'ThisIsMyPokedoptYIPPIE!!!<3';
     $db_name = 'pokedopt';
 
     // Connect to Database

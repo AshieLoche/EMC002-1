@@ -63,7 +63,7 @@
                                     <article class="card bg-dark text-light border-dark rounded-5 col-sm-10 col-md-8 col-lg-6 col-xl-4 col-xxl-3 p-0">
                                         
                                         <!-- Pokémon Card Image -->
-                                        <img src="data:image/jpeg;base64,<?php echo base64_encode($poke['img']); ?>" alt="<?php echo $poke['species']; ?>" class="card-img-top img rounded-top-5 border-bottom border-bottom">
+                                        <img src="<?php echo $poke['img']; ?>" alt="<?php echo $poke['species']; ?>" class="card-img-top img rounded-top-5 border-bottom border-bottom">
                                         <!-- Pokémon Card Image -->
 
                                         <!-- Pokémon Card Body -->
@@ -88,7 +88,7 @@
                                                         <button class="btn btn-outline-light border-0 p-0 px-2" id="heart">
 
                                                             <!-- Pokémon Card Heart Button Icon -->
-                                                            <i class="card-header p-0 bi bi-suit-heart display-3"></i>
+                                                            <i class="card-header p-0 bi bi-suit-heart display-3 border-0"></i>
                                                             <!-- Pokémon Card Heart Button Icon -->
 
                                                         </button>

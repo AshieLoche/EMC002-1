@@ -3,8 +3,8 @@
 
 section.primary {
     flex: 1;
-    height: calc(100vh - 178px);
     overflow: auto;
+    height: calc(100vh - 178px);
 }
 
 section.primary::-webkit-scrollbar {

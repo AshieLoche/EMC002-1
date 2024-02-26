@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-    alert($('#side-nav').outerHeight());
-
     // Heart Mechanics
     let heartIcon;
     let hearted = false;
@@ -52,7 +50,7 @@ $(document).ready(function() {
             if ($(window).width() < 768 && sideNav.get(0).classList.contains('side-nav-shrunk') && sideNavTogglerIcon.get(0).classList.contains("bi-box-arrow-up-right")) {
                 sideNav.removeClass('side-nav-shrunk').addClass('side-nav-expanded');
                 sideNavTogglerIcon.removeClass('bi-box-arrow-up-right').addClass('bi-box-arrow-in-down-left');
-            }
+            } 
         });
     }
     // Side Toggle Mechanics
