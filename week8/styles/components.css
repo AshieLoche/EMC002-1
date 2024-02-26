@@ -78,6 +78,7 @@ footer {
 
 nav#side-nav {
     overflow-y: auto;
+    min-height: 178px;
 }
 
 nav#side-nav::-webkit-scrollbar {
