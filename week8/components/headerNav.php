@@ -1,4 +1,3 @@
-
 <head>
         
         <!-- Meta -->
@@ -26,7 +25,7 @@
 
     </head>
 
-    <body>
+    <body class="bg-secondary">
         
         <!-- Page Container -->
         <div class="container-fluid">

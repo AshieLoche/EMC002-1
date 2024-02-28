@@ -1,5 +1,6 @@
 <?php
 
+    
 
 ?>
 
@@ -11,52 +12,85 @@
                     <!-- Header Nav -->
 
                     <!-- Main Content -->
-                    <main class="d-flex flex-column justify-content-start align-items-center guest">
-                        <div class="container-fluid p-0">
-                            <div class="background-image">
-                                <img src="../assets/img/others/banner.jpg" alt="banner" class="img banner d-none d-md-block">
-                            </div>
-                            
-                            <div class="background-darken"></div>
-                            
-                            <div class="container-xxl p-0 banner">
-                                <img src="../assets/img/others/banner.jpg" alt="banner" class="img banner d-none d-md-block">
-                            </div>
-                        </div>
+                    <main>
 
-                        <div class="container-xxl p-4 pt-5 content">
-                            <p class="guest display-5 text-white fs-2 text-center fw-bold mb-4">
+                        <!-- Banner Section -->
+                        <section class="banner-section">
+                            
+                            <!-- Banner -->
+                            <img src="../assets/img/others/banner.jpg" alt="bg banner" class="img banner d-block container-xxl p-0">
+                            <!-- Banner -->
+                            
+                            <!-- Banner Background -->
+                            <img src="../assets/img/others/banner.jpg" alt="bg banner" class="img bg-banner d-none d-md-block">
+                            <!-- Banner Background -->
+                            
+                        </section>
+                        <!-- Banner Section -->
+                        
+                        <!-- Content Section -->
+                        <section class="container-xxl text-white text-center p-4 pt-5 content-section">
+
+                            <!-- Tagline -->
+                            <p class="display-5 fs-2 fw-bold mb-4">
                                 <span class="border-bottom">
                                     Finding the best Poké Partner has never been easier!
                                 </span>
                             </p>
-                            
-                            <p class="display-5 text-white fs-3 text-center my-4">
+                            <!-- Tagline -->
+
+                            <!-- Description -->
+                            <p class="display-5 fs-3 my-4">
                                 With <strong>PokéDopt</strong>, starting your Pokémon journey just requires a couple of clicks, and soon you’ll have a forever companion! Not only that, for people who just want a normal life and share their moments with their Poké Pals, then use the built-in social media platform to tell the world about the joys between you and your Pokémon.
                             </p>
+                            <!-- Description -->
 
-                            <div class="col-12 d-inline-flex justify-content-center align-items-center gap-5 mt-5" id="actionButtons">
-                                <!-- Header Navbar PokéList Button -->
-                                <button class="btn btn-outline-light p-3" data-bs-toggle="modal" data-bs-target="#sign-in-modal">
-                                    <!-- Header Navbar PokéList Button Title -->
-                                    <span class="fw-bold fs-1" id="sign-in">
+                            <section class="d-flex justify-content-center align-items-center gap-5 mt-5">
+
+                                <button class="btn btn-outline-light p-3" data-bs-toggle="modal"  data-bs-target="#sign-in-modal">
+
+                                    <span class="fs-bold fs-1" id="sign-in">
                                         Sign In
                                     </span>
-                                    <!-- Header Navbar PokéList Button Title -->
                                 </button>
-                                <!-- Header Navbar PokéList Button -->
-                                <!-- Header Navbar PokéList Button -->
-                                <button class="btn btn-outline-light p-3" data-bs-toggle="modal" data-bs-target="#sign-up-modal" autofocus>
-                                    <!-- Header Navbar PokéList Button Title -->
-                                    <span class="fw-bold fs-1" id="sign-up">
+
+                                <button class="btn btn-outline-light p-3" data-bs-toggle="modal"  data-bs-target="#sign-up-modal">
+
+                                    <span class="fs-bold fs-1" id="sign-up">
                                         Sign Up
                                     </span>
-                                    <!-- Header Navbar PokéList Button Title -->
                                 </button>
-                                <!-- Header Navbar PokéList Button -->
-                            </div>
-                        </div>
+
+                            </section>
+                        </section>
+                        <!-- Content Section -->
+
                     </main>
+                    <!-- Main Content -->
+
+                    <style>
+                        main {
+                            background-color: rgba(54,58,62,255);
+                        }
+                        .banner {
+                            width: 100%;
+                            height: 40vh;
+                            position: relative;
+                            z-index: 2;
+                        }
+                        .bg-banner {
+                            width: 100%;
+                            height: 40vh;
+                            margin-top: -40vh;
+                            filter: brightness(50%) blur(5px);
+                            position: relative;
+                            z-index: 1;
+                        }
+                        .content-section {
+                            background-color: #5e6267;
+                            height: 50vh;
+                        }
+                    </style>
                     <!-- Main Content -->
 
                     <!-- Footer -->
@@ -83,7 +117,7 @@
 
 
 <style>
-    main.guest {
+    /* main.guest {
         background-color: rgba(54,58,62,255);
     }
     main.guest .display-5 {
@@ -139,6 +173,6 @@
         main.guest img.banner {
             max-height: 35vh !important;
         }
-    }
+    } */
 </style>
 <!-- Main Content -->
