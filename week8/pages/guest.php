@@ -1,58 +1,86 @@
-<!-- Main Content -->
-<main class="d-flex flex-column justify-content-start align-items-center guest">
-    <div class="container-fluid p-0">
-        <div class="background-image">
-            <img src="assets/img/banner.jpg" alt="banner" class="img banner d-none d-md-block">
-        </div>
-        
-        <div class="background-darken"></div>
-        
-        <div class="container-xxl p-0 banner">
-            <img src="assets/img/banner.jpg" alt="banner" class="img banner d-none d-md-block">
-        </div>
-    </div>
+<?php
 
-    <div class="container-xxl p-4 pt-5 content">
-        <p class="guest display-5 text-white fs-2 text-center fw-bold mb-4">
-            <span class="border-bottom">
-                Finding the best Poké Partner has never been easier!
-            </span>
-        </p>
-        
-        <p class="display-5 text-white fs-3 text-center my-4">
-            With <strong>PokéDopt</strong>, starting your Pokémon journey just requires a couple of clicks, and soon you’ll have a forever companion! Not only that, for people who just want a normal life and share their moments with their Poké Pals, then use the built-in social media platform to tell the world about the joys between you and your Pokémon.
-        </p>
 
-        <div class="col-12 d-inline-flex justify-content-center align-items-center gap-5 mt-5" id="actionButtons">
-            <!-- Header Navbar PokéList Button -->
-            <button class="btn btn-outline-light p-3" data-bs-toggle="modal" data-bs-target="#sign-in-modal">
-                <!-- Header Navbar PokéList Button Title -->
-                <span class="fw-bold fs-1" id="sign-in">
-                    Sign In
-                </span>
-                <!-- Header Navbar PokéList Button Title -->
-            </button>
-            <!-- Header Navbar PokéList Button -->
-            <!-- Header Navbar PokéList Button -->
-            <button class="btn btn-outline-light p-3" data-bs-toggle="modal" data-bs-target="#sign-up-modal" autofocus>
-                <!-- Header Navbar PokéList Button Title -->
-                <span class="fw-bold fs-1" id="sign-up">
-                    Sign Up
-                </span>
-                <!-- Header Navbar PokéList Button Title -->
-            </button>
-            <!-- Header Navbar PokéList Button -->
-        </div>
-    </div>
-</main>
+?>
 
-<!-- Sign Up Modal -->
-<?php require_once $signUp; ?>
-<!-- Sign Up Modal -->
+<!DOCTYPE html>
+<html lang="en">
+                    
+                    <!-- Header Nav -->
+                    <?php require '../components/headerNav.php' ?>
+                    <!-- Header Nav -->
 
-<!-- Sign In Modal -->
-<?php require_once $signIn; ?>
-<!-- Sign In Modal -->
+                    <!-- Main Content -->
+                    <main class="d-flex flex-column justify-content-start align-items-center guest">
+                        <div class="container-fluid p-0">
+                            <div class="background-image">
+                                <img src="../assets/img/others/banner.jpg" alt="banner" class="img banner d-none d-md-block">
+                            </div>
+                            
+                            <div class="background-darken"></div>
+                            
+                            <div class="container-xxl p-0 banner">
+                                <img src="../assets/img/others/banner.jpg" alt="banner" class="img banner d-none d-md-block">
+                            </div>
+                        </div>
+
+                        <div class="container-xxl p-4 pt-5 content">
+                            <p class="guest display-5 text-white fs-2 text-center fw-bold mb-4">
+                                <span class="border-bottom">
+                                    Finding the best Poké Partner has never been easier!
+                                </span>
+                            </p>
+                            
+                            <p class="display-5 text-white fs-3 text-center my-4">
+                                With <strong>PokéDopt</strong>, starting your Pokémon journey just requires a couple of clicks, and soon you’ll have a forever companion! Not only that, for people who just want a normal life and share their moments with their Poké Pals, then use the built-in social media platform to tell the world about the joys between you and your Pokémon.
+                            </p>
+
+                            <div class="col-12 d-inline-flex justify-content-center align-items-center gap-5 mt-5" id="actionButtons">
+                                <!-- Header Navbar PokéList Button -->
+                                <button class="btn btn-outline-light p-3" data-bs-toggle="modal" data-bs-target="#sign-in-modal">
+                                    <!-- Header Navbar PokéList Button Title -->
+                                    <span class="fw-bold fs-1" id="sign-in">
+                                        Sign In
+                                    </span>
+                                    <!-- Header Navbar PokéList Button Title -->
+                                </button>
+                                <!-- Header Navbar PokéList Button -->
+                                <!-- Header Navbar PokéList Button -->
+                                <button class="btn btn-outline-light p-3" data-bs-toggle="modal" data-bs-target="#sign-up-modal" autofocus>
+                                    <!-- Header Navbar PokéList Button Title -->
+                                    <span class="fw-bold fs-1" id="sign-up">
+                                        Sign Up
+                                    </span>
+                                    <!-- Header Navbar PokéList Button Title -->
+                                </button>
+                                <!-- Header Navbar PokéList Button -->
+                            </div>
+                        </div>
+                    </main>
+                    <!-- Main Content -->
+
+                    <!-- Footer -->
+                    <?php require '../components/footer.php' ?>
+                    <!-- Footer -->
+
+                </section>
+                <!-- Primary Section -->
+                
+                <!-- Side Nav -->
+                <?php require '../components/sideNav.php' ?>
+                <!-- Side Nav -->
+                
+                <!-- Sign In Modal -->
+                <?php require '../components/signIn.php' ?>
+                <!-- Sign In Modal -->
+
+                <!-- Sign Up Modal -->
+                <?php require '../components/signUp.php' ?>
+                <!-- Sign Up Modal -->
+
+            
+</html>
+
 
 <style>
     main.guest {

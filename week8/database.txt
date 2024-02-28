@@ -111,4 +111,10 @@ Incineroar - FIRE DARK - Ohnerion
 16 ('DARK')
 17 ('STEEL')
 18 ('FAIRY')
-19 ('STELLAR')
+19 ('Null')
+
+Sessions
+https://www.php.net/manual/en/book.session.php
+
+Cookies
+https://www.php.net/manual/en/features.cookies.php
