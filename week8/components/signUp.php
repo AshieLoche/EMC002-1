@@ -1,13 +1,11 @@
-
-
 <!-- Sign Up Modal -->
 <article class="modal fade" id="sign-up-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
   
   <!-- Sign Up Modal Dialog -->
-  <div class="modal-dialog d-flex justify-content-center align-items-center m-0">
+  <section class="modal-dialog d-flex justify-content-center align-items-center m-0">
 
     <!-- Sign Up Modal Content -->
-    <div class="modal-content bg-secondary">
+    <section class="modal-content bg-secondary">
 
       <!-- Sign Up Modal Header -->
       <section class="modal-header bg-dark text-light">
@@ -59,13 +57,13 @@
       <section class="modal-body">
 
         <!-- Sign Up Modal Body Form -->
-        <form action="index.php" id="signUp-form" method="POST">
+        <form action="index.php" id="signUp-form" method="POST" class="d-flex flex-column gap-3">
           
           <!-- Account Credentials Fieldset -->
           <fieldset class="text-dark d-flex flex-column gap-2">
   
             <!-- Account Credentials Fieldset Legend -->
-            <legend class="border-bottom border-dark my-2">Account Credentials:</legend>
+            <legend class="border-bottom border-dark">Account Credentials:</legend>
             <!-- Account Credentials Fieldset Legend -->
   
             <!-- Account Credentials Username -->
@@ -91,7 +89,7 @@
           <fieldset class="text-dark d-flex flex-column gap-2">
   
             <!-- Personal Information Fieldset Legend -->
-            <legend class="border-bottom border-dark my-2">Personal Information:</legend>
+            <legend class="border-bottom border-dark">Personal Information:</legend>
             <!-- Personal Information Fieldset Legend -->
 
             <!-- Personal Information Name -->
@@ -133,19 +131,33 @@
       <!-- Sign Up Modal Body -->
       
       <!-- Sign Up Modal Footer -->
-      <div class="modal-footer bg-dark">
+      <section class="modal-footer bg-dark d-flex justify-content-between">
+
+        <!-- Auto Sign In Fieldset -->
+        <fieldset class="text-light fs-5">
+
+          <!-- Auto Sign In Checkbox -->
+          <input type="checkbox" name="remember" id="remember_signUp" class="remember" form="signUp-form" value="<?php echo htmlspecialchars($_SESSION['auth_token']); ?>">
+          <!-- Auto Sign In Checkbox -->
+          
+          <!-- Auto Sign In Label -->
+          <label for="remember_signUp">Remember me</label>
+          <!-- Auto Sign In Label -->
+          
+        </fieldset>
+        <!-- Auto Sign In Fieldset -->
         
         <!-- Sign Up Modal Submit -->
-        <button class="btn btn-secondary fw-bolder" type="submit" form="signIn-form" name="submit" id="signUp-submit">Submit</button>
+        <button class="btn btn-secondary fw-bolder" type="submit" form="signUp-form" name="submit" id="signUp-submit">Submit</button>
         <!-- Sign Up Modal Submit -->
 
-      </div>
+      </section>
       <!-- Sign Up Modal Footer -->
 
-    </div>
+    </section>
     <!-- Sign Up Modal Content -->
 
-  </div>
+  </section>
   <!-- Sign Up Modal Dialog -->
 
 </article>

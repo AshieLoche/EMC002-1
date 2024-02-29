@@ -86,13 +86,27 @@
       <!-- Sign In Modal Body -->
       
       <!-- Sign In Modal Footer -->
-      <div class="modal-footer bg-dark">
+      <section class="modal-footer bg-dark d-flex justify-content-between">
+
+        <!-- Auto Sign In Fieldset -->
+        <fieldset class="text-light fs-5 autoSignIn">
+
+          <!-- Auto Sign In Checkbox -->
+          <input type="checkbox" name="remember" id="remember_SignIn" class="remember" form="signIn-form" value="<?php echo htmlspecialchars($_SESSION['auth_token']); ?>">
+          <!-- Auto Sign In Checkbox -->
+          
+          <!-- Auto Sign In Label -->
+          <label for="remember_SignIn">Remember me</label>
+          <!-- Auto Sign In Label -->
+          
+        </fieldset>
+        <!-- Auto Sign In Fieldset -->
         
         <!-- Sign In Modal Submit -->
         <button class="btn btn-secondary fw-bolder" type="submit" form="signIn-form" name="submit" id="signIn-submit">Submit</button>
         <!-- Sign In Modal Submit -->
 
-      </div>
+      </section>
       <!-- Sign In Modal Footer -->
 
     </div>
@@ -103,3 +117,11 @@
 
 </article>
 <!-- Sign In Modal -->
+
+<style>
+  .remember {
+    height: 1rem;
+    width: 1rem;
+    accent-color: #6c757d;
+  }
+</style>

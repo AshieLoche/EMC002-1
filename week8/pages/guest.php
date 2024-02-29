@@ -29,68 +29,54 @@
                         <!-- Banner Section -->
                         
                         <!-- Content Section -->
-                        <section class="container-xxl text-white text-center p-4 pt-5 content-section">
+                        <section class="container-xxl text-white text-center p-3 p-sm-4 content-section">
 
                             <!-- Tagline -->
-                            <p class="display-5 fs-2 fw-bold mb-4">
-                                <span class="border-bottom">
+                            <p class="display-5 fw-bold mb-4 tagline">
+                                <span class="border-bottom border-3 p-1">
                                     Finding the best Poké Partner has never been easier!
                                 </span>
                             </p>
                             <!-- Tagline -->
 
                             <!-- Description -->
-                            <p class="display-5 fs-3 my-4">
+                            <p class="display-5 my-5 description">
                                 With <strong>PokéDopt</strong>, starting your Pokémon journey just requires a couple of clicks, and soon you’ll have a forever companion! Not only that, for people who just want a normal life and share their moments with their Poké Pals, then use the built-in social media platform to tell the world about the joys between you and your Pokémon.
                             </p>
                             <!-- Description -->
 
-                            <section class="d-flex justify-content-center align-items-center gap-5 mt-5">
+                            <!-- Guest Sign Buttons -->
+                            <section class="d-flex justify-content-center align-items-center gap-3 gap-md-5 signButtons">
 
-                                <button class="btn btn-outline-light p-3" data-bs-toggle="modal"  data-bs-target="#sign-in-modal">
+                                <!-- Guest Sign In Button -->
+                                <button class="btn btn-outline-light p-1 p-sm-2 p-lg-3 d-flex align-items-center" data-bs-toggle="modal"  data-bs-target="#sign-in-modal">
 
-                                    <span class="fs-bold fs-1" id="sign-in">
+                                    <!-- Guest Sign In Button Title -->
+                                    <span class="fw-bold" id="sign-in">
                                         Sign In
                                     </span>
+                                    <!-- Guest Sign In Button Title -->
+
                                 </button>
+                                <!-- Guest Sign In Button -->
 
-                                <button class="btn btn-outline-light p-3" data-bs-toggle="modal"  data-bs-target="#sign-up-modal">
+                                <!-- Guest Sign Up Button -->
+                                <button class="btn btn-outline-light p-1 p-sm-2 p-lg-3 d-flex align-items-center" data-bs-toggle="modal"  data-bs-target="#sign-up-modal">
 
-                                    <span class="fs-bold fs-1" id="sign-up">
+                                    <!-- Guest Sign Up Button Title -->
+                                    <span class="fw-bold" id="sign-up">
                                         Sign Up
                                     </span>
+                                    <!-- Guest Sign Up Button Title -->
+
                                 </button>
+                                <!-- Guest Sign Up Button -->
 
                             </section>
                         </section>
                         <!-- Content Section -->
 
                     </main>
-                    <!-- Main Content -->
-
-                    <style>
-                        main {
-                            background-color: rgba(54,58,62,255);
-                        }
-                        .banner {
-                            width: 100%;
-                            height: 40vh;
-                            position: relative;
-                            z-index: 2;
-                        }
-                        .bg-banner {
-                            width: 100%;
-                            height: 40vh;
-                            margin-top: -40vh;
-                            filter: brightness(50%) blur(5px);
-                            position: relative;
-                            z-index: 1;
-                        }
-                        .content-section {
-                            background-color: #5e6267;
-                            height: 50vh;
-                        }
-                    </style>
                     <!-- Main Content -->
 
                     <!-- Footer -->
@@ -115,64 +101,77 @@
             
 </html>
 
-
 <style>
-    /* main.guest {
+    main {
         background-color: rgba(54,58,62,255);
     }
-    main.guest .display-5 {
-        height: initial;
-        overflow: visible;
-    }
-    main.guest .container-fluid {
-        position: relative;
-        overflow: hidden;
-    }
-    main.guest .content {
-        background-color: #5e6267;
-        min-height: 55vh !important;
-    }
-
-    main.guest .background-image {
-        position: absolute;
-        top: 0;
-        left: 0;
+    .banner {
         width: 100%;
-        height: 100%;
-        z-index: 0;
-        filter: blur(5px);
-        -webkit-filter: blur(5px);
-    }
-
-    main.guest .background-darken {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    main.guest div.banner, main.guest img.banner {
-        width: 100%;
-        min-height: 45vh !important;
-        max-height: 45vh !important;
-        background-image: url('assets/img/banner.jpg');
-        background-size: cover;
-        background-position: center;
-        filter: blur(0);
+        height: 40vh;
         position: relative;
         z-index: 2;
     }
-
+    .bg-banner {
+        width: 100%;
+        height: 40vh;
+        margin-top: -40vh;
+        filter: brightness(50%) blur(5px);
+        position: relative;
+        z-index: 1;
+    }
+    .content-section {
+        background-color: #5e6267;
+        height: 50vh;
+    }
+        .tagline {
+            font-size: 1.25rem;
+            line-height: 2.25rem;
+        }
+        .description {
+            font-size: 1.125rem;
+        }
+        .signButtons span {
+            font-size: 1.5rem;
+        }
+    /* Small Breakpoint */
+    @media screen and (min-width: 576px) {
+        .tagline {
+            font-size: 1.5rem;
+            line-height: 2.5rem;
+        }
+        .description {
+            font-size: 1.25rem;
+        }
+        .signButtons span {
+            font-size: 1.75rem;
+        }
+    }
+    /* Small Breakpoint */
+    /* Medium Breakpoint */
     @media screen and (min-width: 768px) {
-        main.guest .content {
-            min-height: 65vh !important;
+        .tagline {
+            font-size: 2rem;
+            line-height: 3rem;
         }
-        main.guest img.banner {
-            max-height: 35vh !important;
+        .description {
+            font-size: 1.75rem;
         }
-    } */
+        .signButtons span {
+            font-size: 2.25rem;
+        }
+    }
+    /* Medium Breakpoint */
+    /* Large Breakpoint */
+    @media screen and (min-width: 1200px) {
+        .tagline {
+            font-size: 2.25rem;
+        }
+        .description {
+            font-size: 2rem;
+        }
+        .signButtons span {
+            font-size: 2.5rem;
+        }
+    }
+    /* Large Breakpoint */
 </style>
-<!-- Main Content -->

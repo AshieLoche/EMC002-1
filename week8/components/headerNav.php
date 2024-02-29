@@ -1,3 +1,31 @@
+<?php
+
+    // Get session cookie parameters
+    $params = session_get_cookie_params();
+
+    // Set session cookie to only be sent over HTTPS and only be accessible via the HTTP protocol
+    $params['secure'] = true;
+    $params['httponly'] = true;
+
+    // Set the session cookie parameters
+    session_set_cookie_params($params);
+
+    // Start the session
+    session_start();
+
+    if (!isset($_SESSION['auth_token']) && !isset($_COOKIE['auth_token'])) {
+        // Generate a unique token for the user
+        $token = bin2hex(random_bytes(32));
+    
+        // Save the token in the session
+        $_SESSION['auth_token'] = $token;
+    
+        // Set the token as a cookie
+        setcookie('auth_token', $token, time() + 60 * 60 * 24 * 30, '/');
+    }
+
+?>
+
 <head>
         
         <!-- Meta -->
