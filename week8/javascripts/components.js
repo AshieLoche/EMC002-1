@@ -65,7 +65,7 @@ $(document).ready(function() {
         scrolling();
 
         function scrolling() {
-            if ($('.btn-carousel').outerHeight() < $('body').outerHeight()) {
+            if ($('.btn-carousel').outerHeight() < $(document).outerHeight()) {
                 $('section.btn-carousel').on('wheel', function(event) {
                     $(this).scrollLeft($(this).scrollLeft() + (event.originalEvent.deltaY * 60));
                     event.preventDefault();

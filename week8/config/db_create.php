@@ -62,7 +62,7 @@
                 if (empty($fetched)) {
                     create($root, $target, $tblName, $tblContent, $host, $user, $password, $db_name);
                 } else if ($target == 'grants') {
-                    if (strpos($fetched[0]['Grants for ashie@localhost'], 'USAGE') != false) {
+                    if (strpos($fetched[0]["Grants for $user@$host"], 'USAGE') != false) {
                         create($root, $target, $tblName, $tblContent, $host, $user, $password, $db_name);
                     }
                 } else if ($target == 'tbl') {
@@ -97,7 +97,7 @@
     // Check if existing in Database
 
     // Create in DAtabase
-    function create($root, $target, $tblName = null, $tblContent = null,$host, $user, $password, $db_name) {
+    function create($root, $target, $tblName = null, $tblContent = null, $host, $user, $password, $db_name) {
 
         // Connect to Database
         if ($root) {
@@ -157,7 +157,7 @@
         // Check Database Connection
 
     }
-
+    
     check(true, 'user', null, null,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'mysql');
 
     check(true, 'grants', null, null, 'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'mysql');
