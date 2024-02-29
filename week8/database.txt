@@ -64,6 +64,23 @@ INNER JOIN pokedopt.species as species ON pokemon.species_id = species.id
 INNER JOIN pokedopt.type as type1 ON species.type1_id = type1.id
 INNER JOIN pokedopt.type as type2 ON species.type2_id = type2.id;
 
+DROP TABLE IF EXISTS accounts;
+
+CREATE TABLE IF NOT EXISTS accounts (
+    id INT AUTO_INCREMENT,
+    username VARCHAR(255) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL CHECK (email REGEXP '^.+@+.+$'),
+    password VARCHAR(255) UNIQUE NOT NULL,
+    fname VARCHAR(255) NOT NULL,
+    lname VARCHAR(255) NOT NULL,
+    mobile VARCHAR(13) NOT NULL CHECK (mobile REGEXP '^\\+63[0-9]{10}$'),
+    bday  DATE NOT NULL,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO accounts (username, email, password, fname, lname, mobile, bday)
+VALUES ('Ashie', 'ashie@gmail.com', PASSWORD('UwU'), 'Ashie', 'Loche', '+639165733654', '2002-12-09');
+
 Name:
 Species:
 Types:
@@ -94,4 +111,10 @@ Incineroar - FIRE DARK - Ohnerion
 16 ('DARK')
 17 ('STEEL')
 18 ('FAIRY')
-19 ('STELLAR')
+19 ('Null')
+
+Sessions
+https://www.php.net/manual/en/book.session.php
+
+Cookies
+https://www.php.net/manual/en/features.cookies.php
