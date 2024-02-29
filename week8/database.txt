@@ -118,3 +118,10 @@ https://www.php.net/manual/en/book.session.php
 
 Cookies
 https://www.php.net/manual/en/features.cookies.php
+
+THINGS TO DO:
+SIGN UP UPLOAD
+SIGN IN LOGIC
+AUTO SIGN IN
+ABOUT US
+CUSTOMER CARE

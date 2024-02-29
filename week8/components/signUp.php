@@ -118,8 +118,8 @@
               </span>
               
               <input type="date" class="form-control bg-dark text-light border-dark" placeholder="Birthday" name="birthday" required>
+              
             </section>
-
   
           </fieldset>
           <!-- Personal Information Fieldset -->
