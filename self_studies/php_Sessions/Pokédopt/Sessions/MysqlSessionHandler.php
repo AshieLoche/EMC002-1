@@ -84,6 +84,8 @@
 
                 }
 
+                return '';
+
             } catch (\PDOException $e) {
 
                 if ($this->db->inTransaction()) {
@@ -109,9 +111,9 @@
                 $this->col_data = :data";
 
                 $stmt = $this->db->prepare($sql);
-                $stmt->bindParam(':sid', $session_id);
                 $stmt->bindParam(':expiry', $this->expiry, \PDO::PARAM_INT);
                 $stmt->bindParam(':data', $data);
+                $stmt->bindParam(':sid', $session_id);
                 $stmt->execute();
 
                 return true;
@@ -149,6 +151,7 @@
             if ($this->collectGarbage) {
 
                 $sql = "DELETE FROM $this->table_sess WHERE $this->col_expiry < :time";
+                
                 $stmt = $this->db->prepare($sql);
                 $stmt->bindValue(':time', time(), \PDO::PARAM_INT);
                 $stmt->execute();

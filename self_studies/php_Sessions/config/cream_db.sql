@@ -8,21 +8,21 @@ CREATE USER 'sess_admin'@'localhost' IDENTIFIED BY 'secret';
 
 GRANT SELECT, INSERT, UPDATE, DELETE ON persistent.* TO 'sess_admin'@'localhost';
 
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE IF NOT EXISTS persistent.users (
     user_key char(8) NOT NULL,
     username varchar(30) NOT NULL UNIQUE,
     pwd varchar(255) NOT NULL,
     PRIMARY KEY (user_key)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS sessions (
+CREATE TABLE IF NOT EXISTS persistent.sessions (
     sid varchar(40) NOT NULL,
     expiry int(10) unsigned NOT NULL,
     data text NOT NULL,
     PRIMARY KEY (sid)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS autologin (
+CREATE TABLE IF NOT EXISTS persistent.autologin (
     user_key char(8) NOT NULL,
     token char(32) NOT NULL,
     created timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,

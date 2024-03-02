@@ -16,9 +16,13 @@
         $_SESSION = [];
 
         $params = session_get_cookie_params();
+
         setcookie(session_name(), '', time() - 86400, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+
         session_destroy();
+
         header('Location: session_01.php');
+
         exit;
 
     }
@@ -37,12 +41,13 @@
     <p>
         Hello <?php 
             if (isset($_SESSION['fname'])) {
-                echo 'again,' . $_SESSION['fname'];
+                echo 'again, ' . $_SESSION['fname'];
             } else {
                 echo 'again, Guest';
             }
         ?>
     </p>
+    <p><a href="session_02.php">Go to page 1</a></p>
 
     <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
 

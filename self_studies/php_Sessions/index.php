@@ -1,4 +1,4 @@
 <?php
-    header('Location: pages/session_01.php');
+    header('Location: pages/login.php');
     exit;
 ?>
