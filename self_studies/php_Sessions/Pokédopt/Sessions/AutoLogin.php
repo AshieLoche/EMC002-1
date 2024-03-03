@@ -14,7 +14,7 @@
 
         protected $expiry;
 
-        protected $cookiePath = '/persistent';
+        protected $cookiePath = '/';
 
         protected $domain = '';
 

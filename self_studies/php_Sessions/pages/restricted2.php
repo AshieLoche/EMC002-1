@@ -22,7 +22,7 @@
 
     <?php include '../config/logout_button.php'; ?>
 
-    <p>Still here, <?php htmlentities($_SESSION['username']); ?></p>
+    <p>Still here, <?php echo htmlentities($_SESSION['username']); ?></p>
 
     <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
 
@@ -37,7 +37,7 @@
 
     </form>
 
-    <p><a href="restricted2.php">Go to page 2</a></p>
+    <p><a href="restricted1.php">Go to page 1</a></p>
 
 </body>
 </html>

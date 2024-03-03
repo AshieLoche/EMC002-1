@@ -8,6 +8,7 @@
 
         $username = trim($_POST['username']);
         $pwd = trim($_POST['pwd']);
+
         $stmt = $db->prepare("SELECT pwd FROM users WHERE username = :username");
         $stmt->bindParam(':username', $username);
         $stmt->execute();

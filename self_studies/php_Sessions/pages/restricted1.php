@@ -1,4 +1,8 @@
-<?php require_once '../config/authenticate.php'; ?>
+<?php
+
+    require_once '../config/authenticate.php';
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +18,7 @@
 
     <?php include '../config/logout_button.php'; ?>
 
-    <p>Hi, <?php htmlentities($_SESSION['username']); ?></p>
+    <p>Hi, <?php echo htmlentities($_SESSION['username']); ?></p>
 
     <p><a href="restricted2.php">Go to page 2</a></p>
 

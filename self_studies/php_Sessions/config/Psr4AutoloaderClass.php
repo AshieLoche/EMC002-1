@@ -52,7 +52,7 @@
 
                 }
 
-                $prefix  = rtrim($prefix, '\\');
+                $prefix = rtrim($prefix, '\\');
 
             }
 

@@ -47,6 +47,7 @@
             }
         ?>
     </p>
+     
     <p><a href="session_02.php">Go to page 1</a></p>
 
     <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">

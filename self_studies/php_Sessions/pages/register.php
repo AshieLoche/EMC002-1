@@ -10,11 +10,15 @@
 
         foreach ($_POST as $key => $value) {
 
-            $$key = trim($value);
+            if (in_array($key, $expected)) {
 
-            if (empty($$key)) {
-
-                $errors[$key] = 'This field requires a value';
+                $$key = trim($value);
+    
+                if (empty($$key)) {
+    
+                    $errors[$key] = 'This field requires a value';
+    
+                }
 
             }
 
@@ -34,7 +38,7 @@
                 $stmt->bindParam(':username', $username);
                 $stmt->execute();
 
-                if ($stmt->fetchColumn() !=0) {
+                if ($stmt->fetchColumn() != 0) {
 
                     $errors['failed'] = "$username is already registered. Choose another name.";
 

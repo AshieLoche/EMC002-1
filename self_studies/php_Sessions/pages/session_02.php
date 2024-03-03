@@ -11,24 +11,21 @@
 
     session_start();
 
-    if (isset($_POST['submit'])) {
 
-        if (isset($_POST['fname'])) {
+    if (isset($_POST['fname'])) {
 
-            if (!empty($_POST['fname'])) {
+        if (!empty($_POST['fname'])) {
 
-                $_SESSION['fname'] = htmlentities($_POST['fname']);
+            $_SESSION['fname'] = htmlentities($_POST['fname']);
 
-            } else {
+        } else {
 
-                $_SESSION['fname'] = 'Amir';
-
-            }
+            $_SESSION['fname'] = 'Amir';
 
         }
 
     }
-
+    
 ?>
 
 <!DOCTYPE html>

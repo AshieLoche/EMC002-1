@@ -46,7 +46,7 @@
 
         protected function storeAutologinData($data) {
 
-            if (!isset($_SESSION[$this->sess_key])) {
+            if (!isset($_SESSION[$this->sess_ukey])) {
 
                 $sql = "SELECT $this->col_ukey FROM $this->table_users WHERE $this->col_name = :username";
 
