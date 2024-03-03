@@ -30,3 +30,5 @@ CREATE TABLE IF NOT EXISTS persistent.autologin (
     used tinyint(1) NOT NULL DEFAULT '0',
     PRIMARY KEY (user_key, token)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+https://www.bitrepository.com/php-autologin.html
