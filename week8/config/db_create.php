@@ -128,11 +128,14 @@
             
             if ($tblName == 'type') {
                 $cols = '(type, img)';
-                $tblContent = "VALUES $tblContent";
             } else if  ($tblName == 'species') {
                 $cols = '(species, type1_id, type2_id)';
             } else if ($tblName == 'pokemon') {
                 $cols = '(img, name, species_id, description)';
+            } else if ($tblName == 'role') {
+                $cols = '(role)';
+            } else if ($tblName == 'account') {
+                $cols = '(role_id, username, email, password, fname, lname, mobile, bday)';
             }
 
             $query = "INSERT INTO $tblName $cols $tblContent";
@@ -193,18 +196,26 @@
     check(false, 'tbl', 'pokemon', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
 
     $tblContent = "id INT AUTO_INCREMENT,
+    role VARCHAR(255) UNIQUE NOT NULL,
+    PRIMARY KEY (id)";
+
+    check(false, 'tbl', 'role', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
+
+    $tblContent = "id INT AUTO_INCREMENT,
+    role_id INT NOT NULL,
     username VARCHAR(255) UNIQUE NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL CHECK (email REGEXP '^.+@+.+$'),
     password VARCHAR(255) UNIQUE NOT NULL,
     fname VARCHAR(255) NOT NULL,
     lname VARCHAR(255) NOT NULL,
-    mobile VARCHAR(13) UNIQUE NOT NULL CHECK (mobile REGEXP '^63[0-9]{10}$'),
+    mobile VARCHAR(13) UNIQUE NOT NULL CHECK (mobile REGEXP '^[0-9]{12}$'),
     bday DATE NOT NULL,
-    PRIMARY KEY (id)";
+    PRIMARY KEY (id),
+    FOREIGN KEY (role_id) REFERENCES role (id)";
 
-    check(false, 'tbl', 'accounts', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
+    check(false, 'tbl', 'account', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
 
-    $tblContent = "
+    $tblContent = "VALUES
     ('FIRE', '../assets/img/types/fire.jpg'),
     ('WATER', '../assets/img/types/water.jpg'),
     ('ELECTRIC', '../assets/img/types/electric.jpg'),
@@ -301,5 +312,33 @@
     WHERE species.species = 'Incineroar'";
 
     check(false, 'col', 'pokemon', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
+
+    $tblContent = "VALUES
+    ('admin'),
+    ('staff'),
+    ('user')";
+
+    check(false, 'col', 'role', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
+
+    $tblContent = "
+    SELECT id, 'Ashie_Loche', 'ashie.loche@pokedopt.com', PASSWORD('ThisIsMyPokedoptYIPPIE!!!<3'), 'Ashie', 'Loche', '649123456789', 12/09/02
+    FROM role
+    WHERE role = 'admin'";
+
+    check(false, 'col', 'account', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
+
+// Hash the password
+$password = 'ThisIsMyPokedoptYIPPIE!!!<3';
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+// Store the hashed password in the database
+
+// Later, verify the password
+$input_password = 'ThisIsMyPokedoptYIPPIE!!!<3';
+if (password_verify($input_password, $hashed_password)) {
+    echo 'Password is correct';
+} else {
+    echo 'Password is incorrect';
+}
 
 ?>

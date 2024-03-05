@@ -125,3 +125,66 @@ SIGN IN LOGIC
 AUTO SIGN IN
 ABOUT US
 CUSTOMER CARE
+
+/* Retrieve the hashed password from the database. */
+$query = 'SELECT password FROM users WHERE username = ?';
+$values = [$username];
+try
+{
+  $res = $pdo->prepare($query);
+  $res->execute($values);
+  $row = $res->fetch();
+}
+catch (PDOException $e)
+{
+  /* Query error. */
+  echo 'Query error.';
+  die();
+}
+/* Verify the password. */
+if (password_verify($input_password, $row['password']))
+{
+  /* The password is correct. */
+  $login = TRUE;
+}
+
+<?php
+$servername = "localhost";
+$username = "your_username";
+$password = "your_password";
+$dbname = "your_database";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Get user input
+$user_email = $_POST['email'];
+$user_password = $_POST['password'];
+
+// Prepare statement to check user email and password
+$stmt = $conn->prepare("SELECT id, password FROM users WHERE email = ?");
+$stmt->bind_param("s", $user_email);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+
+// Check if user exists and password is correct
+if ($row && password_verify($user_password, $row['password'])) {
+    // Password is correct, authenticate user
+    session_start();
+    $_SESSION['user_id'] = $row['id'];
+    header('Location: dashboard.php');
+} else {
+    // Password is incorrect or user does not exist, show error message
+    echo "Invalid email or password";
+}
+
+// Close connection
+$stmt->close();
+$conn->close();
+?>
