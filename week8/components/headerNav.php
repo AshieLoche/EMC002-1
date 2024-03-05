@@ -65,7 +65,7 @@
                 <section class="primary col-md-10 order-md-2 p-0">
 
                     <!-- Header Nav -->
-                    <nav class="navbar navbar-collapse navbar-dark bg-dark p-2 border-bottom sticky-top" id="header-nav">
+                    <nav class="navbar navbar-collapse navbar-dark bg-dark p-2 border-bottom" id="header-nav">
                         
                         <!-- Header Nav Container -->
                         <div class="container-xxl p-0">

@@ -128,13 +128,14 @@
             
             if ($tblName == 'type') {
                 $cols = '(type, img)';
+                $tblContent = "VALUES $tblContent";
             } else if  ($tblName == 'species') {
                 $cols = '(species, type1_id, type2_id)';
             } else if ($tblName == 'pokemon') {
                 $cols = '(img, name, species_id, description)';
             }
 
-            $query = "INSERT INTO $tblName $cols VALUES $tblContent";
+            $query = "INSERT INTO $tblName $cols $tblContent";
 
         }
         // Check Target
@@ -185,11 +186,23 @@
     img VARCHAR(255),
     name VARCHAR(255) NOT NULL,
     species_id INT,
-    description  LONGTEXT NOT NULL,
+    description LONGTEXT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (species_id) REFERENCES species (id)";
 
     check(false, 'tbl', 'pokemon', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
+
+    $tblContent = "id INT AUTO_INCREMENT,
+    username VARCHAR(255) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL CHECK (email REGEXP '^.+@+.+$'),
+    password VARCHAR(255) UNIQUE NOT NULL,
+    fname VARCHAR(255) NOT NULL,
+    lname VARCHAR(255) NOT NULL,
+    mobile VARCHAR(13) UNIQUE NOT NULL CHECK (mobile REGEXP '^63[0-9]{10}$'),
+    bday DATE NOT NULL,
+    PRIMARY KEY (id)";
+
+    check(false, 'tbl', 'accounts', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
 
     $tblContent = "
     ('FIRE', '../assets/img/types/fire.jpg'),
@@ -215,22 +228,77 @@
     check(false, 'col', 'type', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
 
     $tblContent = "
-    ('Chandelure', '14', '1'),
-    ('Gengar', '14', '7'),
-    ('Magnezone', '3', '17'),
-    ('Dragonite', '15', '9'),
-    ('Lugia', '10', '9'),
-    ('Incineroar', '1', '16')";
+    SELECT 'Chandelure', type1.id, type2.id
+    FROM pokedopt.type as type1
+    INNER JOIN pokedopt.type as type2 ON type2.type = 'FIRE'
+    WHERE type1.type = 'GHOST'
+    UNION ALL
+    SELECT 'Gengar', type1.id, type2.id
+    FROM pokedopt.type as type1
+    INNER JOIN pokedopt.type as type2 ON type2.type = 'POISON'
+    WHERE type1.type = 'GHOST'
+    UNION ALL
+    SELECT 'Magnezone', type1.id, type2.id
+    FROM pokedopt.type as type1
+    INNER JOIN pokedopt.type as type2 ON type2.type = 'STEEL'
+    WHERE type1.type = 'ELECTRIC'
+    UNION ALL
+    SELECT 'Dragonite', type1.id, type2.id
+    FROM pokedopt.type as type1
+    INNER JOIN pokedopt.type as type2 ON type2.type = 'FLYING'
+    WHERE type1.type = 'DRAGON'
+    UNION ALL
+    SELECT 'Lugia', type1.id, type2.id
+    FROM pokedopt.type as type1
+    INNER JOIN pokedopt.type as type2 ON type2.type = 'FLYING'
+    WHERE type1.type = 'PSYCHIC'
+    UNION ALL
+    SELECT 'Incineroar', type1.id, type2.id
+    FROM pokedopt.type as type1
+    INNER JOIN pokedopt.type as type2 ON type2.type = 'DARK'
+    WHERE type1.type = 'FIRE'
+    UNION ALL
+    SELECT 'Dusknoir', type1.id, type2.id
+    FROM pokedopt.type as type1
+    INNER JOIN pokedopt.type as type2 ON type2.type = 'NULL'
+    WHERE type1.type = 'GHOST'
+    UNION ALL
+    SELECT 'Prinplup', type1.id, type2.id
+    FROM pokedopt.type as type1
+    INNER JOIN pokedopt.type as type2 ON type2.type = 'NULL'
+    WHERE type1.type = 'WATER'
+    UNION ALL
+    SELECT 'Koraidon', type1.id, type2.id
+    FROM pokedopt.type as type1
+    INNER JOIN pokedopt.type as type2 ON type2.type = 'DRAGON'
+    WHERE type1.type = 'FIGHTING'";
 
     check(false, 'col', 'species', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
 
     $tblContent = "
-    ('../assets/img/pokemon/chandelure.jpg', 'Amier', '1', 'A gentle and emotional pokémon that enjoys floating about in broad daylight anywhere there are flowers.'),
-    ('../assets/img/pokemon/gengar.jpg', 'Leiroh', '2', 'A creative and shy pokémon that really enjoys some peace and quiet. When disturbed from his artist zone, he will throw a temper tantrum.'),
-    ('../assets/img/pokemon/magnezone.jpg', 'Paliz', '3', 'A cheeky and mischievous pokémon that enjoys shorting out devices but is easily distracted by her favourite food, macaron.'),
-    ('../assets/img/pokemon/dragonite.jpg', 'Dergz', '4', 'He will hug everything and show his unending affection and love to anything and everything. He does not easily forgive anyone who hurts him or the people and pokémon he cares about. He will not hesitate to protect whatever the cost might be.'),
-    ('../assets/img/pokemon/lugia.jpg', 'Teraille', '5', 'A Lugia with dwarfism and is very proud of it. He flies about quickly and freely, enjoying how more agile he is due to being smaller and how he can go to places where normal Lugias can’t usually go.'),
-    ('../assets/img/pokemon/incineroar.jpg', 'Ohnerion', '6', 'A fiesty and stubborn pokémon, it will take a lot before he start to trust another. But once earning his trust, you might be smothering by tons of affectionate play that might end up with you being scorched or pumelled around with love.')";
+    SELECT '../assets/img/pokemon/chandelure.jpg', 'Amier', id, 'A gentle and emotional pokémon that enjoys floating about in broad daylight anywhere there are flowers.'
+    FROM pokedopt.species as species
+    WHERE species.species = 'Chandelure'
+    UNION ALL
+    SELECT '../assets/img/pokemon/gengar.jpg', 'Leiroh', id, 'A creative and shy pokémon that really enjoys some peace and quiet. When disturbed from his artist zone, he will throw a temper tantrum.'
+    FROM pokedopt.species as species
+    WHERE species.species = 'Gengar'
+    UNION ALL
+    SELECT '../assets/img/pokemon/magnezone.jpg', 'Paliz', id, 'A cheeky and mischievous pokémon that enjoys shorting out devices but is easily distracted by her favourite food, macaron.'
+    FROM pokedopt.species as species
+    WHERE species.species = 'Magnezone'
+    UNION ALL
+    SELECT '../assets/img/pokemon/dragonite.jpg', 'Dergz', id, 'He will hug everything and show his unending affection and love to anything and everything. He does not easily forgive anyone who hurts him or the people and pokémon he cares about. He will not hesitate to protect whatever the cost might be.'
+    FROM pokedopt.species as species
+    WHERE species.species = 'Dragonite'
+    UNION ALL
+    SELECT '../assets/img/pokemon/lugia.jpg', 'Teraille', id, 'A Lugia with dwarfism and is very proud of it. He flies about quickly and freely, enjoying how more agile he is due to being smaller and how he can go to places where normal Lugias can’t usually go.'
+    FROM pokedopt.species as species
+    WHERE species.species = 'Lugia'
+    UNION ALL
+    SELECT '../assets/img/pokemon/incineroar.jpg', 'Ohnerion', id, 'A fiesty and stubborn pokémon, it will take a lot before he start to trust another. But once earning his trust, you might be smothering by tons of affectionate play that might end up with you being scorched or pumelled around with love.'
+    FROM pokedopt.species as species
+    WHERE species.species = 'Incineroar'";
 
     check(false, 'col', 'pokemon', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
 

@@ -1,5 +1,6 @@
 <?php
 
+    require '../config/db_connect.php';
     
 
 ?>
@@ -12,7 +13,7 @@
                     <!-- Header Nav -->
 
                     <!-- Main Content -->
-                    <main>
+                    <main id="main-content">
 
                         <!-- Banner Section -->
                         <section class="banner-section">
@@ -29,18 +30,18 @@
                         <!-- Banner Section -->
                         
                         <!-- Content Section -->
-                        <section class="container-xxl text-white text-center p-3 p-sm-4 content-section">
+                        <section class="container-xxl text-white text-center d-flex flex-column gap-3 p-4 content-section">
 
                             <!-- Tagline -->
-                            <p class="display-5 fw-bold mb-4 tagline">
+                            <p class="display-5 fw-bold tagline">
                                 <span class="border-bottom border-3 p-1">
-                                    Finding the best Poké Partner has never been easier!
+                                    Finding the best Poké Partner has never been easier !
                                 </span>
                             </p>
                             <!-- Tagline -->
 
                             <!-- Description -->
-                            <p class="display-5 my-5 description">
+                            <p class="display-5 description">
                                 With <strong>PokéDopt</strong>, starting your Pokémon journey just requires a couple of clicks, and soon you’ll have a forever companion! Not only that, for people who just want a normal life and share their moments with their Poké Pals, then use the built-in social media platform to tell the world about the joys between you and your Pokémon.
                             </p>
                             <!-- Description -->
@@ -102,8 +103,11 @@
 </html>
 
 <style>
-    main {
+    #main-content {
         background-color: rgba(54,58,62,255);
+    }
+    .banner-section {
+        max-height: 40vh;
     }
     .banner {
         width: 100%;
@@ -116,23 +120,22 @@
         height: 40vh;
         margin-top: -40vh;
         filter: brightness(50%) blur(5px);
-        position: relative;
         z-index: 1;
     }
     .content-section {
         background-color: #5e6267;
-        height: 50vh;
+        min-height: 50vh;
     }
-        .tagline {
-            font-size: 1.25rem;
-            line-height: 2.25rem;
-        }
-        .description {
-            font-size: 1.125rem;
-        }
-        .signButtons span {
-            font-size: 1.5rem;
-        }
+    .tagline {
+        font-size: 1.25rem;
+        line-height: 2.25rem;
+    }
+    .description {
+        font-size: 1.125rem;
+    }
+    .signButtons span {
+        font-size: 1.5rem;
+    }
     /* Small Breakpoint */
     @media screen and (min-width: 576px) {
         .tagline {
