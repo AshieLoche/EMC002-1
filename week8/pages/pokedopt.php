@@ -8,17 +8,22 @@
         // Select Pokemon Data
         $sql = 
         "SELECT
-            pokemon.id,
-            pokemon.img,
-            pokemon.name,
-            species.species,
-            type1.type as type1,
-            type2.type as type2,
-            pokemon.description
-        FROM pokedopt.pokemon as pokemon
-        INNER JOIN pokedopt.species as species ON pokemon.species_id = species.id
-        INNER JOIN pokedopt.type as type1 ON species.type1_id = type1.id
-        INNER JOIN pokedopt.type as type2 ON species.type2_id = type2.id";
+            pokemon.id as ID,
+            pokemon.img as Img_Dir,
+            pokemon.name as Name,
+            species.species as Species,
+            type1.type as Type_1,
+            type2.type as Type_2,
+            pokemon.description as Description
+        FROM
+            pokedopt.pokemon as pokemon,
+            pokedopt.species as species,
+            pokedopt.type as type1,
+            pokedopt.type as type2
+        WHERE
+            pokemon.species_id = species.id AND
+            species.type1_id = type1.id AND
+            species.type2_id = type2.id";
 
         // SQL Check
         if (!mysqli_query($conn, $sql)) {
@@ -63,7 +68,7 @@
                                     <article class="card bg-dark text-light border-dark rounded-5 col-sm-10 col-md-8 col-lg-6 col-xl-4 col-xxl-3 p-0">
                                         
                                         <!-- Pokémon Card Image -->
-                                        <img src="<?php echo $poke['img']; ?>" alt="<?php echo $poke['species']; ?>" class="card-img-top img rounded-top-5 border-bottom border-bottom">
+                                        <img src="<?php echo $poke['Img_Dir']; ?>" alt="<?php echo $poke['Species']; ?>" class="card-img-top img rounded-top-5 border-bottom border-bottom">
                                         <!-- Pokémon Card Image -->
 
                                         <!-- Pokémon Card Body -->
@@ -77,7 +82,7 @@
 
                                                     <!-- Pokémon Card Header -->
                                                     <a href="#" class="card-header display-3 col-10 col-lg-9 p-0 text-decoration-none border-0">
-                                                        <?php echo $poke['name']; ?>
+                                                        <?php echo $poke['Name']; ?>
                                                     </a>
                                                     <!-- Pokémon Card Header -->
 
@@ -105,13 +110,13 @@
                                             
                                             <!-- Pokémon Card Title -->
                                             <section class="card-title display-4 fs-2">
-                                                <?php echo $poke['species']; ?>
+                                                <?php echo $poke['Species']; ?>
                                             </section>
                                             <!-- Pokémon Card Title -->
                                             
                                             <!-- Pokémon Card Description -->
                                             <section class="card-text display-5 fs-4 lh-sm">
-                                                <?php echo $poke['description']; ?>
+                                                <?php echo $poke['Description']; ?>
                                             </section>
                                             <!-- Pokémon Card Description -->
 
