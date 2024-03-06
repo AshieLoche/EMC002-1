@@ -87,10 +87,6 @@
                 </section>
                 <!-- Primary Section -->
                 
-                <!-- Side Nav -->
-                <?php require '../components/sideNav.php' ?>
-                <!-- Side Nav -->
-                
                 <!-- Sign In Modal -->
                 <?php require '../components/signIn.php' ?>
                 <!-- Sign In Modal -->
@@ -98,6 +94,10 @@
                 <!-- Sign Up Modal -->
                 <?php require '../components/signUp.php' ?>
                 <!-- Sign Up Modal -->
+                
+                <!-- Side Nav -->
+                <?php require '../components/sideNav.php' ?>
+                <!-- Side Nav -->
 
             
 </html>

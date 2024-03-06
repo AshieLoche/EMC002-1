@@ -320,25 +320,53 @@
 
     check(false, 'col', 'role', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
 
+    $hashed_password = password_hash('ThisIsMyPokedoptYIPPIE!!!<3', PASSWORD_DEFAULT);
     $tblContent = "
-    SELECT id, 'Ashie_Loche', 'ashie.loche@pokedopt.com', PASSWORD('ThisIsMyPokedoptYIPPIE!!!<3'), 'Ashie', 'Loche', '649123456789', 12/09/02
+    SELECT id, 'Ashie_Loche', 'ashie.loche@pokedopt.com', '$hashed_password', 'Ashie', 'Loche', '649123456789', '2002/12/09'
     FROM role
     WHERE role = 'admin'";
 
     check(false, 'col', 'account', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
 
-// Hash the password
-$password = 'ThisIsMyPokedoptYIPPIE!!!<3';
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-// Store the hashed password in the database
 
-// Later, verify the password
-$input_password = 'ThisIsMyPokedoptYIPPIE!!!<3';
-if (password_verify($input_password, $hashed_password)) {
-    echo 'Password is correct';
-} else {
-    echo 'Password is incorrect';
-}
+
+    $conn = mysqli_connect('localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
+
+    if (!$conn) {
+
+        die('Connection Failed: ' . $conn->connect_error);
+
+    } else {
+
+        $query = "SELECT username, password FROM account where username = 'Ashie_Loche'";
+        
+        // Execute and Check Query
+        if (!mysqli_query($conn, $query)) {
+
+            die('Query Error: ' . mysqli_error($conn));
+
+        } else {
+
+            // Get Results
+            $result = mysqli_query($conn, $query);
+
+            // Fetch Results to a Dictionary
+            $fetched = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+            // Free Results
+            mysqli_free_result($result);
+
+            $password = 'ThisIsMyPokedoptYIPPIE!!!<3';
+
+            echo (password_verify($password, $fetched[0]['password'])) ? 'true<br>' : 'false<br>';
+
+        }
+        // Execute and Check Query
+
+        // Close Connection
+        mysqli_close($conn);
+
+    }
 
 ?>
