@@ -57,7 +57,7 @@
       <section class="modal-body">
 
         <!-- Sign Up Modal Body Form -->
-        <form action="index.php" id="signUp-form" method="POST" class="d-flex flex-column gap-3">
+        <form action="../components/signUpProcess.php" id="signUp-form" method="POST" onsubmit="validate()" class="d-flex flex-column gap-3">
           
           <!-- Account Credentials Fieldset -->
           <fieldset class="text-dark d-flex flex-column gap-2">
@@ -79,7 +79,7 @@
             <!-- Account Credentials Password -->
   
             <!-- Account Credentials Confirm Password -->
-            <input type="password" class="form-control bg-dark text-light border-dark" placeholder="Confirm Password" name="confirm-password" required>
+            <input type="password" class="form-control bg-dark text-light border-dark" placeholder="Confirm Password" name="confirm_password" required>
             <!-- Account Credentials Confirm Password -->
   
           </fieldset>
@@ -108,7 +108,7 @@
 
             <section class="input-group">
               <span class="input-group-text bg-dark text-light border-dark">+63</span>
-              <input type="tel" class="form-control bg-dark text-light border-dark" placeholder="Mobile Number" name="mobile-number" pattern="[0-9]{10}" required>
+              <input type="tel" class="form-control bg-dark text-light border-dark" placeholder="Mobile Number" name="mobile" pattern="[0-9]{10}" required>
             </section>
             
             <section class="input-group">
@@ -117,7 +117,7 @@
                 <i class="bi bi-cake2 fs-5"></i>
               </span>
               
-              <input type="date" class="form-control bg-dark text-light border-dark" placeholder="Birthday" name="birthday" required>
+              <input type="date" class="form-control bg-dark text-light border-dark" placeholder="Birthday" name="bday" required>
               
             </section>
   
@@ -137,7 +137,7 @@
         <fieldset class="text-light fs-5">
 
           <!-- Auto Sign In Checkbox -->
-          <input type="checkbox" name="remember" id="remember_signUp" class="remember" form="signUp-form" value="<?php echo htmlspecialchars($_SESSION['auth_token']); ?>">
+          <input type="checkbox" name="remember" id="remember_signUp" class="remember" value="remember" form="signUp-form" disabled>
           <!-- Auto Sign In Checkbox -->
           
           <!-- Auto Sign In Label -->
@@ -148,7 +148,7 @@
         <!-- Auto Sign In Fieldset -->
         
         <!-- Sign Up Modal Submit -->
-        <button class="btn btn-secondary fw-bolder" type="submit" form="signUp-form" name="submit" id="signUp-submit">Submit</button>
+        <button class="btn btn-secondary fw-bolder" type="submit" form="signUp-form" name="signUp" id="signUp-submit">Submit</button>
         <!-- Sign Up Modal Submit -->
 
       </section>

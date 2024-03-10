@@ -57,7 +57,7 @@
       <section class="modal-body">
 
         <!-- Sign In Modal Body Form -->
-        <form action="index.php" id="signIn-form" method="POST">
+        <form action="../components/signInProcess.php" id="signIn-form" method="POST">
           
           <!-- Sign In Modal Body Form Container -->
           <div class="container-fluid">
@@ -92,7 +92,7 @@
         <fieldset class="text-light fs-5 autoSignIn">
 
           <!-- Auto Sign In Checkbox -->
-          <input type="checkbox" name="remember" id="remember_SignIn" class="remember" form="signIn-form" value="<?php echo htmlspecialchars($_SESSION['auth_token']); ?>">
+          <input type="checkbox" name="remember" id="remember_SignIn" class="remember" value="remember" form="signIn-form" disabled>
           <!-- Auto Sign In Checkbox -->
           
           <!-- Auto Sign In Label -->
@@ -103,7 +103,7 @@
         <!-- Auto Sign In Fieldset -->
         
         <!-- Sign In Modal Submit -->
-        <button class="btn btn-secondary fw-bolder" type="submit" form="signIn-form" name="submit" id="signIn-submit">Submit</button>
+        <button class="btn btn-secondary fw-bolder" type="submit" form="signIn-form" name="signIn" id="signIn-submit">Submit</button>
         <!-- Sign In Modal Submit -->
 
       </section>

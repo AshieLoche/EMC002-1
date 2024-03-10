@@ -5,7 +5,7 @@
                     <section class="btn-carousel p-0 pb-3 pb-md-0 d-flex flex-md-column gap-3 gap-md-0" >
                         
                         <!-- Profile Button -->
-                        <button href="#" class="btn btn-outline-light p-5" disabled>
+                        <button onclick="location.href='#'" class="btn btn-outline-light p-5" disabled>
                             
                             <!-- Profile Button Icon -->
                             <i class=" bi bi-person-circle"></i>
@@ -37,7 +37,7 @@
                         <!-- PokéDopt Button -->
                         
                         <!-- PokéTrade Button -->
-                        <button href="#" class="btn btn-outline-light p-5" disabled>
+                        <button onclick="location.href='#'" class="btn btn-outline-light p-5" disabled>
                             
                             <!-- PokéTrade Button Icon -->
                             <img src="../assets/img/icons/poketrade.ico" alt="" class="img mb-1">
@@ -53,7 +53,7 @@
                         <!-- PokéTrade Button -->
                         
                         <!-- PokéPals Button -->
-                        <button href="#" class="btn btn-outline-light p-5" disabled>
+                        <button onclick="location.href='#'" class="btn btn-outline-light p-5" disabled>
                             
                             <!-- PokéPals Button Icon -->
                             <img src="../assets/img/icons/pokepals.ico" alt="" class="img mb-1">
@@ -69,7 +69,7 @@
                         <!-- PokéPals Button -->
                         
                         <!-- PokÉvents Button -->
-                        <button href="#" class="btn btn-outline-light p-5" disabled>
+                        <button onclick="location.href='#'" class="btn btn-outline-light p-5" disabled>
                             
                             <!-- PokÉvents Button Icon -->
                             <i class="bi bi-calendar-event"></i>
@@ -85,7 +85,7 @@
                         <!-- PokÉvents Button -->
                         
                         <!-- PokéChat Button -->
-                        <button href="#" class="btn btn-outline-light p-5" disabled>
+                        <button onclick="location.href='#'" class="btn btn-outline-light p-5" disabled>
                             
                             <!-- PokéChat Button Icon -->
                             <i class="bi bi-chat-dots-fill"></i>

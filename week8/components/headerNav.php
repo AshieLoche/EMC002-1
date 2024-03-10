@@ -1,73 +1,4 @@
-<?php
-
-    // Get session cookie parameters
-    $params = session_get_cookie_params();
-
-    // Set session cookie to only be sent over HTTPS and only be accessible via the HTTP protocol
-    $params['secure'] = true;
-    $params['httponly'] = true;
-
-    // Set the session cookie parameters
-    session_set_cookie_params($params);
-
-    // Start the session
-    session_start();
-
-    if (!isset($_SESSION['auth_token']) && !isset($_COOKIE['auth_token'])) {
-        // Generate a unique token for the user
-        $token = bin2hex(random_bytes(32));
-    
-        // Save the token in the session
-        $_SESSION['auth_token'] = $token;
-    
-        // Set the token as a cookie
-        setcookie('auth_token', $token, time() + 60 * 60 * 24 * 30, '/');
-    }
-
-
-    // $conn = mysqli_connect('localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
-
-    // if (!$conn) {
-
-    //     die('Connection Failed: ' . $conn->connect_error);
-
-    // } else {
-
-    //     $query = "SELECT username, password FROM account where username = 'Ashie_Loche'";
-        
-    //     // Execute and Check Query
-    //     if (!mysqli_query($conn, $query)) {
-
-    //         die('Query Error: ' . mysqli_error($conn));
-
-    //     } else {
-
-    //         // Get Results
-    //         $result = mysqli_query($conn, $query);
-
-    //         // Fetch Results to a Dictionary
-    //         $fetched = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-    //         // Free Results
-    //         mysqli_free_result($result);
-
-    //         $password = 'ThisIsMyPokedoptYIPPIE!!!<3';
-
-    //         echo (password_verify($password, $fetched[0]['password'])) ? 'true<br>' : 'false<br>';
-
-    //     }
-    //     // Execute and Check Query
-
-    //     // Close Connection
-    //     mysqli_close($conn);
-
-    // }
-
-
-?>
-
-<head>
-        
+    <head>
         <!-- Meta -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -127,7 +58,7 @@
                                     <!-- Header Nav Search Button -->
 
                                     <!-- Header Nav Filter Button -->
-                                    <button class="navbar-toggler btn btn-outline-light border-0 p-2">
+                                    <button class="navbar-toggler btn btn-outline-light border-0 p-2" disabled>
 
                                         <!-- Header Nav Filter Icon -->
                                         <i class="bi bi-funnel-fill fs-2"></i>
@@ -143,7 +74,7 @@
                                 <section class="col-md-4 order-1 order-md-2 d-flex justify-content-center align-items-center">
 
                                     <!-- Header Nav Logo Link -->
-                                    <a href="../pages/pokedopt.php" class="navbar-brand btn btn-outline-light border-0 m-0 p-2 d-flex gap-2" id="header-nav-logo-link">
+                                    <button onclick="location.href='../pages/pokedopt.php'" class="navbar-brand btn btn-outline-light border-0 m-0 p-2 d-flex gap-2" id="header-nav-logo-link">
 
                                         <!-- Header Nav Logo Icon -->
                                         <img src="../assets/img/icons/pokedopt.ico" alt="PokéDopt Icon" class="img" id="header-nav-logo-icon">
@@ -154,8 +85,8 @@
                                             PokéDopt
                                         </span>
                                         <!-- Header Nav Logo Title -->
-
-                                    </a>
+                                        
+                                    </button>
                                     <!-- Header Nav Logo Link -->
 
                                 </section>
@@ -165,7 +96,7 @@
                                 <section class="col-6 col-md-4 order-3 d-flex justify-content-end align-itmes-center gap-2 gap-md-3 p-2 pe-md-3" id="actionBtns">
 
                                     <!-- Header Nav Notif Button -->
-                                    <button class="navbar-toggler btn btn-outline-light border-0 p-2">
+                                    <button class="navbar-toggler btn btn-outline-light border-0 p-2" disabled>
 
                                         <!-- Header Notif Button Icon -->
                                         <i class="bi bi-bell-fill fs-2"></i>
@@ -175,7 +106,7 @@
                                     <!-- Header Nav Notif Button -->
 
                                     <!-- Header Nav PokéList Button -->
-                                    <button class="navbar-toggler btn btn-outline-light p-2 d-none">
+                                    <button onclick="location.href='#'" class="navbar-toggler btn btn-outline-light p-2 d-none">
 
                                         <!-- Header Nav PokéList Title -->
                                         <span class="fw-bold fs-4" id="pokelist">
@@ -224,7 +155,7 @@
                                         <!-- Header Nav Search Bar -->
 
                                         <!-- Header Nav Search Button -->
-                                        <button class="btn btn-outline-light" id="search-button" type="button">
+                                        <button class="btn btn-outline-light" id="search-button" type="button" disabled>
 
                                             <!-- Header Nav Search Button Icon -->
                                             <i class="bi bi-search fs-4"></i>

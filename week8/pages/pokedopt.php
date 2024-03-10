@@ -2,6 +2,13 @@
 
     require '../config/db_connect.php';
 
+    session_start();
+
+    if (!isset($_SESSION['user'])) {
+        header('Location: ../pages/guest.php');
+        exit;
+    }
+
     // Pokemon Table
     {
 

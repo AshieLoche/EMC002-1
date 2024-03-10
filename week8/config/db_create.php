@@ -297,7 +297,7 @@
                         
                         'ashie.loche@pokedopt.com', 
                         
-                        '?password?',
+                        ':password',
 
                         (SELECT id FROM role WHERE role = 'admin'),
 
@@ -396,7 +396,7 @@
                 $query = "INSERT INTO $this->tbl_name $this->tbl_record";
 
                 if ($this->tbl_name == 'account') {
-                    $query = str_replace('?password', password_hash('ThisIsMyPokedoptYIPPIE!!!<3', PASSWORD_DEFAULT), $query);
+                    $query = str_replace(':password', password_hash('ThisIsMyPokedoptYIPPIE!!!<3', PASSWORD_DEFAULT), $query);
                 }
                 
             }
