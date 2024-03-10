@@ -1,371 +1,418 @@
 <?php
 
-    // Check if existing in Database
-    function check($root, $target, $tblName = null, $tblContent = null, $host, $user, $password, $db_name) {
+    $db_create = new DB_Create();
+    $db_create->start();
 
-        // Connect to Database
-        if ($root) {
-            $conn = mysqli_connect('localhost', 'root', '', 'mysql');
-        } else {
-            $conn = ($target == 'db') ? mysqli_connect($host, $user, $password, 'mysql') : mysqli_connect($host, $user, $password, $db_name);
-        }
-        // Connect to Database
+    class DB_Create {
 
-        // Check Target
-        if ($target == 'user') {
+        private $host, $user, $password, $db_name, $tbl_name, $tbl_field, $tbl_record;
 
-            $query = "SELECT Host, User, Password FROM $db_name.user WHERE Host = '$host' AND User = '$user' AND Password = PASSWORD('$password')";
+        private $targets = array('db', 'tbl', 'col');
 
-        } else if ($target == 'grants') {
+        private $tbls = array(
+            array(
+                'tbl_name' => 'type',
 
-            $query = "SHOW GRANTS FOR '$user'@'$host'";
+                'tbl_field' => "
+                    id INT AUTO_INCREMENT,
+                    type VARCHAR(8) CHECK (type in ('FIRE', 'WATER', 'ELECTRIC', 'GRASS', 'ICE', 'FIGHTING', 'POISON', 'GROUND', 'FLYING', 'PSYCHIC', 'BUG', 'NORMAL', 'ROCK', 'GHOST', 'DRAGON', 'DARK', 'STEEL', 'FAIRY', 'NULL')),
+                    img VARCHAR(255) NOT NULL DEFAULT (''),
+                    created_at TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP),
+                    PRIMARY KEY (id)
+                ",
 
-        } else if ($target == 'db') {
+                'tbl_record' => "
+                    (type, img)
 
-            $query = "SHOW DATABASES WHERE `Database` = '$db_name'";
-            
-        } else if ($target == 'tbl') {
+                    VALUES
 
-            $query = "SHOW TABLES";
-            
-        } else if ($target == 'col') {
+                    ('FIRE', '../assets/img/types/fire.jpg'),
 
-            $query = "SELECT * FROM $tblName";
-            
-        }
-        // Check Target
+                    ('WATER', '../assets/img/types/water.jpg'),
 
-        // Check Database Connection
-        if (!$conn) {
+                    ('ELECTRIC', '../assets/img/types/electric.jpg'),
 
-            die('Connection Failed: ' . $conn->connect_error);
+                    ('GRASS', '../assets/img/types/grass.jpg'),
 
-        } else {
-            
-            // Execute and Check Query
-            if (!mysqli_query($conn, $query)) {
+                    ('ICE', '../assets/img/types/ice.jpg'),
 
-                die('Query Error: ' . mysqli_error($conn));
-
-            } else {
-
-                // Get Results
-                $result = mysqli_query($conn, $query);
-
-                // Fetch Results to a Dictionary
-                $fetched = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-                // Free Results
-                mysqli_free_result($result);
-
-                // Create New Instance
-                if (empty($fetched)) {
-                    create($root, $target, $tblName, $tblContent, $host, $user, $password, $db_name);
-                } else if ($target == 'grants') {
-                    if (strpos($fetched[0]["Grants for $user@$host"], 'USAGE') != false) {
-                        create($root, $target, $tblName, $tblContent, $host, $user, $password, $db_name);
-                    }
-                } else if ($target == 'tbl') {
-                    $tblCheck;
-
-                    foreach ($fetched as $field) {
-                        if ($field['Tables_in_pokedopt'] == $tblName) {
-                            $tblCheck = true;
-                            break;
-                        } else {
-                            $tblCheck = false;
-                            continue;
-                        }
-                    }
-
-                    if(!$tblCheck) {
-                        create($root, $target, $tblName, $tblContent, $host, $user, $password, $db_name);
-                    }
-                }
-                // Create New Instance
-
-            }
-            // Execute and Check Query
-
-            // Close Connection
-            mysqli_close($conn);
-
-        }
-        // Check Database Connection
-
-    }
-    // Check if existing in Database
-
-    // Create in DAtabase
-    function create($root, $target, $tblName = null, $tblContent = null, $host, $user, $password, $db_name) {
-
-        // Connect to Database
-        if ($root) {
-            $conn = mysqli_connect('localhost', 'root', '', 'mysql');
-        } else {
-            $conn = ($target == 'db') ? mysqli_connect($host, $user, $password, 'mysql') : mysqli_connect($host, $user, $password, $db_name);
-        }
-        // Connect to Database
-
-        // Check Target
-        if ($target == 'user') {
-
-            $query = "CREATE USER IF NOT EXISTS '{$user}'@'{$host}' IDENTIFIED BY '{$password}'";
-
-        } else if ($target == 'grants') {
-
-            $query = "GRANT ALL PRIVILEGES ON *.* TO '{$user}'@'{$host}' WITH GRANT OPTION";
-
-        } else if ($target == 'db') {
-
-            $query = "CREATE DATABASE IF NOT EXISTS {$db_name}";
-            
-        } else if ($target == 'tbl') {
-
-            $query = "CREATE TABLE IF NOT EXISTS $tblName ($tblContent)";
-            
-        } else if ($target == 'col') {
-            
-            if ($tblName == 'type') {
-                $cols = '(type, img)';
-            } else if  ($tblName == 'species') {
-                $cols = '(species, type1_id, type2_id)';
-            } else if ($tblName == 'pokemon') {
-                $cols = '(img, name, species_id, description)';
-            } else if ($tblName == 'role') {
-                $cols = '(role)';
-            } else if ($tblName == 'account') {
-                $cols = '(role_id, username, email, password, fname, lname, mobile, bday)';
-            }
-
-            $query = "INSERT INTO $tblName $cols $tblContent";
-
-        }
-        // Check Target
-
-        // Check Database Connection
-        if (!$conn) {
-
-            die('Connection Failed: ' . $conn->connect_error);
-
-        } else {
+                    ('FIGHTING', '../assets/img/types/fighting.jpg'),
                     
-            if (!mysqli_query($conn, $query)) {
-                die('Query Error: ' . mysqli_error($conn));
+                    ('POISON', '..assets/img/types/poison.jpg'),
+
+                    ('GROUND', '..assets/img/types/ground.jpg'),
+
+                    ('FLYING', '..assets/img/types/flying.jpg'),
+
+                    ('PSYCHIC', '../assets/img/types/psychic.jpg'),
+
+                    ('BUG', '../assets/img/types/bug.jpg'),
+
+                    ('NORMAL', '../assets/img/types/normal.jpg'),
+
+                    ('ROCK', '../assets/img/types/rock.jpg'),
+
+                    ('GHOST', '../assets/img/types/ghost.jpg'),
+
+                    ('DRAGON', '../assets/img/types/dragon.jpg'),
+
+                    ('DARK', '../assets/img/types/dark.jpg'),
+
+                    ('STEEL', '../assets/img/types/steel.jpg'),
+
+                    ('FAIRY', '../assets/img/types/fairy.jpg'),
+                    
+                    ('NULL', '')
+                "
+            ),
+            
+            array(
+                'tbl_name' => 'species',
+
+                'tbl_field' => "
+                    id INT AUTO_INCREMENT,
+                    species VARCHAR(255) NOT NULL UNIQUE,
+                    type1_id INT NOT NULL,
+                    type2_id INT NOT NULL CHECK (type2_id != type1_id),
+                    created_at TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP),
+                    PRIMARY KEY (id),
+                    FOREIGN KEY (type1_id) REFERENCES type (id),
+                    FOREIGN KEY (type2_id) REFERENCES type (id)
+                ",
+
+                'tbl_record' => "
+                    (species, type1_id, type2_id)
+
+                    VALUES
+
+                    (
+                        'Chandelure',
+
+                        (SELECT id FROM type WHERE type = 'GHOST'),
+
+                        (SELECT id FROM type WHERE type = 'FIRE')
+                    ),
+
+                    (
+                        'Gengar',
+                        
+                        (SELECT id FROM type WHERE type = 'GHOST'),
+                        
+                        (SELECT id FROM type WHERE type = 'POISON')
+                    ),
+
+                    (
+                        'Magnezone',
+                        
+                        (SELECT id FROM type WHERE type = 'ELECTRIC'),
+                        
+                        (SELECT id FROM type WHERE type = 'STEEL')
+                    ),
+
+                    (
+                        'Dragonite',
+                        
+                        (SELECT id FROM type WHERE type = 'DRAGON'),
+                        
+                        (SELECT id FROM type WHERE type = 'FLYING')
+                    ),
+
+                    (
+                        'Lugia',
+                        
+                        (SELECT id FROM type WHERE type = 'PSYCHIC'),
+                        
+                        (SELECT id FROM type WHERE type = 'FLYING')
+                    ),
+
+                    (
+                        'Incineroar',
+                        
+                        (SELECT id FROM type WHERE type = 'FIRE'),
+                        
+                        (SELECT id FROM type WHERE type = 'DARK')
+                    ),
+
+                    (
+                        'Dusknoir',
+                        
+                        (SELECT id FROM type WHERE type = 'GHOST'),
+                        
+                        (SELECT id FROM type WHERE type = 'NULL')
+                    ),
+
+                    (
+                        'Prinplup',
+                        
+                        (SELECT id FROM type WHERE type = 'WATER'),
+                        
+                        (SELECT id FROM type WHERE type = 'NULL')
+                    ),
+
+                    (
+                        'Koraidon',
+                        
+                        (SELECT id FROM type WHERE type = 'FIGHTING'),
+                        
+                        (SELECT id FROM type WHERE type = 'DRAGON')
+                    )
+                "
+            ),
+            
+            array(
+                'tbl_name' => 'pokemon',
+
+                'tbl_field' => "
+                    id INT AUTO_INCREMENT,
+                    name VARCHAR(255) NOT NULL,
+                    species_id INT NOT NULL,
+                    description LONGTEXT NOT NULL,
+                    img VARCHAR(255) NOT NULL DEFAULT (''),
+                    intake_time DATETIME,
+                    adoption_time DATETIME,
+                    created_at TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP),
+                    PRIMARY KEY (id),
+                    FOREIGN KEY (species_id) REFERENCES species (id)
+                ",
+
+                'tbl_record' => "
+                    (name, species_id, description, img, intake_time)
+
+                    VALUES
+
+                    (
+                        'Amier',
+
+                        (SELECT id FROM species WHERE species = 'Chandelure'),
+
+                        'A gentle and emotional pokémon that enjoys floating about in broad daylight anywhere there are flowers.',
+
+                        '../assets/img/pokemon/chandelure.jpg',
+
+                        NOW()
+                    ),
+                    
+                    (
+                        'Leiroh',
+
+                        (SELECT id FROM species WHERE species = 'Gengar'),
+
+                        'A creative and shy pokémon that really enjoys some peace and quiet. When disturbed from his artist zone, he will throw a temper tantrum.',
+
+                        '../assets/img/pokemon/gengar.jpg',
+                        
+                        NOW()
+                    ),
+                    
+                    (
+                        'Paliz',
+
+                        (SELECT id FROM species WHERE species = 'Magnezone'),
+
+                        'A cheeky and mischievous pokémon that enjoys shorting out devices but is easily distracted by her favourite food, macaron.',
+
+                        '../assets/img/pokemon/magnezone.jpg',
+                        
+                        NOW()
+                    ),
+                    
+                    (
+                        'Dergz',
+
+                        (SELECT id FROM species WHERE species = 'Dragonite'),
+
+                        'A Dragonite that will hug everything and show his unending affection and love to anything and everything. He does not easily forgive anyone who hurts him or the people and pokémon he cares about. He will not hesitate to protect whatever the cost might be.',
+
+                        '../assets/img/pokemon/dragonite.jpg',
+                        
+                        NOW()
+                    ),
+                    
+                    (
+                        'Teraille',
+
+                        (SELECT id FROM species WHERE species = 'Lugia'),
+
+                        'A Lugia with dwarfism and is very proud of it. He flies about quickly and freely, enjoying how more agile he is due to being smaller and how he can go to places where normal Lugias can’t usually go.',
+
+                        '../assets/img/pokemon/lugia.jpg',
+                        
+                        NOW()
+                    ),
+                    
+                    (
+                        'Ohnerion',
+
+                        (SELECT id FROM species WHERE species = 'Incineroar'),
+
+                        'A fiesty and stubborn pokémon, it will take a lot before he start to trust another. But once earning his trust, you might be smothering by tons of affectionate play that might end up with you being scorched or pumelled around with love.',
+
+                        '../assets/img/pokemon/incineroar.jpg',
+                        
+                        NOW()
+                    )
+                "
+            ),
+            
+            array(
+                'tbl_name' => 'role',
+
+                'tbl_field' => "
+                    id INT AUTO_INCREMENT,
+                    role VARCHAR(255) NOT NULL UNIQUE,
+                    created_at TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP),
+                    PRIMARY KEY (id)
+                ",
+
+                'tbl_record' => "
+                    (role) VALUES ('admin'), ('staff'), ('user')
+                "
+            ),
+            
+            array(
+                'tbl_name' => 'account',
+
+                'tbl_field' => "
+                    id INT AUTO_INCREMENT,
+                    username VARCHAR(255) NOT NULL UNIQUE,
+                    email VARCHAR(255) NOT NULL UNIQUE CHECK (email REGEXP '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$'),
+                    password VARCHAR(255) NOT NULL UNIQUE,
+                    role_id INT NOT NULL,
+                    fname VARCHAR(255) NOT NULL,
+                    lname VARCHAR(255) NOT NULL,
+                    mobile VARCHAR(12) NOT NULL UNIQUE CHECK (mobile REGEXP '^639[0-9]{9}$'),
+                    bday DATE NOT NULL,
+                    created_at TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP),
+                    PRIMARY KEY (id),
+                    FOREIGN KEY (role_id) REFERENCES role (id)
+                ",
+
+                'tbl_record' => "
+                    (username, email, password, role_id, fname, lname, mobile, bday)
+
+                    VALUES
+
+                    (
+                        'Ashie_Loche',
+                        
+                        'ashie.loche@pokedopt.com', 
+                        
+                        '?password?',
+
+                        (SELECT id FROM role WHERE role = 'admin'),
+
+                        'Ashie',
+
+                        'Loche',
+
+                        '639165733654',
+
+                        '2002/12/09'
+                    )
+                "
+            )
+        );
+
+        public function __construct() {
+            $this->host = 'localhost';
+            $this->user = 'root';
+            $this->password = '';
+            $this->db_name = 'pokedopt';
+        }
+
+        public function start() {
+            foreach ($this->targets as $target) {
+
+                if ($target == 'tbl') {
+                    foreach ($this->tbls as $tbl) {
+                        $this->tbl_name = $tbl['tbl_name'];
+                        $this->tbl_field = $tbl['tbl_field'];
+                        $this->check($target);
+                    }
+                } else if ($target == 'col') {
+                    foreach ($this->tbls as $tbl) {
+                        $this->tbl_name = $tbl['tbl_name'];
+                        $this->tbl_record = $tbl['tbl_record'];
+                        $this->check($target);
+                    }
+                } else {
+                    $this->check($target);
+                }
+
+            }
+        }
+
+        private function check($target) {
+            
+            $conn = mysqli_connect($this->host, $this->user, $this->password, ($target == 'db') ? 'mysql' : $this->db_name);
+
+            if ($target == 'db') {
+                $query = "SHOW DATABASES LIKE '$this->db_name'";
+            } else if ($target == 'tbl') {
+                $query = "SHOW TABLES FROM $this->db_name WHERE Tables_in_$this->db_name = '$this->tbl_name'";
+            } else if ($target == 'col') {
+                $query = "SELECT * FROM $this->tbl_name";
+            }
+
+            if (!$conn) {
+                die('Connection Failed: ' . $conn->connect_error . '<br>');
+            } else  {
+                if (!mysqli_query($conn, $query)) {
+                    die('Query Error: ' . mysqli_error($conn) . '<br>');
+                } else {
+
+                    // Get Results
+                    $result = mysqli_query($conn, $query);
+    
+                    // Fetch Results to a Dictionary
+                    $fetched = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    
+                    // Free Results
+                    mysqli_free_result($result);
+                    
+                    if (empty($fetched)) {
+                        $this->create($target);
+                    }
+
+                }
             }
 
             // Close Connection
             mysqli_close($conn);
 
         }
-        // Check Database Connection
 
-    }
-    
-    check(true, 'user', null, null,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'mysql');
+        private function create($target) {
+            
+            $conn = mysqli_connect($this->host, $this->user, $this->password, ($target == 'db') ? 'mysql' : $this->db_name);
+            
+            $query = "CREATE ";
 
-    check(true, 'grants', null, null, 'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'mysql');
+            if ($target == 'db') {
+                $query .= "DATABASE IF NOT EXISTS $this->db_name";
+            } else if ($target == 'tbl') {
+                $query .= "TABLE IF NOT EXISTS $this->tbl_name ($this->tbl_field)";
+            } else if ($target == 'col') {
+                $query = "INSERT INTO $this->tbl_name $this->tbl_record";
 
-    check(false, 'db', null, null, 'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
+                if ($this->tbl_name == 'account') {
+                    $query = str_replace('?password', password_hash('ThisIsMyPokedoptYIPPIE!!!<3', PASSWORD_DEFAULT), $query);
+                }
+                
+            }
 
-    $tblContent = "id INT AUTO_INCREMENT,
-    type VARCHAR(255) CHECK (type in ('FIRE', 'WATER', 'ELECTRIC', 'GRASS', 'ICE', 'FIGHTING', 'POISON', 'GROUND', 'FLYING', 'PSYCHIC', 'BUG', 'NORMAL', 'ROCK', 'GHOST', 'DRAGON', 'DARK', 'STEEL', 'FAIRY', 'NULL')),
-    img VARCHAR(255),
-    PRIMARY KEY (id)";
+            if (!$conn) {
+                die('Connection Failed: ' . $conn->connect_error . '<br>');
+            } else  {
+                if (!mysqli_query($conn, $query)) {
+                    die('Query Error: ' . mysqli_error($conn) . '<br>');
+                }
+            }
 
-    check(false, 'tbl', 'type', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
-
-    $tblContent = "id INT AUTO_INCREMENT,
-    species VARCHAR(255) UNIQUE NOT NULL,
-    type1_id INT NOT NULL,
-    type2_id INT NOT NULL CHECK (type2_id != type1_id),
-    PRIMARY KEY (id),
-    FOREIGN KEY (type1_id) REFERENCES type (id),
-    FOREIGN KEY (type2_id) REFERENCES type (id)";
-    
-    check(false, 'tbl', 'species', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
-
-    $tblContent = "id INT AUTO_INCREMENT,
-    img VARCHAR(255),
-    name VARCHAR(255) NOT NULL,
-    species_id INT,
-    description LONGTEXT NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (species_id) REFERENCES species (id)";
-
-    check(false, 'tbl', 'pokemon', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
-
-    $tblContent = "id INT AUTO_INCREMENT,
-    role VARCHAR(255) UNIQUE NOT NULL,
-    PRIMARY KEY (id)";
-
-    check(false, 'tbl', 'role', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
-
-    $tblContent = "id INT AUTO_INCREMENT,
-    role_id INT NOT NULL,
-    username VARCHAR(255) UNIQUE NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL CHECK (email REGEXP '^.+@+.+$'),
-    password VARCHAR(255) UNIQUE NOT NULL,
-    fname VARCHAR(255) NOT NULL,
-    lname VARCHAR(255) NOT NULL,
-    mobile VARCHAR(13) UNIQUE NOT NULL CHECK (mobile REGEXP '^[0-9]{12}$'),
-    bday DATE NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (role_id) REFERENCES role (id)";
-
-    check(false, 'tbl', 'account', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
-
-    $tblContent = "VALUES
-    ('FIRE', '../assets/img/types/fire.jpg'),
-    ('WATER', '../assets/img/types/water.jpg'),
-    ('ELECTRIC', '../assets/img/types/electric.jpg'),
-    ('GRASS', '../assets/img/types/grass.jpg'),
-    ('ICE', '../assets/img/types/ice.jpg'),
-    ('FIGHTING', '../assets/img/types/fighting.jpg'),
-    ('POISON', '..assets/img/types/poison.jpg'),
-    ('GROUND', '..assets/img/types/ground.jpg'),
-    ('FLYING', '..assets/img/types/flying.jpg'),
-    ('PSYCHIC', '../assets/img/types/psychic.jpg'),
-    ('BUG', '../assets/img/types/bug.jpg'),
-    ('NORMAL', '../assets/img/types/normal.jpg'),
-    ('ROCK', '../assets/img/types/rock.jpg'),
-    ('GHOST', '../assets/img/types/ghost.jpg'),
-    ('DRAGON', '../assets/img/types/dragon.jpg'),
-    ('DARK', '../assets/img/types/dark.jpg'),
-    ('STEEL', '../assets/img/types/steel.jpg'),
-    ('FAIRY', '../assets/img/types/fairy.jpg'),
-    ('NULL', '')";
-    
-    check(false, 'col', 'type', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
-
-    $tblContent = "
-    SELECT 'Chandelure', type1.id, type2.id
-    FROM pokedopt.type as type1
-    INNER JOIN pokedopt.type as type2 ON type2.type = 'FIRE'
-    WHERE type1.type = 'GHOST'
-    UNION ALL
-    SELECT 'Gengar', type1.id, type2.id
-    FROM pokedopt.type as type1
-    INNER JOIN pokedopt.type as type2 ON type2.type = 'POISON'
-    WHERE type1.type = 'GHOST'
-    UNION ALL
-    SELECT 'Magnezone', type1.id, type2.id
-    FROM pokedopt.type as type1
-    INNER JOIN pokedopt.type as type2 ON type2.type = 'STEEL'
-    WHERE type1.type = 'ELECTRIC'
-    UNION ALL
-    SELECT 'Dragonite', type1.id, type2.id
-    FROM pokedopt.type as type1
-    INNER JOIN pokedopt.type as type2 ON type2.type = 'FLYING'
-    WHERE type1.type = 'DRAGON'
-    UNION ALL
-    SELECT 'Lugia', type1.id, type2.id
-    FROM pokedopt.type as type1
-    INNER JOIN pokedopt.type as type2 ON type2.type = 'FLYING'
-    WHERE type1.type = 'PSYCHIC'
-    UNION ALL
-    SELECT 'Incineroar', type1.id, type2.id
-    FROM pokedopt.type as type1
-    INNER JOIN pokedopt.type as type2 ON type2.type = 'DARK'
-    WHERE type1.type = 'FIRE'
-    UNION ALL
-    SELECT 'Dusknoir', type1.id, type2.id
-    FROM pokedopt.type as type1
-    INNER JOIN pokedopt.type as type2 ON type2.type = 'NULL'
-    WHERE type1.type = 'GHOST'
-    UNION ALL
-    SELECT 'Prinplup', type1.id, type2.id
-    FROM pokedopt.type as type1
-    INNER JOIN pokedopt.type as type2 ON type2.type = 'NULL'
-    WHERE type1.type = 'WATER'
-    UNION ALL
-    SELECT 'Koraidon', type1.id, type2.id
-    FROM pokedopt.type as type1
-    INNER JOIN pokedopt.type as type2 ON type2.type = 'DRAGON'
-    WHERE type1.type = 'FIGHTING'";
-
-    check(false, 'col', 'species', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
-
-    $tblContent = "
-    SELECT '../assets/img/pokemon/chandelure.jpg', 'Amier', id, 'A gentle and emotional pokémon that enjoys floating about in broad daylight anywhere there are flowers.'
-    FROM pokedopt.species as species
-    WHERE species.species = 'Chandelure'
-    UNION ALL
-    SELECT '../assets/img/pokemon/gengar.jpg', 'Leiroh', id, 'A creative and shy pokémon that really enjoys some peace and quiet. When disturbed from his artist zone, he will throw a temper tantrum.'
-    FROM pokedopt.species as species
-    WHERE species.species = 'Gengar'
-    UNION ALL
-    SELECT '../assets/img/pokemon/magnezone.jpg', 'Paliz', id, 'A cheeky and mischievous pokémon that enjoys shorting out devices but is easily distracted by her favourite food, macaron.'
-    FROM pokedopt.species as species
-    WHERE species.species = 'Magnezone'
-    UNION ALL
-    SELECT '../assets/img/pokemon/dragonite.jpg', 'Dergz', id, 'He will hug everything and show his unending affection and love to anything and everything. He does not easily forgive anyone who hurts him or the people and pokémon he cares about. He will not hesitate to protect whatever the cost might be.'
-    FROM pokedopt.species as species
-    WHERE species.species = 'Dragonite'
-    UNION ALL
-    SELECT '../assets/img/pokemon/lugia.jpg', 'Teraille', id, 'A Lugia with dwarfism and is very proud of it. He flies about quickly and freely, enjoying how more agile he is due to being smaller and how he can go to places where normal Lugias can’t usually go.'
-    FROM pokedopt.species as species
-    WHERE species.species = 'Lugia'
-    UNION ALL
-    SELECT '../assets/img/pokemon/incineroar.jpg', 'Ohnerion', id, 'A fiesty and stubborn pokémon, it will take a lot before he start to trust another. But once earning his trust, you might be smothering by tons of affectionate play that might end up with you being scorched or pumelled around with love.'
-    FROM pokedopt.species as species
-    WHERE species.species = 'Incineroar'";
-
-    check(false, 'col', 'pokemon', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
-
-    $tblContent = "VALUES
-    ('admin'),
-    ('staff'),
-    ('user')";
-
-    check(false, 'col', 'role', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
-
-    $hashed_password = password_hash('ThisIsMyPokedoptYIPPIE!!!<3', PASSWORD_DEFAULT);
-    $tblContent = "
-    SELECT id, 'Ashie_Loche', 'ashie.loche@pokedopt.com', '$hashed_password', 'Ashie', 'Loche', '649123456789', '2002/12/09'
-    FROM role
-    WHERE role = 'admin'";
-
-    check(false, 'col', 'account', $tblContent,'localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
-
-    
-
-
-    $conn = mysqli_connect('localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
-
-    if (!$conn) {
-
-        die('Connection Failed: ' . $conn->connect_error);
-
-    } else {
-
-        $query = "SELECT username, password FROM account where username = 'Ashie_Loche'";
-        
-        // Execute and Check Query
-        if (!mysqli_query($conn, $query)) {
-
-            die('Query Error: ' . mysqli_error($conn));
-
-        } else {
-
-            // Get Results
-            $result = mysqli_query($conn, $query);
-
-            // Fetch Results to a Dictionary
-            $fetched = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-            // Free Results
-            mysqli_free_result($result);
-
-            $password = 'ThisIsMyPokedoptYIPPIE!!!<3';
-
-            echo (password_verify($password, $fetched[0]['password'])) ? 'true<br>' : 'false<br>';
+            // Close Connection
+            mysqli_close($conn);
 
         }
-        // Execute and Check Query
-
-        // Close Connection
-        mysqli_close($conn);
 
     }
 

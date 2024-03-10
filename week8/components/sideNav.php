@@ -5,7 +5,7 @@
                     <section class="btn-carousel p-0 pb-3 pb-md-0 d-flex flex-md-column gap-3 gap-md-0" >
                         
                         <!-- Profile Button -->
-                        <a href="#" class="btn btn-outline-light p-5">
+                        <button href="#" class="btn btn-outline-light p-5" disabled>
                             
                             <!-- Profile Button Icon -->
                             <i class=" bi bi-person-circle"></i>
@@ -17,11 +17,11 @@
                             </span>
                             <!-- Profile Button Title -->
                             
-                        </a>
+                        </button>
                         <!-- Profile Button -->
                         
                         <!-- PokéDopt Button -->
-                        <a href="#" class="btn btn-outline-light p-5">
+                        <button onclick="location.href='../pages/pokedopt.php'" class="btn btn-outline-light p-5">
                             
                             <!-- PokéDopt Button Icon -->
                             <img src="../assets/img/icons/pokedopt.ico" alt="" class="img mb-1">
@@ -33,11 +33,11 @@
                             </span>
                             <!-- PokéDopt Button Title -->
                     
-                        </a>
+                        </button>
                         <!-- PokéDopt Button -->
                         
                         <!-- PokéTrade Button -->
-                        <a href="#" class="btn btn-outline-light p-5">
+                        <button href="#" class="btn btn-outline-light p-5" disabled>
                             
                             <!-- PokéTrade Button Icon -->
                             <img src="../assets/img/icons/poketrade.ico" alt="" class="img mb-1">
@@ -49,11 +49,11 @@
                             </span>
                             <!-- PokéTrade Button Title -->
                     
-                        </a>
+                        </button>
                         <!-- PokéTrade Button -->
                         
                         <!-- PokéPals Button -->
-                        <a href="#" class="btn btn-outline-light p-5">
+                        <button href="#" class="btn btn-outline-light p-5" disabled>
                             
                             <!-- PokéPals Button Icon -->
                             <img src="../assets/img/icons/pokepals.ico" alt="" class="img mb-1">
@@ -65,11 +65,11 @@
                             </span>
                             <!-- PokéPals Button Title -->
                     
-                        </a>
+                        </button>
                         <!-- PokéPals Button -->
                         
                         <!-- PokÉvents Button -->
-                        <a href="#" class="btn btn-outline-light p-5">
+                        <button href="#" class="btn btn-outline-light p-5" disabled>
                             
                             <!-- PokÉvents Button Icon -->
                             <i class="bi bi-calendar-event"></i>
@@ -81,11 +81,11 @@
                             </span>
                             <!-- PokÉvents Button Title -->
                     
-                        </a>
+                        </button>
                         <!-- PokÉvents Button -->
                         
                         <!-- PokéChat Button -->
-                        <a href="#" class="btn btn-outline-light p-5">
+                        <button href="#" class="btn btn-outline-light p-5" disabled>
                             
                             <!-- PokéChat Button Icon -->
                             <i class="bi bi-chat-dots-fill"></i>
@@ -97,11 +97,11 @@
                             </span>
                             <!-- PokéChat Button Title -->
                     
-                        </a>
+                        </button>
                         <!-- PokéChat Button -->
                         
                         <!-- Side Nav Toggler -->
-                        <button class="btn btn-light d-none d-md-block" id="side-nav-toggler">
+                        <button class="btn btn-outline-light" id="side-nav-toggler">
                             <!-- Side Nav Toggler Icon  -->
                             <i class="bi bi-box-arrow-in-down-left" id="side-nav-toggler-icon"></i>
                             <!-- Side Nav Toggler Icon  -->

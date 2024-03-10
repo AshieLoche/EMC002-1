@@ -24,6 +24,46 @@
         setcookie('auth_token', $token, time() + 60 * 60 * 24 * 30, '/');
     }
 
+
+    // $conn = mysqli_connect('localhost', 'ashie', 'ThisIsMyPokedoptYIPPIE!!!<3', 'pokedopt');
+
+    // if (!$conn) {
+
+    //     die('Connection Failed: ' . $conn->connect_error);
+
+    // } else {
+
+    //     $query = "SELECT username, password FROM account where username = 'Ashie_Loche'";
+        
+    //     // Execute and Check Query
+    //     if (!mysqli_query($conn, $query)) {
+
+    //         die('Query Error: ' . mysqli_error($conn));
+
+    //     } else {
+
+    //         // Get Results
+    //         $result = mysqli_query($conn, $query);
+
+    //         // Fetch Results to a Dictionary
+    //         $fetched = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    //         // Free Results
+    //         mysqli_free_result($result);
+
+    //         $password = 'ThisIsMyPokedoptYIPPIE!!!<3';
+
+    //         echo (password_verify($password, $fetched[0]['password'])) ? 'true<br>' : 'false<br>';
+
+    //     }
+    //     // Execute and Check Query
+
+    //     // Close Connection
+    //     mysqli_close($conn);
+
+    // }
+
+
 ?>
 
 <head>
@@ -103,7 +143,7 @@
                                 <section class="col-md-4 order-1 order-md-2 d-flex justify-content-center align-items-center">
 
                                     <!-- Header Nav Logo Link -->
-                                    <a href="#" class="navbar-brand btn btn-outline-light border-0 m-0 p-2 d-flex gap-2" id="header-nav-logo-link">
+                                    <a href="../pages/pokedopt.php" class="navbar-brand btn btn-outline-light border-0 m-0 p-2 d-flex gap-2" id="header-nav-logo-link">
 
                                         <!-- Header Nav Logo Icon -->
                                         <img src="../assets/img/icons/pokedopt.ico" alt="PokéDopt Icon" class="img" id="header-nav-logo-icon">

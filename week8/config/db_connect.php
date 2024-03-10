@@ -3,8 +3,8 @@
     require 'db_create.php';
 
     $host = 'localhost';
-    $user = 'ashie';
-    $password = 'ThisIsMyPokedoptYIPPIE!!!<3';
+    $user = 'root';
+    $password = '';
     $db_name = 'pokedopt';
 
     // Connect to Database

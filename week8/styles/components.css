@@ -59,11 +59,9 @@ section.primary::-webkit-scrollbar-corner {
 
 /* Main Content Elements*/
 /* #region */
-
-    .card  {
-        max-width: 500px;
-    }
-
+.card  {
+    max-width: 500px;
+}
 /* #endregion */
 /* Main Content Elements*/
 
@@ -93,7 +91,7 @@ nav.side-nav-shrunk span {
     display: none;
 }
 
-nav.side-nav-shrunk section.btn-carousel a, nav.side-nav-shrunk section.btn-carousel button {
+nav.side-nav-shrunk section.btn-carousel button {
     height: 5rem !important;
     width: 5rem !important;
     padding: 0 !important;
@@ -130,30 +128,31 @@ section.btn-carousel::-webkit-scrollbar-corner {
     background-color: transparent;
 }
 
-section.btn-carousel a {
+section.btn-carousel button {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-
-section.btn-carousel a, section.btn-carousel button {
     height: 7rem;
     width: 7rem;
 }
 
-section.btn-carousel a i, section.btn-carousel a img, section.btn-carousel button i {
+section.btn-carousel button#side-nav-toggler {
+    display: none;
+}
+
+section.btn-carousel button i, section.btn-carousel button img {
     min-height: 50px;
     min-width: 50px;
     font-size: 2.5rem;
     line-height: 3rem;
 }
 
-section.btn-carousel a:nth-child(2) img, section.btn-carousel a:nth-child(4) img {
+section.btn-carousel button:nth-child(2) img, section.btn-carousel button:nth-child(4) img {
     filter: brightness(0%) invert(1);
 }
 
-section.btn-carousel a:nth-child(2):hover img, section.btn-carousel a:nth-child(3):hover img, section.btn-carousel a:nth-child(4):hover img {
+section.btn-carousel button:nth-child(2):hover img, section.btn-carousel button:nth-child(3):hover img, section.btn-carousel button:nth-child(4):hover img {
     filter: brightness(0%) invert(0);
 }
 /* #endregion */
@@ -223,7 +222,7 @@ section.btn-carousel a:nth-child(2):hover img, section.btn-carousel a:nth-child(
 }
 /* Form Place Holder */
 
-/* Large Breakpoint */
+/* Medium Breakpoint */
 @media screen and (min-width: 768px) {
     
     /* Primary SectIon */
@@ -282,22 +281,23 @@ section.btn-carousel a:nth-child(2):hover img, section.btn-carousel a:nth-child(
         scroll-snap-type: none;
     }
 
-    section.btn-carousel a {
+    section.btn-carousel button {
         border-radius: 0;
         border: 0;
         border-bottom: 1px solid;
     }
-
-    section.btn-carousel button {
-        border-radius: 0;
-        border: 0;
-        border-top: 1px solid;
+    
+    section.btn-carousel button#side-nav-toggler {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
     /* #endregion */
     /* Side Nav Elements */
 
 }
-/* Large Breakpoint */
+/* Medium Breakpoint */
 
 /* Extra Large Breakpoint */
 @media screen and (min-width: 1200px) {
