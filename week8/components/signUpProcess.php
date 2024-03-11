@@ -1,26 +1,3 @@
-
-(username, email, password, role_id, fname, lname, mobile, bday)
-
-VALUES
-
-(
-    'Ashie_Loche',
-    
-    'ashie.loche@pokedopt.com', 
-    
-    ':password',
-
-    (SELECT id FROM role WHERE role = 'admin'),
-
-    'Ashie',
-
-    'Loche',
-
-    '639165733654',
-
-    '2002/12/09'
-)
-
 <?php
 
     require '../config/db_connect.php';
