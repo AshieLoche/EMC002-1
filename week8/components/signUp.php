@@ -69,6 +69,22 @@
             <!-- Account Credentials Username -->
             <input type="text" class="form-control bg-dark text-light border-dark" placeholder="Username" name="username" required>
             <!-- Account Credentials Username -->
+
+          <style>
+            .usernameRequirementsContainer {
+              background-color: yellow;
+            }
+          </style>
+
+            
+        <div class="usernameRequirementsContainer">
+            <p class="usernameRequirements" id="usernameLength">
+                - Must be at least 6 characters long
+            </p>
+            <p class="usernameRequirements" id="usernameUnderscore">
+                - Must not contain special characters except for an optional underscore "_"
+            </p>
+        </div>
   
             <!-- Account Credentials Email -->
             <input type="email" class="form-control bg-dark text-light border-dark" placeholder="Email" name="email" required>
@@ -162,3 +178,9 @@
 
 </article>
 <!-- Sign Up Modal -->
+
+<script>
+  function validate() {
+
+  }
+</script>
