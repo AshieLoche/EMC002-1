@@ -137,10 +137,6 @@ section.btn-carousel button {
     width: 7rem;
 }
 
-section.btn-carousel button#side-nav-toggler {
-    display: none;
-}
-
 section.btn-carousel button i, section.btn-carousel button img {
     min-height: 50px;
     min-width: 50px;
@@ -285,13 +281,6 @@ section.btn-carousel button:nth-child(2):hover img, section.btn-carousel button:
         border-radius: 0;
         border: 0;
         border-bottom: 1px solid;
-    }
-    
-    section.btn-carousel button#side-nav-toggler {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
     }
     /* #endregion */
     /* Side Nav Elements */

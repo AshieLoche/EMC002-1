@@ -101,7 +101,7 @@
                         <!-- PokéChat Button -->
                         
                         <!-- Side Nav Toggler -->
-                        <button class="btn btn-outline-light" id="side-nav-toggler">
+                        <button class="btn btn-outline-light d-none d-md-flex flex-column justify-content-center align-items-center" id="side-nav-toggler">
                             <!-- Side Nav Toggler Icon  -->
                             <i class="bi bi-box-arrow-in-down-left" id="side-nav-toggler-icon"></i>
                             <!-- Side Nav Toggler Icon  -->
