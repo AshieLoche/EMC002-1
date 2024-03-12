@@ -289,26 +289,9 @@
 
                 'tbl_record' => "
                     (username, email, password, role_id, fname, lname, mobile, bday)
-
                     VALUES
-
-                    (
-                        'Ashie_Loche',
-                        
-                        'ashie.loche@pokedopt.com', 
-                        
-                        ':password',
-
-                        (SELECT id FROM role WHERE role = 'admin'),
-
-                        'Ashie',
-
-                        'Loche',
-
-                        '639165733654',
-
-                        '2002/12/09'
-                    )
+                    ('Ashie_Loche', 'ashie.loche@pokedopt.com', ':password1', (SELECT id FROM role WHERE role = 'admin'), 'Ashie', 'Loche', '639165733654', '2002/12/09'),
+                    ('Ashton_Loche', 'ashton.loche@gmail.com', ':password2', (SELECT id FROM role WHERE role = 'user'), 'Ashton', 'Loche', '639610734066', '2002/12/09')
                 "
             )
         );
@@ -396,7 +379,8 @@
                 $query = "INSERT INTO $this->tbl_name $this->tbl_record";
 
                 if ($this->tbl_name == 'account') {
-                    $query = str_replace(':password', password_hash('ThisIsMyPokedoptYIPPIE!!!<3', PASSWORD_DEFAULT), $query);
+                    $query = str_replace(':password1', password_hash('ThisIsMyPokedoptYIPPIE!!!<3', PASSWORD_DEFAULT), $query);
+                    $query = str_replace(':password2', password_hash('PokedoptYIPPIE!!!<3', PASSWORD_DEFAULT), $query);
                 }
                 
             }
