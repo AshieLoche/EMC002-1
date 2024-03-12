@@ -49,10 +49,10 @@
                             <section class="d-flex justify-content-center align-items-center gap-3 gap-md-5 signButtons">
 
                                 <!-- Guest Sign In Button -->
-                                <button class="btn btn-outline-light p-1 p-sm-2 p-lg-3 d-flex align-items-center" data-bs-toggle="modal"  data-bs-target="#sign-in-modal">
+                                <button class="btn btn-outline-light p-1 p-sm-2 p-lg-3 d-flex align-items-center" data-bs-toggle="modal"  data-bs-target="#sign_in_modal">
 
                                     <!-- Guest Sign In Button Title -->
-                                    <span class="fw-bold" id="sign-in">
+                                    <span class="fw-bold">
                                         Sign In
                                     </span>
                                     <!-- Guest Sign In Button Title -->
@@ -61,10 +61,10 @@
                                 <!-- Guest Sign In Button -->
 
                                 <!-- Guest Sign Up Button -->
-                                <button class="btn btn-outline-light p-1 p-sm-2 p-lg-3 d-flex align-items-center" data-bs-toggle="modal"  data-bs-target="#sign-up-modal">
+                                <button class="btn btn-outline-light p-1 p-sm-2 p-lg-3 d-flex align-items-center" data-bs-toggle="modal"  data-bs-target="#sign_up_modal">
 
                                     <!-- Guest Sign Up Button Title -->
-                                    <span class="fw-bold" id="sign-up">
+                                    <span class="fw-bold">
                                         Sign Up
                                     </span>
                                     <!-- Guest Sign Up Button Title -->

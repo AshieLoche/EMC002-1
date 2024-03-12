@@ -1,5 +1,5 @@
 <!-- Sign In Modal -->
-<article class="modal fade" id="sign-in-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+<article class="modal fade" id="sign_in_modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
   
   <!-- Sign In Modal Dialog -->
   <div class="modal-dialog d-flex justify-content-center align-items-center m-0">
@@ -32,7 +32,7 @@
           <!-- Sign In Modal Header Switch Modal Toggler -->
 
           <!-- Sign In Modal Header Switch Modal -->
-          <button class="btn btn-outline-light modal-switch" data-bs-toggle="modal" data-bs-target="#sign-up-modal" autofocus>
+          <button class="btn btn-outline-light modal-switch" data-bs-toggle="modal" data-bs-target="#sign_up_modal" autofocus>
 
             <!-- Sign In Modal Header Switch Modal Title -->
             <span class="fs-4">

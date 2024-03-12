@@ -2,6 +2,12 @@
 
     require '../config/db_connect.php';
 
+    $errorMessage = '';
+    $errors = array(
+        'email' => '',
+        'password' => '',
+    );
+
     if (isset($_POST['signIn'])) {
 
         if (isset($_POST['email']) && isset($_POST['password'])) {
@@ -29,13 +35,38 @@
         // Close Connection
         mysqli_close($conn);
 
-        if (password_verify($password, $user[0]['password'])) {
-            session_start();
+        if (empty($user[0]['username'])) {
+            $errors['username'] = 'Incorrect username\n';
+        }
 
-            $_SESSION['user'] = $user;
+        if (!password_verify($password, $user[0]['password'])) {
+            $errors['password'] = 'Incorrect password\n';
+        }
 
-            header('Location: ../pages/pokedopt.php');
+        if (array_filter($errors)) {
+
+            foreach (array_filter($errors) as $error) {
+                $errorMessage .= $error;
+            }
+
+            if (isset($_SESSION['userID'])) {
+                session_unset();
+                session_destroy();
+            }
+    
+            echo "<script>alert('$errorMessage');</script>";
+            header('Refresh: 0; URL=../pages/guest.php');
             exit;
+
+        } else {
+    
+            session_start();
+        
+            $_SESSION['userID'] = $user['0']['id'];
+
+            header('Refresh: 0; URL=../pages/pokedopt.php');
+            exit;
+
         }
 
     }

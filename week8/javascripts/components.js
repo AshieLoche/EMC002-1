@@ -1,5 +1,152 @@
 $(document).ready(function() {
 
+    // Sign Up Requirements
+    {
+
+        let password = '';
+        let complete = false;
+        const reqs = {
+            'username': false,
+            'password': false,
+            'confirm_password': false,
+            'mobile': false
+        }
+
+        function reqCheck() {
+
+            for (const key in reqs) {
+                if (!reqs[key]) {
+                    complete = false;
+                    break;
+                } else {
+                    complete = true;
+                    continue;
+                }
+            }
+
+            (complete) ? $("#signUp_submit").prop("disabled", false) : $("#signUp_submit").prop("disabled", true);
+
+        }
+
+        reqCheck();
+        
+        $('#username').click(function() {
+            $('#uname_reqs').removeClass('d-none');
+        });
+
+        $('#username').on('input', function() {
+            let username = $(this).val().trim();
+            let usernamePattern = /^\w{6,20}$/;
+
+            (/^.{6,20}$/.test(username)) ? $("#uname_len").addClass('text-light') : $("#uname_len").removeClass('text-light');
+
+            (/^\w+$/.test(username)) ? $("#uname_special").addClass('text-light') : $("#uname_special").removeClass('text-light');
+
+            (usernamePattern.test(username)) ? reqs['username'] = true : reqs['username'] = false;
+
+            reqCheck();
+
+        });
+        
+        $(document).click(function(event){
+            if ($(event.target).closest("#username").length === 0 &&
+            $(event.target).closest("#uname_reqs").length === 0) {
+                $('#uname_reqs').addClass('d-none');
+            }
+        });
+        
+        $(document).on('blur', function(event){
+            if ($(event.target).closest("#username").length === 0 &&
+            $(event.target).closest("#uname_reqs").length === 0) {
+                $('#uname_reqs').addClass('d-none');
+            }
+        });
+
+        $('#password').click(function() {
+            $('#pass_reqs').removeClass('d-none');
+        });
+
+        $('#password').on('input', function() {
+            password = $(this).val().trim();
+
+            let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[\w\W]{8,}$/;
+
+            (/^.{8,}$/.test(password)) ? $('#pass_len').addClass('text-light') : $('#pass_len').removeClass('text-light');
+
+            (/^(?=.*[a-z])(?=.*[A-Z]).+$/.test(password)) ? $('#pass_case').addClass('text-light') : $('#pass_case').removeClass('text-light');
+
+            (/^(?=.*\d).+$/.test(password)) ? $('#pass_digit').addClass('text-light') : $('#pass_digit').removeClass('text-light');
+            
+            (/^(?=.*[\W_]).+$/.test(password)) ? $('#pass_special').addClass('text-light') : $('#pass_special').removeClass('text-light');
+
+            (passwordPattern.test(password)) ? reqs['password'] = true : reqs['password'] = false;
+
+            reqCheck();
+
+        });
+        
+        $(document).click(function(event){
+            if ($(event.target).closest("#password").length === 0 &&
+            $(event.target).closest("#pass_reqs").length === 0) {
+                $('#pass_reqs').addClass('d-none');
+            }
+        });
+
+        $('#confirm_password').click(function() {
+            $('#confirm_pass_reqs').removeClass('d-none');
+        });
+
+        $('#confirm_password').on('input', function() {
+            let confirm_password = $(this).val().trim();
+
+            if (password == confirm_password) {
+                $('#confirm_pass_match').addClass('text-light');
+                reqs['confirm_password'] = true;
+            } else {
+                $('#confirm_pass_match').removeClass('text-light');
+                reqs['confirm_password'] = false;
+            }
+
+            reqCheck();
+
+        });
+
+        $(document).click(function(event){
+            if ($(event.target).closest("#confirm_password").length === 0 &&
+            $(event.target).closest("#confirm_pass_reqs").length === 0) {
+                $('#confirm_pass_reqs').addClass('d-none');
+            }
+        });
+
+        $('#mobile').click(function() {
+            $('#mobile_reqs').removeClass('d-none');
+        });
+
+        $('#mobile').on('input', function() {
+            let mobile = $(this).val().trim();
+
+            if (mobile.length == 10) {
+                $('#mobile_reqs').addClass('text-light');
+                reqs['mobile'] = true;
+            } else {
+                $('#mobile_reqs').removeClass('text-light');
+                reqs['mobile'] = false;
+            }
+
+            reqCheck();
+
+        });
+
+        $(document).click(function(event){
+            if ($(event.target).closest("#mobile").length === 0 &&
+            $(event.target).closest("#mobile_reqs").length === 0) {
+                $('#mobile_reqs').addClass('d-none');
+            }
+        });
+
+    }
+    // Sign Up Requirements
+
     // Heart Mechanics
     let heartIcon;
     let hearted = false;
@@ -79,23 +226,25 @@ $(document).ready(function() {
     // Horizontal Button Carousel Scrolling (< MD)
 
     // Modal Transfer
-    let signToggler;
-    let signToggled = false;
-
-    $(".sign-toggler").click(function() {
-        signToggler = $(this).find("span");
-        signToggled = signToggler.text() == "<" ? true : false;
-
-        if (signToggled) {
-            signToggler.text(">");
-            $(this).parent().parent().find('button.modal-switch').fadeOut('fast', 'swing');
-            signToggled = false;
-        } else {
-            signToggler.text("<");
-            $(this).parent().parent().find('button.modal-switch').fadeIn('fast', 'swing');
-            signToggled = true;
-        }
-    });
+    {
+        let signToggler;
+        let signToggled = false;
+    
+        $(".sign-toggler").click(function() {
+            signToggler = $(this).find("span");
+            signToggled = signToggler.text() == "<" ? true : false;
+    
+            if (signToggled) {
+                signToggler.text(">");
+                $(this).parent().parent().find('button.modal-switch').fadeOut('fast', 'swing');
+                signToggled = false;
+            } else {
+                signToggler.text("<");
+                $(this).parent().parent().find('button.modal-switch').fadeIn('fast', 'swing');
+                signToggled = true;
+            }
+        });
+    }
     // Modal Transfer
 
 });

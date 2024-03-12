@@ -36,7 +36,7 @@
                 <section class="primary col-md-10 order-md-2 p-0">
 
                     <!-- Header Nav -->
-                    <nav class="navbar navbar-collapse navbar-dark bg-dark p-2 border-bottom" id="header-nav">
+                    <nav class="navbar navbar-collapse navbar-dark bg-dark p-2 pt-4 border-bottom" id="header-nav">
                         
                         <!-- Header Nav Container -->
                         <div class="container-xxl p-0">
@@ -106,7 +106,7 @@
                                     <!-- Header Nav Notif Button -->
 
                                     <!-- Header Nav PokéList Button -->
-                                    <button onclick="location.href='#'" class="navbar-toggler btn btn-outline-light p-2 d-none">
+                                    <button onclick="location.href='#'" class="navbar-toggler btn btn-outline-light p-2 d-none" id="pokelist_btn">
 
                                         <!-- Header Nav PokéList Title -->
                                         <span class="fw-bold fs-4" id="pokelist">
@@ -118,10 +118,10 @@
                                     <!-- Header Nav PokéList Button -->
 
                                     <!-- Header Nav Sign In Button -->
-                                    <button class="navbar-toggler btn btn-outline-light p-2 d-none d-xl-block" data-bs-toggle="modal" data-bs-target="#sign-in-modal">
+                                    <button class="navbar-toggler btn btn-outline-light p-2 d-none d-xl-block" id="signIn_btn" data-bs-toggle="modal" data-bs-target="#sign_in_modal">
 
                                         <!-- Header Nav Sign In Title -->
-                                        <span class="fw-bold fs-4" id="sign-in">
+                                        <span class="fw-bold fs-4">
                                             Sign In
                                         </span>
                                         <!-- Header Nav Sign In Title -->
@@ -130,10 +130,10 @@
                                     <!-- Header Nav Sign In Button -->
 
                                     <!-- Header Nav Sign Up Button -->
-                                    <button class="navbar-toggler btn btn-outline-light p-2" data-bs-toggle="modal" data-bs-target="#sign-up-modal" autofocus>
+                                    <button class="navbar-toggler btn btn-outline-light p-2" id="signUp_btn" data-bs-toggle="modal" data-bs-target="#sign_up_modal" autofocus>
 
                                         <!-- Header Nav Sign Up Title -->
-                                        <span class="fw-bold fs-4" id="sign-up">
+                                        <span class="fw-bold fs-4">
                                             Sign Up
                                         </span>
                                         <!-- Header Nav Sign Up Title -->
@@ -177,4 +177,16 @@
                         <!-- Header Nav Container -->
 
                     </nav>
-                    <!-- Header Nav -->         
+                    <!-- Header Nav -->       
+
+<script>
+    if (<?php echo !isset($_SESSION['userID']) ? 'true' : 'false' ?>) {
+        document.getElementById("pokelist_btn").classList.add('d-none');
+        document.getElementById("signIn_btn").classList.add('d-xl-block');
+        document.getElementById("signUp_btn").classList.remove('d-none');
+    } else {
+        document.getElementById("pokelist_btn").classList.remove('d-none');
+        document.getElementById("signIn_btn").classList.remove('d-xl-block');
+        document.getElementById("signUp_btn").classList.add('d-none');
+    }
+</script>  

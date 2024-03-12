@@ -276,7 +276,7 @@
                     id INT AUTO_INCREMENT,
                     username VARCHAR(255) NOT NULL UNIQUE,
                     email VARCHAR(255) NOT NULL UNIQUE CHECK (email REGEXP '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$'),
-                    password VARCHAR(255) NOT NULL UNIQUE,
+                    password VARCHAR(255) NOT NULL,
                     role_id INT NOT NULL,
                     fname VARCHAR(255) NOT NULL,
                     lname VARCHAR(255) NOT NULL,
