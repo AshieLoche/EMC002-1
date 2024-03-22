@@ -1,6 +1,16 @@
 <?php
 
     require '../config/db_connect.php';
+
+    session_start();
+    session_unset();
+    session_destroy();
+
+    if (isset($_COOKIE['userID'])) {
+        $_SESSION['userID'] = $_COOKIE['userID'];
+        header('Location: ../pages/pokedopt.php');
+        exit;
+    }
     
 ?>
 
@@ -48,18 +58,6 @@
                             <!-- Guest Sign Buttons -->
                             <section class="d-flex justify-content-center align-items-center gap-3 gap-md-5 signButtons">
 
-                                <!-- Guest Sign In Button -->
-                                <button class="btn btn-outline-light p-1 p-sm-2 p-lg-3 d-flex align-items-center" data-bs-toggle="modal"  data-bs-target="#sign_in_modal">
-
-                                    <!-- Guest Sign In Button Title -->
-                                    <span class="fw-bold">
-                                        Sign In
-                                    </span>
-                                    <!-- Guest Sign In Button Title -->
-
-                                </button>
-                                <!-- Guest Sign In Button -->
-
                                 <!-- Guest Sign Up Button -->
                                 <button class="btn btn-outline-light p-1 p-sm-2 p-lg-3 d-flex align-items-center" data-bs-toggle="modal"  data-bs-target="#sign_up_modal">
 
@@ -71,6 +69,18 @@
 
                                 </button>
                                 <!-- Guest Sign Up Button -->
+
+                                <!-- Guest Sign In Button -->
+                                <button class="btn btn-outline-light p-1 p-sm-2 p-lg-3 d-flex align-items-center" data-bs-toggle="modal"  data-bs-target="#sign_in_modal" autofocus>
+
+                                    <!-- Guest Sign In Button Title -->
+                                    <span class="fw-bold">
+                                        Sign In
+                                    </span>
+                                    <!-- Guest Sign In Button Title -->
+
+                                </button>
+                                <!-- Guest Sign In Button -->
 
                             </section>
                         </section>

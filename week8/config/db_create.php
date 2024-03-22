@@ -293,6 +293,22 @@
                     ('Ashie_Loche', 'ashie.loche@pokedopt.com', ':password1', (SELECT id FROM role WHERE role = 'admin'), 'Ashie', 'Loche', '639165733654', '2002/12/09'),
                     ('Ashton_Loche', 'ashton.loche@gmail.com', ':password2', (SELECT id FROM role WHERE role = 'user'), 'Ashton', 'Loche', '639610734066', '2002/12/09')
                 "
+            ),
+
+            array(
+                'tbl_name' => 'likes',
+
+                'tbl_field' => "
+                    id INT AUTO_INCREMENT,
+                    pokemon_id int NOT NULL,
+                    user_id int NOT NULL,
+                    PRIMARY KEY (id),
+                    FOREIGN KEY (pokemon_id) REFERENCES pokemon (id),
+                    FOREIGN KEY (user_id) REFERENCES account (id)
+                ",
+
+                'tbl_record' => "
+                "
             )
         );
 
@@ -314,9 +330,11 @@
                     }
                 } else if ($target == 'col') {
                     foreach ($this->tbls as $tbl) {
-                        $this->tbl_name = $tbl['tbl_name'];
-                        $this->tbl_record = $tbl['tbl_record'];
-                        $this->check($target);
+                        if ($tbl['tbl_name'] != 'likes') {
+                            $this->tbl_name = $tbl['tbl_name'];
+                            $this->tbl_record = $tbl['tbl_record'];
+                            $this->check($target);
+                        }
                     }
                 } else {
                     $this->check($target);

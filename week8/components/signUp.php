@@ -67,7 +67,7 @@
             <!-- Account Credentials Fieldset Legend -->
   
             <!-- Account Credentials Username -->
-            <input type="text" class="form-control bg-dark text-light border-dark" id="username" placeholder="Username" name="username" required>
+            <input type="text" class="form-control bg-dark text-light border-dark" id="username" placeholder="Username" name="username" autocomplete="off" required>
             <!-- Account Credentials Username -->
 
             <!-- Username Requirements -->
@@ -82,7 +82,7 @@
             <!-- Username Requirements -->
   
             <!-- Account Credentials Email -->
-            <input type="email" class="form-control bg-dark text-light border-dark" id="email" placeholder="Email" name="email" required>
+            <input type="email" class="form-control bg-dark text-light border-dark" id="email" placeholder="Email" name="email" autocomplete="off" required>
             <!-- Account Credentials Email -->
   
             <!-- Account Credentials Password -->
@@ -196,7 +196,7 @@
         <fieldset class="text-light fs-5">
 
           <!-- Auto Sign In Checkbox -->
-          <input type="checkbox" name="remember" id="remember_signUp" class="remember" value="remember" form="signUp_form" disabled>
+          <input type="checkbox" name="remember" id="remember_signUp" class="remember" value="remember" form="signUp_form">
           <!-- Auto Sign In Checkbox -->
           
           <!-- Auto Sign In Label -->

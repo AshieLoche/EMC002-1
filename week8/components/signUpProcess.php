@@ -131,6 +131,10 @@
                     session_start();
         
                     $_SESSION['userID'] = $user['0']['id'];
+        
+                    if(isset($_POST['remember'])) {
+                        setcookie("userID", $user['0']['id'], time()+30*24*60*60, "/", "");
+                    }
     
                     header('Refresh: 0; URL=../pages/pokedopt.php');
                     exit;

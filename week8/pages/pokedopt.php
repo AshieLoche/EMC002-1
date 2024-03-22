@@ -3,6 +3,14 @@
     require '../config/db_connect.php';
 
     session_start();
+    session_unset();
+    session_destroy();
+
+    session_start();
+
+    if (isset($_COOKIE['userID'])) {
+        $_SESSION['userID'] = $_COOKIE['userID'];
+    }
 
     if (!isset($_SESSION['userID'])) {
         header('Location: ../pages/guest.php');
@@ -20,8 +28,8 @@
             species.species,
             pokemon.description,
             pokemon.img,
-            type1.type,
-            type2.type,
+            type1.type as type1,
+            type2.type as type2,
             pokemon.adoption_time
         FROM
             pokedopt.pokemon as pokemon,
@@ -41,14 +49,32 @@
             $result = mysqli_query($conn, $query);
 
             // Fetch the Resulting Rows as an Array
-            $pokemon = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $pokemons = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
             // Free results From Memory
             mysqli_free_result($result);
+
         }
 
-        // Close Connection
-        mysqli_close($conn);
+    }
+
+    {
+        
+        $select_query = "SELECT * FROM likes WHERE user_id = {$_SESSION['userID']}";
+        
+        if (!mysqli_query($conn, $select_query)) {
+            die('Query error: ' . mysqli_error($conn));
+        } else {
+            // Make Query & Get Result
+            $result = mysqli_query($conn, $select_query);
+
+            // Fetch the Resulting Rows as an Array
+            $likes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+            // Free results From Memory
+            mysqli_free_result($result);
+            
+        }
 
     }
 
@@ -70,15 +96,15 @@
                             <!-- Main Row -->
                             <div class="row gap-5 p-4 py-sm-5 justify-content-center">
 
-                                <?php foreach ($pokemon as $poke) { ?>
+                                <?php foreach ($pokemons as $pokemon) { ?>
 
-                                    <?php if (is_null($poke['adoption_time'])): ?>
+                                    <?php if (is_null($pokemon['adoption_time'])): ?>
 
                                         <!-- Pokémon Card -->
-                                        <article class="card bg-dark text-light border-dark rounded-5 col-sm-10 col-md-8 col-lg-6 col-xl-4 col-xxl-3 p-0">
+                                        <article class="card bg-dark text-light border-dark rounded-5 col-sm-10 col-md-8 col-lg-6 col-xl-4 col-xxl-3 p-0 pokemon_card">
                                             
                                             <!-- Pokémon Card Image -->
-                                            <img src="<?php echo $poke['img']; ?>" alt="<?php echo $poke['name']; ?>" class="card-img-top img rounded-top-5 border-bottom border-bottom">
+                                            <img src="<?php echo $pokemon['img']; ?>" alt="<?php echo $pokemon['name']; ?>" class="card-img-top img rounded-top-5 border-bottom border-bottom">
                                             <!-- Pokémon Card Image -->
 
                                             <!-- Pokémon Card Body -->
@@ -91,23 +117,46 @@
                                                     <div class="row">
 
                                                         <!-- Pokémon Card Header -->
-                                                        <a href="#" class="card-header display-3 col-10 col-lg-9 p-0 text-decoration-none border-0">
-                                                            <?php echo $poke['name']; ?>
+                                                        <a href="#" class="card-header display-3 col-10 col-lg-9 p-0 text-decoration-none border-0 pokemon_name">
+                                                            <?php echo $pokemon['name']; ?>
                                                         </a>
                                                         <!-- Pokémon Card Header -->
 
                                                         <!-- Pokémon Card Heart Button Span -->
                                                         <span class="col-2 col-lg-3 d-flex justify-content-end align-items-center p-0">
-                                                            
-                                                            <!-- Pokémon Card Heart Button -->
-                                                            <button class="btn btn-outline-light border-0 p-0 px-2" id="heart">
+                                                        
+                                                            <form action="../components/likeProcess.php" method="POST">
+                                                                
+                                                                <input type="hidden" name="pokemonID" value="<?php echo $pokemon['id']; ?>">
 
-                                                                <!-- Pokémon Card Heart Button Icon -->
-                                                                <i class="card-header p-0 bi bi-suit-heart display-3 border-0"></i>
-                                                                <!-- Pokémon Card Heart Button Icon -->
+                                                                <!-- Pokémon Card Heart Button -->
 
-                                                            </button>
-                                                            <!-- Pokémon Card HeartButton -->
+                                                                <button class="btn btn-outline-light border-0 p-0 px-2 heart" type="submit" name="heart" value="heart">
+    
+                                                                    <!-- Pokémon Card Heart Button Icon -->
+                                                                    <i class="card-header p-0 bi 
+                                                                    <?php 
+                                                                        $likeList = [];
+                                                                        foreach ($likes as $like) {
+                                                                            if ($like['pokemon_id'] == $pokemon['id']) {
+                                                                                array_push($likeList, $like['pokemon_id']);
+                                                                                break;
+                                                                            }
+                                                                        }
+
+                                                                        if (in_array($pokemon['id'], $likeList)) {
+                                                                            echo 'bi-suit-heart-fill';
+                                                                        } else {
+                                                                            echo 'bi-suit-heart';
+                                                                        }
+                                                                    ?>
+                                                                     display-3 border-0"></i>
+                                                                    <!-- Pokémon Card Heart Button Icon -->
+                                                                    
+                                                                </button>
+                                                                <!-- Pokémon Card HeartButton -->
+
+                                                            </form>
 
                                                         </span>
                                                         <!-- Pokémon Card Heart Button Span -->
@@ -120,13 +169,13 @@
                                                 
                                                 <!-- Pokémon Card Title -->
                                                 <section class="card-title display-4 fs-2">
-                                                    <?php echo $poke['species']; ?>
+                                                    <?php echo "<span class='species'>{$pokemon['species']}</span> - <span class='display-5 fs-4 types'>{$pokemon['type1']}/{$pokemon['type2']}</span>"; ?>
                                                 </section>
                                                 <!-- Pokémon Card Title -->
                                                 
                                                 <!-- Pokémon Card Description -->
                                                 <section class="card-text display-5 fs-4 lh-sm">
-                                                    <?php echo $poke['description']; ?>
+                                                    <?php echo $pokemon['description']; ?>
                                                 </section>
                                                 <!-- Pokémon Card Description -->
 

@@ -48,7 +48,7 @@
                                 <section class="col-6 col-md-4 order-2 order-md-1 d-flex justify-content-start align-items-center gap-2 gap-md-3 p-2 ps-md-3">
                                     
                                     <!-- Header Nav Search Button -->
-                                    <button class="navbar-toggler btn btn-outline-light border-0 p-2" id="search-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#search-filter" aria-controls="search-filter" aria-expanded="false" aria-label="Toggle Search Bar">
+                                    <button class="navbar-toggler btn btn-outline-light border-0 p-2" id="search-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#search_filter" aria-controls="search_filter" aria-expanded="false" aria-label="Toggle Search Bar">
 
                                         <!-- Header Nav Search Icon -->
                                         <i class="bi bi-search fs-2" id="search-icon"></i>
@@ -58,7 +58,7 @@
                                     <!-- Header Nav Search Button -->
 
                                     <!-- Header Nav Filter Button -->
-                                    <button class="navbar-toggler btn btn-outline-light border-0 p-2" disabled>
+                                    <button class="navbar-toggler btn btn-outline-light border-0 p-2" data-bs-toggle="modal" data-bs-target="#multiSelectModal">
 
                                         <!-- Header Nav Filter Icon -->
                                         <i class="bi bi-funnel-fill fs-2"></i>
@@ -117,20 +117,8 @@
                                     </button>
                                     <!-- Header Nav PokéList Button -->
 
-                                    <!-- Header Nav Sign In Button -->
-                                    <button class="navbar-toggler btn btn-outline-light p-2 d-none d-xl-block" id="signIn_btn" data-bs-toggle="modal" data-bs-target="#sign_in_modal">
-
-                                        <!-- Header Nav Sign In Title -->
-                                        <span class="fw-bold fs-4">
-                                            Sign In
-                                        </span>
-                                        <!-- Header Nav Sign In Title -->
-
-                                    </button>
-                                    <!-- Header Nav Sign In Button -->
-
                                     <!-- Header Nav Sign Up Button -->
-                                    <button class="navbar-toggler btn btn-outline-light p-2" id="signUp_btn" data-bs-toggle="modal" data-bs-target="#sign_up_modal" autofocus>
+                                    <button class="navbar-toggler btn btn-outline-light p-2 d-none d-xl-block" id="signUp_btn" data-bs-toggle="modal" data-bs-target="#sign_up_modal">
 
                                         <!-- Header Nav Sign Up Title -->
                                         <span class="fw-bold fs-4">
@@ -141,31 +129,77 @@
                                     </button>
                                     <!-- Header Nav Sign Up Button -->
 
+                                    <!-- Header Nav Sign In Button -->
+                                    <button class="navbar-toggler btn btn-outline-light p-2" id="signIn_btn" data-bs-toggle="modal" data-bs-target="#sign_in_modal" autofocus>
+
+                                        <!-- Header Nav Sign In Title -->
+                                        <span class="fw-bold fs-4">
+                                            Sign In
+                                        </span>
+                                        <!-- Header Nav Sign In Title -->
+
+                                    </button>
+                                    <!-- Header Nav Sign In Button -->
+
                                 </section>
                                 <!-- Header Nav Action Buttons (Notif, PokéList, Sign In, Sign Up) -->
 
                                 <!-- Header Nav Search Bar & Filters -->
-                                <section class="collapse navbar-collapse col-12 order-4 mt-3 my-md-2" id="search-filter">
+                                <section class="collapse navbar-collapse col-12 order-4 mt-3 my-md-2" id="search_filter">
+                                    
+                                    <!-- Header Nav Search Bar -->
+                                    <input type="text" class="form-control nav-item bg-transparent text-light fs-4" id="search_bar" placeholder="Search..." aria-label="Search Bar">
+                                    <!-- Header Nav Search Bar -->
 
-                                    <!-- Neader Nav Search Bar Input Group -->
-                                    <section class="input-group">
-
-                                        <!-- Header Nav Search Bar -->
-                                        <input type="text" class="form-control nav-itm bg-transparent text-light fs-4" name="search-bar" placeholder="Search..." aria-label="Search Bar" aria-describedby="search-button">
-                                        <!-- Header Nav Search Bar -->
-
-                                        <!-- Header Nav Search Button -->
-                                        <button class="btn btn-outline-light" id="search-button" type="button" disabled>
-
-                                            <!-- Header Nav Search Button Icon -->
-                                            <i class="bi bi-search fs-4"></i>
-                                            <!-- Header Nav Search Button Icon -->
-
-                                        </button>
-                                        <!-- Header Nav Search Button -->
+                                    <section id="speciesSelect" class="d-flex justify-content-center col-12 mt-3 border">
+                                        
+                                        <fieldset>
+                                            <legend class="text-light fw-bold">Types</legend>
+                                            
+                                            <button class="btn btn-outline-light speciesSingular" value="Gengar">
+                                                <span class="fw-bold fs-5">
+                                                    Gengar
+                                                </span>
+                                            </button>
+                                            
+                                            <button class="btn btn-outline-light speciesSingular" value="Dragonite">
+                                                <span class="fw-bold fs-5">
+                                                    Dragonite
+                                                </span>
+                                            </button>
+                                            
+                                        </fieldset>
 
                                     </section>
-                                    <!-- Neader Nav Search Bar Input Group -->
+
+                                    <section id="typesSelect" class="d-flex justify-content-center col-12 mt-3 border">
+                                        
+                                        <fieldset>
+                                            <legend class="text-light fw-bold">Types</legend>
+                                            
+                                            <button class="btn btn-outline-light type" value="FIRE">
+                                                <span class="fw-bold fs-5">
+                                                    FIRE
+                                                </span>
+                                            </button>
+                                            
+                                            <button class="btn btn-outline-light type" value="GHOST">
+                                                <span class="fw-bold fs-5">
+                                                    GHOST
+                                                </span>
+                                            </button>
+                                            
+                                        </fieldset>
+
+                                    </section>
+
+                                    <!-- <section>
+                                        <select name="types" id="types" class="form-control" multiple>
+                                            <option value="option1">Option 1</option>
+                                            <option value="option2">Option 2</option>
+                                            <option value="option3">Option 3</option>
+                                        </select>
+                                    </section> -->
 
                                 </section>
                                 <!-- Header Nav Search Bar & Filters -->
@@ -177,16 +211,41 @@
                         <!-- Header Nav Container -->
 
                     </nav>
-                    <!-- Header Nav -->       
+                    <!-- Header Nav -->
+
+                    <!-- <div class="modal fade" id="multiSelectModal" tabindex="-1" role="dialog" aria-labelledby="multiSelectModalLabel" aria-hidden="true"> -->
+
+  <!-- <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="multiSelectModalLabel">Select Items</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <select id="multiSelect" class="form-control" size="10" multiple>
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+          </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="selectButton">Select</button>
+      </div>
+    </div>
+  </div>
+</div> -->
 
 <script>
     if (<?php echo !isset($_SESSION['userID']) ? 'true' : 'false' ?>) {
         document.getElementById("pokelist_btn").classList.add('d-none');
-        document.getElementById("signIn_btn").classList.add('d-xl-block');
-        document.getElementById("signUp_btn").classList.remove('d-none');
+        document.getElementById("signUp_btn").classList.add('d-xl-block');
+        document.getElementById("signIn_btn").classList.remove('d-none');
     } else {
         document.getElementById("pokelist_btn").classList.remove('d-none');
-        document.getElementById("signIn_btn").classList.remove('d-xl-block');
-        document.getElementById("signUp_btn").classList.add('d-none');
+        document.getElementById("signUp_btn").classList.remove('d-xl-block');
+        document.getElementById("signIn_btn").classList.add('d-none');
     }
 </script>  

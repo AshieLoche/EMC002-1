@@ -57,7 +57,7 @@
       <section class="modal-body">
 
         <!-- Sign In Modal Body Form -->
-        <form action="../components/signInProcess.php" id="signIn-form" method="POST">
+        <form action="../components/signInProcess.php" id="signIn_form" method="POST">
           
           <!-- Sign In Modal Body Form Container -->
           <div class="container-fluid">
@@ -66,7 +66,7 @@
             <div class="row gap-2">
               
               <!-- Sign In Modal Body Form Email -->
-              <input type="email" class="form-control bg-dark text-light border-dark" placeholder="Email" name="email" required>
+              <input type="email" class="form-control bg-dark text-light border-dark" placeholder="Email" name="email" autocomplete="on" required>
               <!-- Sign In Modal Body Form Email -->
               
               <!-- Sign In Modal Body Form Password -->
@@ -92,7 +92,7 @@
         <fieldset class="text-light fs-5 autoSignIn">
 
           <!-- Auto Sign In Checkbox -->
-          <input type="checkbox" name="remember" id="remember_SignIn" class="remember" value="remember" form="signIn-form" disabled>
+          <input type="checkbox" name="remember" id="remember_SignIn" class="remember" value="remember" form="signIn_form">
           <!-- Auto Sign In Checkbox -->
           
           <!-- Auto Sign In Label -->
@@ -103,7 +103,7 @@
         <!-- Auto Sign In Fieldset -->
         
         <!-- Sign In Modal Submit -->
-        <button class="btn btn-secondary fw-bolder" type="submit" form="signIn-form" name="signIn" id="signIn-submit">Submit</button>
+        <button class="btn btn-secondary fw-bolder" type="submit" form="signIn_form" name="signIn" id="signIn-submit">Submit</button>
         <!-- Sign In Modal Submit -->
 
       </section>

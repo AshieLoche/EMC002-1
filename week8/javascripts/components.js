@@ -1,5 +1,175 @@
 $(document).ready(function() {
 
+    searchResult = '';
+    const selectedTypes = [];
+    const selectedSpecies = [];
+    const filteredPokemonCards = {};
+
+    $("#search_bar").on("input", function() {
+        searchResult = $(this).val().toLowerCase().trim();
+        const pokemonCards = $('.pokemon_card');
+        pokemonCards.hide();
+        
+        filter(pokemonCards);
+
+    });
+    
+    $("button.type").click(function() {
+        const value = $(this).val().toLowerCase();
+        const typeFiltered = $(this).hasClass('btn-light');
+        const pokemonCards = $('.pokemon_card');
+        pokemonCards.hide();
+      
+        if (typeFiltered) {
+          // Remove value from selectedTypes if previously selected
+          selectedTypes.splice(selectedTypes.indexOf(value), 1);
+          $(this).removeClass("btn-light").addClass("btn-outline-light");
+        } else {
+          // Add value to selectedTypes if newly selected
+          selectedTypes.push(value);
+          $(this).removeClass("btn-outline-light").addClass("btn-light");
+        }
+
+        filter(pokemonCards);
+
+    });
+
+    $("button.speciesSingular").click(function() {
+        const value = $(this).val().toLowerCase();
+        const speciesFiltered = $(this).hasClass('btn-light');
+        const pokemonCards = $('.pokemon_card');
+        pokemonCards.hide();
+      
+        if (speciesFiltered) {
+            // Remove value from selectedSpecies if previously selected
+            selectedSpecies.splice(selectedSpecies.indexOf(value), 1);
+            $(this).removeClass("btn-light").addClass("btn-outline-light");
+        } else {
+            // Add value to selectedSpecies if newly selected
+            selectedSpecies.push(value);
+            $(this).removeClass("btn-outline-light").addClass("btn-light");
+        }
+
+        filter(pokemonCards);
+
+    });
+
+    function filter(pokemonCards) {
+        
+        if (selectedTypes.length > 0) {
+            if (pokemonCards.length > 0) {
+                for (let currentIndex = 0; currentIndex < pokemonCards.length; currentIndex++) {
+                    const cardType = pokemonCards.eq(currentIndex).find('.types').text().toLowerCase();
+                    // alert(cardType);
+                    selectedTypes.forEach(type => {
+                        if (cardType.indexOf(type) > -1) {
+                            filteredPokemonCards[currentIndex] = pokemonCards.eq(currentIndex);
+                            pokemonCards.eq(currentIndex).show();
+                        } else {
+                            delete filteredPokemonCards[currentIndex];
+                        }
+                    });
+                }
+            } else {
+              console.log("No Pokemon cards found.");
+            }
+        }
+        
+        if (selectedSpecies.length > 0 && searchResult.length == 0) {
+            if (pokemonCards.length > 0) {
+                for (let currentIndex = 0; currentIndex < pokemonCards.length; currentIndex++) {
+                    const cardSpecies = pokemonCards.eq(currentIndex).find('.species').text().toLowerCase();
+                    selectedSpecies.forEach(species => {
+                        if (cardSpecies.indexOf(species) > -1) {
+                            filteredPokemonCards[currentIndex] = pokemonCards.eq(currentIndex);
+                            pokemonCards.eq(currentIndex).show();
+                        } else {
+                            delete filteredPokemonCards[currentIndex];
+                        }
+                    });
+                }
+            } else {
+              console.log("No Pokemon cards found.");
+            }
+        }
+
+        // if (searchResult.length > 0 ||selectedSpecies.length > 0 || selectedTypes.length > 0) {
+
+        //     // alert(Object.keys(filteredPokemonCards).length);
+
+        //     if (selectedSpecies.length == 0 && selectedTypes.length == 0) {
+        //         for (const key in filteredPokemonCards) {
+        //             delete filteredPokemonCards[key];
+        //         }
+
+        //     }
+
+        //     if (Object.keys(filteredPokemonCards).length > 0) {
+        //         // alert('owo');
+        //         for (const key in filteredPokemonCards) {
+        //             const filteredPokemonCard = filteredPokemonCards[key];
+
+        //             const cardName = filteredPokemonCard.find('.pokemon_name').text().toLowerCase().trim();
+        //             if (cardName.indexOf(searchResult) > -1) {
+        //                 filteredPokemonCards[currentIndex] = pokemonCards.eq(currentIndex);
+        //                 filteredPokemonCard.show();
+        //             } else {
+        //                 delete filteredPokemonCards[currentIndex];
+        //             }
+        //         }
+        //     } else if (pokemonCards.length > 0) {
+        //         // alert('uwu');
+        //         for (let currentIndex = 0; currentIndex < pokemonCards.length; currentIndex++) {
+        //             const cardName = pokemonCards.eq(currentIndex).find('.pokemon_name').text().toLowerCase();
+        //             if (cardName.indexOf(searchResult) > -1) {
+        //                 pokemonCards.eq(currentIndex).show();
+        //             }
+        //         }
+        //     } else {
+        //       console.log("No Pokemon cards found.");
+        //     }
+                    
+        // }
+
+        if (selectedSpecies.length == 0 && selectedTypes.length == 0 && searchResult.length == 0) {
+            $('.pokemon_card').show();
+            for (const key in filteredPokemonCards) {
+                delete filteredPokemonCards[key];
+            }
+        }
+        
+    }
+
+    function filter(pokemonCards) {
+        // Combined type/species filtering
+        const filteredByTypesAndSpecies = pokemonCards.filter(card => {
+          const cardType = card.find('.types').text().toLowerCase();
+          const cardSpecies = card.find('.species').text().toLowerCase();
+      
+          return selectedTypes.some(type => cardType.includes(type)) ||
+                 selectedSpecies.some(species => cardSpecies.includes(species));
+        });
+      
+        // Card name filtering based on visible cards
+        const filteredCards = filteredByTypesAndSpecies.filter(card => {
+          // Consider card visible only if it's not hidden
+          // Adjust condition if using a different visibility approach
+          const isVisible = card.is(':visible');
+      
+          if (isVisible) {
+            const cardName = card.find('.pokemon_name').text().toLowerCase();
+            return searchResult.length === 0 || cardName.includes(searchResult);
+          }
+      
+          return false; // Hide card if not visible and there's a search term
+        });
+      
+        // Show filtered cards and hide others
+        pokemonCards.hide();
+        filteredCards.show();
+      }
+      
+
     // Sign Up Requirements
     {
 
@@ -151,16 +321,14 @@ $(document).ready(function() {
     let heartIcon;
     let hearted = false;
 
-    $("button#heart").click(function() {
+    $("button.heart").click(function() {
         heartIcon = $(this).find("i");
-        hearted = heartIcon.hasClass("bi-suit-heart-fill") ? true : false;
+        hearted = heartIcon.hasClass("bi-suit-heart-fill");
 
         if (hearted) {
-            heartIcon.addClass("bi-suit-heart").removeClass("bi-suit-heart-fill");
-            hearted = false;
+            heartIcon.removeClass("bi-suit-heart-fill").addClass("bi-suit-heart");
         } else {
             heartIcon.removeClass("bi-suit-heart").addClass("bi-suit-heart-fill");
-            hearted = true;
         }
     });
     // Heart Mechanics
@@ -181,14 +349,12 @@ $(document).ready(function() {
 
                 if (sideNavTogglerIcon.get(0).classList.contains("bi-box-arrow-in-down-left")) {
                     sideNavTogglerIcon.removeClass('bi-box-arrow-in-down-left').addClass('bi-box-arrow-up-right');
-
                 }
             } else {
                 sideNav.removeClass('side-nav-shrunk').addClass('side-nav-expanded');
 
                 if (sideNavTogglerIcon.get(0).classList.contains("bi-box-arrow-up-right")) {
                     sideNavTogglerIcon.removeClass('bi-box-arrow-up-right').addClass('bi-box-arrow-in-down-left');
-
                 }
             }
         }
@@ -232,16 +398,14 @@ $(document).ready(function() {
     
         $(".sign-toggler").click(function() {
             signToggler = $(this).find("span");
-            signToggled = signToggler.text() == "<" ? true : false;
+            signToggled = signToggler.text() == "<";
     
             if (signToggled) {
                 signToggler.text(">");
                 $(this).parent().parent().find('button.modal-switch').fadeOut('fast', 'swing');
-                signToggled = false;
             } else {
                 signToggler.text("<");
                 $(this).parent().parent().find('button.modal-switch').fadeIn('fast', 'swing');
-                signToggled = true;
             }
         });
     }
