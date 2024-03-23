@@ -26,43 +26,43 @@
 
                     VALUES
 
-                    ('FIRE', '../assets/img/types/fire.jpg'),
+                    ('Fire', '../assets/img/types/fire.jpg'),
 
-                    ('WATER', '../assets/img/types/water.jpg'),
+                    ('Water', '../assets/img/types/water.jpg'),
 
-                    ('ELECTRIC', '../assets/img/types/electric.jpg'),
+                    ('Electric', '../assets/img/types/electric.jpg'),
 
-                    ('GRASS', '../assets/img/types/grass.jpg'),
+                    ('Grass', '../assets/img/types/grass.jpg'),
 
-                    ('ICE', '../assets/img/types/ice.jpg'),
+                    ('Ice', '../assets/img/types/ice.jpg'),
 
-                    ('FIGHTING', '../assets/img/types/fighting.jpg'),
+                    ('Fighting', '../assets/img/types/fighting.jpg'),
                     
-                    ('POISON', '..assets/img/types/poison.jpg'),
+                    ('Poison', '..assets/img/types/poison.jpg'),
 
-                    ('GROUND', '..assets/img/types/ground.jpg'),
+                    ('Ground', '..assets/img/types/ground.jpg'),
 
-                    ('FLYING', '..assets/img/types/flying.jpg'),
+                    ('Flying', '..assets/img/types/flying.jpg'),
 
-                    ('PSYCHIC', '../assets/img/types/psychic.jpg'),
+                    ('Psychic', '../assets/img/types/psychic.jpg'),
 
-                    ('BUG', '../assets/img/types/bug.jpg'),
+                    ('Bug', '../assets/img/types/bug.jpg'),
 
-                    ('NORMAL', '../assets/img/types/normal.jpg'),
+                    ('Normal', '../assets/img/types/normal.jpg'),
 
-                    ('ROCK', '../assets/img/types/rock.jpg'),
+                    ('Rock', '../assets/img/types/rock.jpg'),
 
-                    ('GHOST', '../assets/img/types/ghost.jpg'),
+                    ('Ghost', '../assets/img/types/ghost.jpg'),
 
-                    ('DRAGON', '../assets/img/types/dragon.jpg'),
+                    ('Dragon', '../assets/img/types/dragon.jpg'),
 
-                    ('DARK', '../assets/img/types/dark.jpg'),
+                    ('Dark', '../assets/img/types/dark.jpg'),
 
-                    ('STEEL', '../assets/img/types/steel.jpg'),
+                    ('Steel', '../assets/img/types/steel.jpg'),
 
-                    ('FAIRY', '../assets/img/types/fairy.jpg'),
+                    ('Fairy', '../assets/img/types/fairy.jpg'),
                     
-                    ('NULL', '')
+                    ('Null', '')
                 "
             ),
             
@@ -274,12 +274,11 @@
 
                 'tbl_field' => "
                     id INT AUTO_INCREMENT,
-                    username VARCHAR(255) NOT NULL UNIQUE,
+                    role_id INT NOT NULL,
                     email VARCHAR(255) NOT NULL UNIQUE CHECK (email REGEXP '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$'),
                     password VARCHAR(255) NOT NULL,
-                    role_id INT NOT NULL,
-                    fname VARCHAR(255) NOT NULL,
-                    lname VARCHAR(255) NOT NULL,
+                    pfp_url VARCHAR(255),
+                    username VARCHAR(255) NOT NULL UNIQUE,
                     mobile VARCHAR(12) NOT NULL UNIQUE CHECK (mobile REGEXP '^639[0-9]{9}$'),
                     bday DATE NOT NULL,
                     created_at TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP),
@@ -288,10 +287,10 @@
                 ",
 
                 'tbl_record' => "
-                    (username, email, password, role_id, fname, lname, mobile, bday)
+                    (role_id, email, password, username, mobile, bday)
                     VALUES
-                    ('Ashie_Loche', 'ashie.loche@pokedopt.com', ':password1', (SELECT id FROM role WHERE role = 'admin'), 'Ashie', 'Loche', '639165733654', '2002/12/09'),
-                    ('Ashton_Loche', 'ashton.loche@gmail.com', ':password2', (SELECT id FROM role WHERE role = 'user'), 'Ashton', 'Loche', '639610734066', '2002/12/09')
+                    ((SELECT id FROM role WHERE role = 'admin'), 'ashie.loche@pokedopt.com', ':password1', 'Ashie_Loche', '639165733654', '2002/12/09'),
+                    ((SELECT id FROM role WHERE role = 'user'), 'ashton.loche@gmail.com', ':password2', 'Ashton_Loche', '639610734066', '2002/12/09')
                 "
             ),
 

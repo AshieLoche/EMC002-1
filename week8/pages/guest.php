@@ -3,8 +3,6 @@
     require '../config/db_connect.php';
 
     session_start();
-    session_unset();
-    session_destroy();
 
     if (isset($_COOKIE['userID'])) {
         $_SESSION['userID'] = $_COOKIE['userID'];

@@ -1,6 +1,6 @@
 <?php
 
-    require 'db_create.php';
+    require_once 'db_create.php';
 
     $host = 'localhost';
     $user = 'root';

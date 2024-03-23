@@ -5,7 +5,7 @@
                     <section class="btn-carousel p-0 pb-3 pb-md-0 d-flex flex-md-column gap-3 gap-md-0" >
                         
                         <!-- Profile Button -->
-                        <button onclick="location.href='#'" class="btn btn-outline-light p-5" disabled>
+                        <button onclick="location.href='../pages/profile.php'" class="btn btn-outline-light p-5">
                             
                             <!-- Profile Button Icon -->
                             <i class=" bi bi-person-circle"></i>

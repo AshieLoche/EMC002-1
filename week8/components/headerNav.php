@@ -1,3 +1,52 @@
+<?php
+
+    require '../config/db_connect.php';
+
+    {
+        // Select Pokemon Data
+        $query = "SELECT type FROM type";
+
+        // SQL Check
+        if (!mysqli_query($conn, $query)) {
+            die('Query error: ' . mysqli_error($conn));
+        } else {
+            // Make Query & Get Result
+            $result = mysqli_query($conn, $query);
+
+            // Fetch the Resulting Rows as an Array
+            $types = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+            // Free results From Memory
+            mysqli_free_result($result);
+
+        }
+    }
+
+    {
+        
+        $query = "SELECT species FROM species";
+        
+        if (!mysqli_query($conn, $query)) {
+            die('Query error: ' . mysqli_error($conn));
+        } else {
+            // Make Query & Get Result
+            $result = mysqli_query($conn, $query);
+
+            // Fetch the Resulting Rows as an Array
+            $species = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+            // Free results From Memory
+            mysqli_free_result($result);
+
+            mysqli_close($conn);
+            
+        }
+
+    }
+
+
+?>
+
     <head>
         <!-- Meta -->
         <meta charset="UTF-8">
@@ -48,7 +97,7 @@
                                 <section class="col-6 col-md-4 order-2 order-md-1 d-flex justify-content-start align-items-center gap-2 gap-md-3 p-2 ps-md-3">
                                     
                                     <!-- Header Nav Search Button -->
-                                    <button class="navbar-toggler btn btn-outline-light border-0 p-2" id="search-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#search_filter" aria-controls="search_filter" aria-expanded="false" aria-label="Toggle Search Bar">
+                                    <button id="search_toggler" class="navbar-toggler btn btn-outline-light border-0 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#search" aria-controls="search" aria-expanded="false" aria-label="Toggle Search Bar">
 
                                         <!-- Header Nav Search Icon -->
                                         <i class="bi bi-search fs-2" id="search-icon"></i>
@@ -58,7 +107,7 @@
                                     <!-- Header Nav Search Button -->
 
                                     <!-- Header Nav Filter Button -->
-                                    <button class="navbar-toggler btn btn-outline-light border-0 p-2" data-bs-toggle="modal" data-bs-target="#multiSelectModal">
+                                    <button id="filters_toggler" class="navbar-toggler btn btn-outline-light border-0 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#filters" aria-controls="filters" aria-expanded="false" aria-label="Toggle Filters">
 
                                         <!-- Header Nav Filter Icon -->
                                         <i class="bi bi-funnel-fill fs-2"></i>
@@ -105,17 +154,21 @@
                                     </button>
                                     <!-- Header Nav Notif Button -->
 
-                                    <!-- Header Nav PokéList Button -->
-                                    <button onclick="location.href='#'" class="navbar-toggler btn btn-outline-light p-2 d-none" id="pokelist_btn">
+                                    <form action="../components/logout.php" method="POST">
+                                        
+                                        <!-- Header Nav PokéList Button -->
+                                        <button class="navbar-toggler btn btn-outline-light p-2 d-none" tpye="submit" id="pokelist_btn" name="pokelist" value="pokelist">
+                                        
+                                            <!-- Header Nav PokéList Title -->
+                                            <span class="fw-bold fs-4" id="pokelist">
+                                                PokéList
+                                            </span>
+                                            <!-- Header Nav PokéList Title -->
+                                        
+                                        </button>
+                                        <!-- Header Nav PokéList Button -->
 
-                                        <!-- Header Nav PokéList Title -->
-                                        <span class="fw-bold fs-4" id="pokelist">
-                                            PokéList
-                                        </span>
-                                        <!-- Header Nav PokéList Title -->
-
-                                    </button>
-                                    <!-- Header Nav PokéList Button -->
+                                    </form>
 
                                     <!-- Header Nav Sign Up Button -->
                                     <button class="navbar-toggler btn btn-outline-light p-2 d-none d-xl-block" id="signUp_btn" data-bs-toggle="modal" data-bs-target="#sign_up_modal">
@@ -145,61 +198,65 @@
                                 <!-- Header Nav Action Buttons (Notif, PokéList, Sign In, Sign Up) -->
 
                                 <!-- Header Nav Search Bar & Filters -->
-                                <section class="collapse navbar-collapse col-12 order-4 mt-3 my-md-2" id="search_filter">
+                                <section class="collapse navbar-collapse col-12 order-4 mt-3 mb-3" id="search">
                                     
                                     <!-- Header Nav Search Bar -->
                                     <input type="text" class="form-control nav-item bg-transparent text-light fs-4" id="search_bar" placeholder="Search..." aria-label="Search Bar">
                                     <!-- Header Nav Search Bar -->
 
-                                    <section id="speciesSelect" class="d-flex justify-content-center col-12 mt-3 border">
+                                </section>
+                                <!-- Header Nav Search Bar & Filters -->
+
+                                <!-- Header Nav Search Bar & Filters -->
+                                <section class="collapse navbar-collapse col-12 order-4 mb-3 text-light" id="filters">
+
+                                    <section class="border rounded">
                                         
-                                        <fieldset>
-                                            <legend class="text-light fw-bold">Types</legend>
+                                        <h3 class="text-center p-3 border-bottom">Filters</h3>
+                                        
+                                        <section class="d-flex flex-column gap-3 m-3">
                                             
-                                            <button class="btn btn-outline-light speciesSingular" value="Gengar">
-                                                <span class="fw-bold fs-5">
-                                                    Gengar
-                                                </span>
-                                            </button>
+                                            <fieldset id="typesSelect" class="border rounded p-3">
+                                                
+                                                <legend class="fw-bold pb-2 border-bottom text-center">Types</legend>
+                                                
+                                                <section class="p-2 d-flex flex-wrap justify-content-center gap-2">
+
+                                                    <?php foreach ($types as $type) { ?>
+                                                        
+                                                        <?php if (ucfirst(strtolower($type['type'])) != "Null"): ?>
+                                                            <button class="btn btn-outline-light type" value="<?php echo ucfirst(strtolower($type['type'])); ?>">
+                                                                <span class="fw-bold fs-5">
+                                                                    <?php echo ucfirst(strtolower($type['type'])); ?>
+                                                                </span>
+                                                            </button>
+                                                        <?php endif ?>
+                                                    <?php } ?>
+                                                    
+                                                </section>
+        
+                                            </fieldset>
+
+                                            <fieldset id="speciesSelect" class="border rounded p-3">
+                                                
+                                                <legend class="fw-bold pb-2 border-bottom text-center">Species</legend>
+
+                                                <section class="p-2 d-flex flex-wrap justify-content-center gap-2">
+                                                    <?php foreach ($species as $speciesSingular) { ?>
+                                                        <button class="btn btn-outline-light species" value="<?php echo $speciesSingular['species']; ?>">
+                                                            <span class="fw-bold fs-5">
+                                                                <?php echo $speciesSingular['species']; ?>
+                                                            </span>
+                                                        </button>
+                                                    <?php } ?>
+
+                                                </section>
                                             
-                                            <button class="btn btn-outline-light speciesSingular" value="Dragonite">
-                                                <span class="fw-bold fs-5">
-                                                    Dragonite
-                                                </span>
-                                            </button>
-                                            
-                                        </fieldset>
+                                            </fieldset>
+
+                                        </section>
 
                                     </section>
-
-                                    <section id="typesSelect" class="d-flex justify-content-center col-12 mt-3 border">
-                                        
-                                        <fieldset>
-                                            <legend class="text-light fw-bold">Types</legend>
-                                            
-                                            <button class="btn btn-outline-light type" value="FIRE">
-                                                <span class="fw-bold fs-5">
-                                                    FIRE
-                                                </span>
-                                            </button>
-                                            
-                                            <button class="btn btn-outline-light type" value="GHOST">
-                                                <span class="fw-bold fs-5">
-                                                    GHOST
-                                                </span>
-                                            </button>
-                                            
-                                        </fieldset>
-
-                                    </section>
-
-                                    <!-- <section>
-                                        <select name="types" id="types" class="form-control" multiple>
-                                            <option value="option1">Option 1</option>
-                                            <option value="option2">Option 2</option>
-                                            <option value="option3">Option 3</option>
-                                        </select>
-                                    </section> -->
 
                                 </section>
                                 <!-- Header Nav Search Bar & Filters -->
@@ -213,33 +270,8 @@
                     </nav>
                     <!-- Header Nav -->
 
-                    <!-- <div class="modal fade" id="multiSelectModal" tabindex="-1" role="dialog" aria-labelledby="multiSelectModalLabel" aria-hidden="true"> -->
-
-  <!-- <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="multiSelectModalLabel">Select Items</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <select id="multiSelect" class="form-control" size="10" multiple>
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
-          <option value="option3">Option 3</option>
-          </select>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="selectButton">Select</button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
 <script>
-    if (<?php echo !isset($_SESSION['userID']) ? 'true' : 'false' ?>) {
+    if (<?php echo !isset($_SESSION['userID']) ? 'true' : 'false'; ?>) {
         document.getElementById("pokelist_btn").classList.add('d-none');
         document.getElementById("signUp_btn").classList.add('d-xl-block');
         document.getElementById("signIn_btn").classList.remove('d-none');

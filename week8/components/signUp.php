@@ -66,21 +66,6 @@
             <legend class="border-bottom border-dark">Account Credentials:</legend>
             <!-- Account Credentials Fieldset Legend -->
   
-            <!-- Account Credentials Username -->
-            <input type="text" class="form-control bg-dark text-light border-dark" id="username" placeholder="Username" name="username" autocomplete="off" required>
-            <!-- Account Credentials Username -->
-
-            <!-- Username Requirements -->
-            <section class="d-none" id="uname_reqs">
-              <p class="m-0" id="uname_len">
-                - Must be between 6 - 20 characters long
-              </p>
-              <p class="m-0" id="uname_special">
-                - Must not contain special characters except for an optional underscore "_"
-              </p>
-            </section>
-            <!-- Username Requirements -->
-  
             <!-- Account Credentials Email -->
             <input type="email" class="form-control bg-dark text-light border-dark" id="email" placeholder="Email" name="email" autocomplete="off" required>
             <!-- Account Credentials Email -->
@@ -127,20 +112,26 @@
             <!-- Personal Information Fieldset Legend -->
             <legend class="border-bottom border-dark">Personal Information:</legend>
             <!-- Personal Information Fieldset Legend -->
+            
+            <!-- <label for="pfp" class="btn btn-dark">
+              Upload Profile Picture
+              <input type="file" class="form-control bg-dark text-light border-dark" name="pfp" id="pfp" style="display:none;">
+            </label> -->
 
-            <!-- Personal Information Name -->
-            <section class="d-flex gap-2">
-              
-              <!-- Personal Information First Name -->
-              <input type="text" class="form-control bg-dark text-light border-dark" placeholder="First Name" name="fname" required>
-              <!-- Personal Information First Name -->
+            <!-- Account Credentials Username -->
+            <input type="text" class="form-control bg-dark text-light border-dark" id="username" placeholder="Username" name="username" autocomplete="off" required>
+            <!-- Account Credentials Username -->
 
-              <!-- Personal Information Last Name -->
-              <input type="text" class="form-control bg-dark text-light border-dark" placeholder="Last Name" name="lname">
-              <!-- Personal Information Last Name -->
-
+            <!-- Username Requirements -->
+            <section class="d-none" id="uname_reqs">
+              <p class="m-0" id="uname_len">
+                - Must be between 6 - 20 characters long
+              </p>
+              <p class="m-0" id="uname_special">
+                - Must not contain special characters except for an optional underscore "_"
+              </p>
             </section>
-            <!-- Personal Information Name -->
+            <!-- Username Requirements -->
 
             <!-- Personal Information Mobile -->
             <section class="input-group">
@@ -200,7 +191,7 @@
           <!-- Auto Sign In Checkbox -->
           
           <!-- Auto Sign In Label -->
-          <label for="remember_signUp">Remember me</label>
+          <label for="remember_signUp">Remember me for 30 days</label>
           <!-- Auto Sign In Label -->
           
         </fieldset>

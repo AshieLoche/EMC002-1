@@ -11,12 +11,11 @@
 
     if (isset($_POST['signUp'])) {
 
-        if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['confirm_password']) && isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['mobile']) && isset($_POST['bday'])) {
+        if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['confirm_password']) && isset($_POST['mobile']) && isset($_POST['bday'])) {
             $username = mysqli_real_escape_string($conn, $_POST['username']);
             $email = mysqli_real_escape_string($conn, $_POST['email']);
             $confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);
-            $fname = mysqli_real_escape_string($conn, $_POST['fname']);
-            $lname = mysqli_real_escape_string($conn, $_POST['lname']);
+            // $pfp = mysqli_real_escape_string($conn, $_POST['pfp']);
             $mobile = '63' . mysqli_real_escape_string($conn, $_POST['mobile']);
             $bday = mysqli_real_escape_string($conn, $_POST['bday']);
         }
@@ -99,10 +98,10 @@
 
         } else {
 
-            $insert_query = "INSERT INTO account (username, email, password, role_id, fname, lname, mobile, bday)
-            VALUES ('$username', '$email', ':password', (SELECT id FROM role WHERE role = 'user'), '$fname', '$lname', '$mobile', ':bday')";
+            $insert_query = "INSERT INTO account (role_id, email, password, username, mobile, bday)
+            VALUES ((SELECT id FROM role WHERE role = 'user'), '$email', ':password', '$username', '$mobile', ':bday')";
 
-            $insert_query = str_replace(':password', password_hash('ThisIsMyPokedoptYIPPIE!!!<3', PASSWORD_DEFAULT), $insert_query);
+            $insert_query = str_replace(':password', password_hash($confirm_password, PASSWORD_DEFAULT), $insert_query);
             
             $insert_query = str_replace(':bday', date('Y-m-d', strtotime($bday)), $insert_query);
 
@@ -130,10 +129,11 @@
     
                     session_start();
         
-                    $_SESSION['userID'] = $user['0']['id'];
-        
                     if(isset($_POST['remember'])) {
                         setcookie("userID", $user['0']['id'], time()+30*24*60*60, "/", "");
+                    } else {
+                        $_SESSION['userID'] = $user['0']['id'];
+        
                     }
     
                     header('Refresh: 0; URL=../pages/pokedopt.php');

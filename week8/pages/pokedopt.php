@@ -3,10 +3,6 @@
     require '../config/db_connect.php';
 
     session_start();
-    session_unset();
-    session_destroy();
-
-    session_start();
 
     if (isset($_COOKIE['userID'])) {
         $_SESSION['userID'] = $_COOKIE['userID'];
@@ -73,6 +69,8 @@
 
             // Free results From Memory
             mysqli_free_result($result);
+
+            mysqli_close($conn);
             
         }
 
