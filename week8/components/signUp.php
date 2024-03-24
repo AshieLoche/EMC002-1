@@ -57,7 +57,7 @@
       <section class="modal-body fw-bold">
 
         <!-- Sign Up Modal Body Form -->
-        <form action="../components/signUpProcess.php" id="signUp_form" method="POST" class="d-flex flex-column gap-3">
+        <form action="../components/signUpProcess.php" id="signUp_form" method="POST" enctype="multipart/form-data" class="d-flex flex-column gap-3">
           
           <!-- Account Credentials Fieldset -->
           <fieldset class="text-dark d-flex flex-column gap-2">
@@ -112,11 +112,19 @@
             <!-- Personal Information Fieldset Legend -->
             <legend class="border-bottom border-dark">Personal Information:</legend>
             <!-- Personal Information Fieldset Legend -->
+
+            <section class="p-3 d-flex gap-3">
+              <label for="pfpFile" class="bg-dark col-3" style="cursor: pointer; height: 150px; width: 150px; border-radius: 100%;">
+                <img src="..\assets\pfp\default.png" alt="Ashie_Loche" id="pfp" class="pfp" style="height: 150px; width: 150px; border-radius: 100%;">
+                <input type="file" name="pfpFile" id="pfpFile" class="d-none">
+              </label>
+              
+              <section class="d-flex flex-column gap-2 justify-content-center col-8">
+                <h3 class="border-bottom border-dark fw-bold pb-2">Profile Pic</h3>
+                <input class="btn btn-dark" id="clear" type="button" value="Clear">
+              </section>
+            </section>
             
-            <!-- <label for="pfp" class="btn btn-dark">
-              Upload Profile Picture
-              <input type="file" class="form-control bg-dark text-light border-dark" name="pfp" id="pfp" style="display:none;">
-            </label> -->
 
             <!-- Account Credentials Username -->
             <input type="text" class="form-control bg-dark text-light border-dark" id="username" placeholder="Username" name="username" autocomplete="off" required>
@@ -132,6 +140,28 @@
               </p>
             </section>
             <!-- Username Requirements -->
+            
+            <select id="gender" name="gender" class="form-select bg-dark text-white border border-secondary" style="cursor: pointer;">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Non-Binary">Non-Binary</option>
+            </select>
+
+            <!-- Personal Information Birthday -->
+            <section class="input-group">
+              
+              <!-- Personal Information Birthday Icon -->
+              <span class="input-group-text bg-dark text-light border-dark" title="Birthday">
+                <i class="bi bi-cake2 fs-5"></i>
+              </span>
+              <!-- Personal Information Birthday Icon -->
+              
+              <!-- Personal Information Birthday Date -->
+              <input type="date" class="form-control bg-dark text-light border-dark" placeholder="Birthday" name="bday" required>
+              <!-- Personal Information Birthday Date -->
+              
+            </section>
+            <!-- Personal Information Birthday -->
 
             <!-- Personal Information Mobile -->
             <section class="input-group">
@@ -155,21 +185,174 @@
             </section>
             <!-- Mobile Requirements -->
             
-            <!-- Personal Information Birthday -->
-            <section class="input-group">
-              
-              <!-- Personal Information Birthday Icon -->
-              <span class="input-group-text bg-dark text-light border-dark" title="Birthday">
-                <i class="bi bi-cake2 fs-5"></i>
-              </span>
-              <!-- Personal Information Birthday Icon -->
-              
-              <!-- Personal Information Birthday Date -->
-              <input type="date" class="form-control bg-dark text-light border-dark" placeholder="Birthday" name="bday" required>
-              <!-- Personal Information Birthday Date -->
-              
+            <button id="type_toggler" class="btn btn-dark form-control p-2" type="button" data-bs-toggle="collapse" data-bs-target="#types" aria-controls="types" aria-expanded="false" aria-label="Toggle Types">
+              Type Preference/s
+            </button>
+
+            <section class="collapse navbar-collapse bg-dark text-light rounded p-3" id="types">
+              <section class="d-flex">
+                
+                <section class="d-flex flex-column gap-3 col-4">
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Fire" value="Fire">
+                    <label for="Fire">Fire</label>
+                  </span>
+
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Water" value="Water">
+                    <label for="Water">Water</label>
+                  </span>
+                  
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Electric" value="Electric">
+                    <label for="Electric">Electric</label>
+                  </span>
+
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Grass" value="Grass">
+                    <label for="Grass">Grass</label>
+                  </span>
+
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Ice" value="Ice">
+                    <label for="Ice">Ice</label>
+                  </span>
+                  
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Fighting" value="Fighting">
+                    <label for="Fighting">Fighting</label>
+                  </span>
+                </section>
+                
+                <section class="d-flex flex-column gap-3 col-4">
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Poison" value="Poison">
+                    <label for="Poison">Poison</label>
+                  </span>
+
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Ground" value="Ground">
+                    <label for="Ground">Ground</label>
+                  </span>
+                  
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Flying" value="Flying">
+                    <label for="Flying">Flying</label>
+                  </span>
+
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Psychic" value="Psychic">
+                    <label for="Psychic">Psychic</label>
+                  </span>
+
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Bug" value="Bug">
+                    <label for="Bug">Bug</label>
+                  </span>
+                  
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Normal" value="Normal">
+                    <label for="Normal">Normal</label>
+                  </span>
+                </section>
+                
+                <section class="d-flex flex-column gap-3 col-4">
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Rock" value="Rock">
+                    <label for="Rock">Rock</label>
+                  </span>
+
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Ghost" value="Ghost">
+                    <label for="Ghost">Ghost</label>
+                  </span>
+                  
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Dragon" value="Dragon">
+                    <label for="Dragon">Dragon</label>
+                  </span>
+
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Dark" value="Dark">
+                    <label for="Dark">Dark</label>
+                  </span>
+
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Steel" value="Steel">
+                    <label for="Steel">Steel</label>
+                  </span>
+                  
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="type[]" id="Fairy" value="Fairy">
+                    <label for="Fairy">Fairy</label>
+                  </span>
+                </section>
+
+              </section>
             </section>
-            <!-- Personal Information Birthday -->
+
+            <button id="region_toggler" class="btn btn-dark form-control p-2" type="button" data-bs-toggle="collapse" data-bs-target="#regions" aria-controls="regions" aria-expanded="false" aria-label="Toggle Regions">
+              Region Preference/s
+            </button>
+            
+            <section class="collapse navbar-collapse bg-dark text-light rounded p-3" id="regions">
+              <section class="d-flex">
+                
+                <section class="d-flex flex-column gap-3 col-4">
+
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="region[]" id="Kanto" value="Kanto">
+                    <label for="Kanto">Kanto</label>
+                  </span>
+
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="region[]" id="Johto" value="Johto">
+                    <label for="Johto">Johto</label>
+                  </span>
+                  
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="region[]" id="Hoenn" value="Hoenn">
+                    <label for="Hoenn">Hoenn</label>
+                  </span>
+                </section>
+                
+                <section class="d-flex flex-column gap-3 col-4">
+
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="region[]" id="Sinnoh" value="Sinnoh">
+                    <label for="Sinnoh">Sinnoh</label>
+                  </span>
+
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="region[]" id="Unovah" value="Unovah">
+                    <label for="Unovah">Unovah</label>
+                  </span>
+                  
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="region[]" id="Kalos" value="Kalos">
+                    <label for="Kalos">Kalos</label>
+                  </span>
+                </section>
+                
+                <section class="d-flex flex-column gap-3 col-4">
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="region[]" id="Alola" value="Alola">
+                    <label for="Alola">Alola</label>
+                  </span>
+
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="region[]" id="Galar" value="Galar">
+                    <label for="Galar">Galar</label>
+                  </span>
+                  
+                  <span class="input-group d-flex justify-content-center gap-2">
+                    <input type="checkbox" name="region[]" id="Paldea" value="Paldea">
+                    <label for="Paldea">Paldea</label>
+                  </span>
+                </section>
+
+              </section>
+            </section>
   
           </fieldset>
           <!-- Personal Information Fieldset -->

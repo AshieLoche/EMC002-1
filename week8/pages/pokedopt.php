@@ -4,6 +4,8 @@
 
     session_start();
 
+    $_SESSION['page'] = 'Pokedopt';
+
     if (isset($_COOKIE['userID'])) {
         $_SESSION['userID'] = $_COOKIE['userID'];
     }

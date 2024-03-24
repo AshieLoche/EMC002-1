@@ -274,23 +274,26 @@
 
                 'tbl_field' => "
                     id INT AUTO_INCREMENT,
-                    role_id INT NOT NULL,
+                    role_id INT NOT NULL DEFAULT (3),
                     email VARCHAR(255) NOT NULL UNIQUE CHECK (email REGEXP '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$'),
                     password VARCHAR(255) NOT NULL,
                     pfp_url VARCHAR(255),
                     username VARCHAR(255) NOT NULL UNIQUE,
-                    mobile VARCHAR(12) NOT NULL UNIQUE CHECK (mobile REGEXP '^639[0-9]{9}$'),
+                    gender VARCHAR(10) NOT NULL CHECK (gender in ('Male', 'Female', 'Non-Binary')),
                     bday DATE NOT NULL,
+                    mobile VARCHAR(12) NOT NULL UNIQUE CHECK (mobile REGEXP '^639[0-9]{9}$'),
+                    typePreference VARCHAR(255),
+                    regionPreference VARCHAR(255),
                     created_at TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP),
                     PRIMARY KEY (id),
                     FOREIGN KEY (role_id) REFERENCES role (id)
                 ",
 
                 'tbl_record' => "
-                    (role_id, email, password, username, mobile, bday)
+                    (role_id, email, password, pfp_url, username, gender, bday, mobile, typePreference, regionPreference)
                     VALUES
-                    ((SELECT id FROM role WHERE role = 'admin'), 'ashie.loche@pokedopt.com', ':password1', 'Ashie_Loche', '639165733654', '2002/12/09'),
-                    ((SELECT id FROM role WHERE role = 'user'), 'ashton.loche@gmail.com', ':password2', 'Ashton_Loche', '639610734066', '2002/12/09')
+                    ((SELECT id FROM role WHERE role = 'admin'), 'ashie.loche@pokedopt.com', ':password1', '../assets/pfp/ashie_loche.png','Ashie_Loche', 'Male', '2002/12/09','639165733654', 'Ghost', 'Kalos'),
+                    ((SELECT id FROM role WHERE role = 'user'), 'ashton.loche@gmail.com', ':password2', '../assets/pfp/ashton_loche.jpg', 'Ashton_Loche', 'Non-Binary', '2002/12/09', '639610734066', 'Fire/Electric', '')
                 "
             ),
 

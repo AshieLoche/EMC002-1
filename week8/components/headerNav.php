@@ -95,6 +95,10 @@
 
                                 <!-- Header Nav Action Buttons (Search, Filter) -->
                                 <section class="col-6 col-md-4 order-2 order-md-1 d-flex justify-content-start align-items-center gap-2 gap-md-3 p-2 ps-md-3">
+
+                                    <button onclick="location.href='../pages/profile.php'" class="navbar-toggler btn btn-outline-light border-0 p-2 d-none" id="back">
+                                        <i class="bi bi-arrow-left-circle fs-2"></i>
+                                    </button>
                                     
                                     <!-- Header Nav Search Button -->
                                     <button id="search_toggler" class="navbar-toggler btn btn-outline-light border-0 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#search" aria-controls="search" aria-expanded="false" aria-label="Toggle Search Bar">
@@ -145,7 +149,7 @@
                                 <section class="col-6 col-md-4 order-3 d-flex justify-content-end align-itmes-center gap-2 gap-md-3 p-2 pe-md-3" id="actionBtns">
 
                                     <!-- Header Nav Notif Button -->
-                                    <button class="navbar-toggler btn btn-outline-light border-0 p-2" disabled>
+                                    <button class="navbar-toggler btn btn-outline-light border-0 p-2" id="notif" disabled>
 
                                         <!-- Header Notif Button Icon -->
                                         <i class="bi bi-bell-fill fs-2"></i>
@@ -153,15 +157,27 @@
 
                                     </button>
                                     <!-- Header Nav Notif Button -->
+                                    
+                                    <!-- Header Nav PokéList Button -->
+                                    <button class="navbar-toggler btn btn-outline-light p-2 d-none" id="pokelist_btn" disabled>
+                                        
+                                        <!-- Header Nav PokéList Title -->
+                                        <span class="fw-bold fs-4" id="pokelist">
+                                            PokéList
+                                        </span>
+                                        <!-- Header Nav PokéList Title -->
+                                    
+                                    </button>
+                                    <!-- Header Nav PokéList Button -->
 
-                                    <form action="../components/logout.php" method="POST">
+                                    <form action="../components/logout.php" method="POST" class="p-0 m-0 d-flex align-items-center d-none" id="logout_form">
                                         
                                         <!-- Header Nav PokéList Button -->
-                                        <button class="navbar-toggler btn btn-outline-light p-2 d-none" tpye="submit" id="pokelist_btn" name="pokelist" value="pokelist">
+                                        <button class="navbar-toggler btn btn-outline-light p-2" tpye="submit" id="logout_btn" name="logout" value="logout" form="logout_form">
                                         
                                             <!-- Header Nav PokéList Title -->
-                                            <span class="fw-bold fs-4" id="pokelist">
-                                                PokéList
+                                            <span class="fw-bold fs-4" id="logout">
+                                                Logout
                                             </span>
                                             <!-- Header Nav PokéList Title -->
                                         
@@ -271,13 +287,34 @@
                     <!-- Header Nav -->
 
 <script>
-    if (<?php echo !isset($_SESSION['userID']) ? 'true' : 'false'; ?>) {
-        document.getElementById("pokelist_btn").classList.add('d-none');
-        document.getElementById("signUp_btn").classList.add('d-xl-block');
-        document.getElementById("signIn_btn").classList.remove('d-none');
-    } else {
-        document.getElementById("pokelist_btn").classList.remove('d-none');
+    if (<?php echo isset($_SESSION['userID']) ? 'true' : 'false'; ?>) {
         document.getElementById("signUp_btn").classList.remove('d-xl-block');
         document.getElementById("signIn_btn").classList.add('d-none');
-    }
+
+        if (<?php echo $_SESSION['page'] == 'Profile' ? 'true' : 'false'; ?>) {
+            document.getElementById("pokelist_btn").classList.add('d-none');
+            document.getElementById("logout_form").classList.remove('d-none');
+            document.getElementById("search_toggler").classList.add('d-none');
+            document.getElementById("filters_toggler").classList.add('d-none');
+        } else if (<?php echo $_SESSION['page'] == 'EditProfile' ? 'true' : 'false'; ?>) {
+            document.getElementById("back").classList.remove('d-none');
+            document.getElementById("search_toggler").classList.add('d-none');
+            document.getElementById("filters_toggler").classList.add('d-none');
+            document.getElementById("notif").classList.add('d-none');
+        } else {
+            document.getElementById("pokelist_btn").classList.remove('d-none');
+            document.getElementById("logout_form").classList.add('d-none');
+            document.getElementById("back").classList.add('d-none');
+            document.getElementById("search_toggler").classList.remove('d-none');
+            document.getElementById("filters_toggler").classList.remove('d-none');
+            document.getElementById("notif").classList.remove('d-none');
+        }
+
+    } else {
+        document.getElementById("pokelist_btn").classList.add('d-none');
+        document.getElementById("logout_form").classList.add('d-none');
+        document.getElementById("signUp_btn").classList.add('d-xl-block');
+        document.getElementById("signIn_btn").classList.remove('d-none');
+    } 
+
 </script>  

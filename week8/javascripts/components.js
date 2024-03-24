@@ -1,5 +1,75 @@
 $(document).ready(function() {
 
+    {
+
+        const pfp = $('#pfp');
+        const editPfp = $('#editPfp');
+        origPfp = pfp.attr('src');
+        origEditPfP = editPfp.attr('src');
+        let newPfpData;
+        let newEditPfpData;
+
+        function setOriginalPfp() {
+            pfp.attr('src', origPfp);
+            newPfpData = '';
+        }
+
+        function setOriginalEditPfp() {
+            editPfp.attr('src', origEditPfP);
+            newEditPfpData = '';
+        }
+        
+        $("#pfpFile").on('change', function(e) {
+            const file = e.target.files[0];
+
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+
+                $(reader).on('load', function(e) {
+                    newPfpData = e.target.result
+                    pfp.attr('src', newPfpData);
+                });
+                
+                reader.readAsDataURL(file);
+            } else if (newPfpData) {
+
+                alert("Please select an image file (png or jpg) only.");
+                pfp.attr('src', newPfpData);
+
+            } else {
+                alert("Please select an image file (png or jpg) only.");
+                setOriginalPfp();
+            }
+        });
+
+        $("#editPfpFile").on('change', function(e) {
+            const file = e.target.files[0];
+
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+
+                $(reader).on('load', function(e) {
+                    newEditPfpData = e.target.result
+                    editPfp.attr('src', newEditPfpData);
+                });
+                
+                reader.readAsDataURL(file);
+            } else if (newEditPfpData) {
+
+                alert("Please select an image file (png or jpg) only.");
+                editPfp.attr('src', newEditPfpData);
+
+            } else {
+                alert("Please select an image file (png or jpg) only.");
+                setOriginalEditPfp();
+            }
+        });
+
+        $('#clear').click(setOriginalPfp);
+        $('#editClear').click(setOriginalEditPfp);
+
+    }
+
     // Search and Filters
     {
 

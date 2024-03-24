@@ -96,7 +96,7 @@
           <!-- Auto Sign In Checkbox -->
           
           <!-- Auto Sign In Label -->
-          <label for="remember_SignIn">Remember me</label>
+          <label for="remember_SignIn">Remember me for 30 days</label>
           <!-- Auto Sign In Label -->
           
         </fieldset>

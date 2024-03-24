@@ -81,6 +81,8 @@
                                 <!-- Guest Sign In Button -->
 
                             </section>
+                            <!-- Guest Sign Buttons -->
+
                         </section>
                         <!-- Content Section -->
 

@@ -156,6 +156,11 @@ section.btn-carousel button:nth-child(2):hover img, section.btn-carousel button:
 
 /* Modals */
 /* #region */
+
+.modal::-webkit-scrollbar {
+    display: none;
+}
+
 .modal-dialog {
     height: 100vh;
     min-width: 100vw;
