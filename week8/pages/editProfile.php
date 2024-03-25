@@ -106,7 +106,7 @@
                                       <!-- Personal Information Birthday Icon -->
                                       
                                       <!-- Personal Information Birthday Date -->
-                                      <input type="date" class="form-control bg-dark text-light border-dark" placeholder="Birthday" name="bday" value="<?php echo $account[0]['bday']; ?>" required>
+                                      <input type="date" class="form-control bg-dark text-light border-dark" name="bday" value="<?php echo $account[0]['bday']; ?>" required>
                                       <!-- Personal Information Birthday Date -->
                                       
                                     </section>
@@ -270,18 +270,21 @@
                 <!-- Sign Up Modal -->
                         
                 <style>
-                    #main-content {
-                        background-color: rgba(54,58,62,255);
-                    }
-                    .profile {
-                        min-height: 90vh;
-                    }
-                    .pfp {
-                        height: 250px;
-                        width: 250px;
-                        border-radius: 100%;
-                    }
-                </style>                                
+                  #main-content {
+                    background-color: rgba(54,58,62,255);
+                  }
+                  .profile {
+                    min-height: 90vh;
+                  }
+                  .pfp {
+                    height: 250px;
+                    width: 250px;
+                    border-radius: 100%;
+                  }
+                  #editGender {
+                    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'><polygon points='0,0 14,0 7,7' style='fill: white;'/></svg>");
+                  }
+                  </style>                                
                 <script>
                     // Select the dropdown element
                     const genderSelect = document.getElementById("editGender");

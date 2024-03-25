@@ -108,10 +108,17 @@
 
                                                 <ul class="col-12 col-lg-4 col-lg-4 mb-0">
                                                     <?php
+
                                                         $typePreferences = explode('/', $account[0]['typePreference']);
                                                         
-                                                        for ($i = 0; $i < 6; $i++) {
-                                                            echo '<li>' . $typePreferences[$i].'</li>';
+                                                        if(count($typePreferences) > 0 && !empty($account[0]['typePreference'])) {
+                                                            for ($i = 0; $i < count($typePreferences); $i++) {
+                                                                if ($i == 6) {
+                                                                    break;
+                                                                } else {
+                                                                    echo '<li>' . $typePreferences[$i].'</li>';
+                                                                }
+                                                            }
                                                         }
                                                     ?>
                                                 </ul>
@@ -120,8 +127,12 @@
                                                         $typePreferences = explode('/', $account[0]['typePreference']);
                                                         
                                                         if(count($typePreferences) > 6) {
-                                                            for ($i = 6; $i < 12; $i++) {
-                                                                echo '<li>' . $typePreferences[$i].'</li>';
+                                                            for ($i = 6; $i < count($typePreferences); $i++) {
+                                                                if ($i == 12) {
+                                                                    break;
+                                                                } else {
+                                                                    echo '<li>' . $typePreferences[$i].'</li>';
+                                                                }
                                                             }
                                                         }
                                                     ?>
@@ -133,7 +144,7 @@
                                                         $typePreferences = explode('/', $account[0]['typePreference']);
                                                         
                                                         if(count($typePreferences) > 12) {
-                                                            for ($i = 12; $i < 18; $i++) {
+                                                            for ($i = 12; $i < count($typePreferences); $i++) {
                                                                 echo '<li>' . $typePreferences[$i].'</li>';
                                                             }
                                                         }
@@ -148,9 +159,15 @@
                                                 <ul class="col-12 col-lg-4 col-lg-4 mb-0">
                                                     <?php
                                                         $regionPreference = explode('/', $account[0]['regionPreference']);
-                                                        
-                                                        for ($i = 0; $i < 3; $i++) {
-                                                            echo '<li>' . $regionPreference[$i].'</li>';
+                                                    
+                                                        if (count($regionPreference) > 0 && !empty($account[0]['regionPreference'])) {
+                                                            for ($i = 0; $i < count($regionPreference); $i++) {
+                                                                if ($i == 3) {
+                                                                    break;
+                                                                } else {
+                                                                    echo '<li>' . $regionPreference[$i].'</li>';
+                                                                }
+                                                            }
                                                         }
                                                     ?>
                                                 </ul>
@@ -159,8 +176,12 @@
                                                         $regionPreference = explode('/', $account[0]['regionPreference']);
                                                         
                                                         if(count($regionPreference) > 3) {
-                                                            for ($i = 3; $i < 6; $i++) {
-                                                                echo '<li>' . $regionPreference[$i].'</li>';
+                                                            for ($i = 3; $i < count($regionPreference); $i++) {
+                                                                if ($i == 6) {
+                                                                    break;
+                                                                } else {
+                                                                    echo '<li>' . $regionPreference[$i].'</li>';
+                                                                }
                                                             }
                                                         }
                                                     ?>
@@ -172,7 +193,7 @@
                                                         $regionPreference = explode('/', $account[0]['regionPreference']);
                                                         
                                                         if(count($regionPreference) > 6) {
-                                                            for ($i = 6; $i < 9; $i++) {
+                                                            for ($i = 6; $i < count($regionPreference); $i++) {
                                                                 echo '<li>' . $regionPreference[$i].'</li>';
                                                             }
                                                         }

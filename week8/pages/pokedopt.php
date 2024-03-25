@@ -101,10 +101,10 @@
                                     <?php if (is_null($pokemon['adoption_time'])): ?>
 
                                         <!-- Pokémon Card -->
-                                        <article class="card bg-dark text-light border-dark rounded-5 col-sm-10 col-md-8 col-lg-6 col-xl-4 col-xxl-3 p-0 pokemon_card">
+                                        <article class="card pokeCard bg-dark text-light border-dark rounded-5 col-sm-10 col-md-8 col-lg-6 col-xl-4 col-xxl-3 p-0 pokemon_card">
                                             
                                             <!-- Pokémon Card Image -->
-                                            <img src="<?php echo $pokemon['img']; ?>" alt="<?php echo $pokemon['name']; ?>" class="card-img-top img rounded-top-5 border-bottom border-bottom">
+                                            <img src="<?php echo $pokemon['img']; ?>" alt="<?php echo $pokemon['name']; ?>" class="card-img-top img rounded-top-5 border-bottom">
                                             <!-- Pokémon Card Image -->
 
                                             <!-- Pokémon Card Body -->
@@ -117,9 +117,9 @@
                                                     <div class="row">
 
                                                         <!-- Pokémon Card Header -->
-                                                        <a href="#" class="card-header display-3 col-10 col-lg-9 p-0 text-decoration-none border-0 pokemon_name">
+                                                        <p class="card-header display-3 col-10 col-lg-9 p-0 text-decoration-none border-0 pokemon_name">
                                                             <?php echo $pokemon['name']; ?>
-                                                        </a>
+                                                        </p>
                                                         <!-- Pokémon Card Header -->
 
                                                         <!-- Pokémon Card Heart Button Span -->
@@ -130,7 +130,6 @@
                                                                 <input type="hidden" name="pokemonID" value="<?php echo $pokemon['id']; ?>">
 
                                                                 <!-- Pokémon Card Heart Button -->
-
                                                                 <button class="btn btn-outline-light border-0 p-0 px-2 heart" type="submit" name="heart" value="heart">
     
                                                                     <!-- Pokémon Card Heart Button Icon -->
@@ -154,7 +153,7 @@
                                                                     <!-- Pokémon Card Heart Button Icon -->
                                                                     
                                                                 </button>
-                                                                <!-- Pokémon Card HeartButton -->
+                                                                <!-- Pokémon Card Heart Button -->
 
                                                             </form>
 

@@ -33,13 +33,13 @@
             <section class="col-12 col-lg-6 d-flex flex-column flex-lg-row justify-content-center justify-content-lg-end align-items-center gap-2 gap-lg-3">
                 
                 <!-- About Us Link -->
-                <a href="#" class="text-light fs-5">
+                <a href="../pages/aboutUs.php" class="text-light fs-5">
                     About Us
                 </a>
                 <!-- About Us Link -->
                 
                 <!-- Customer Care Link -->
-                <a href="#" class="text-light fs-5">
+                <a href="../pages/customerCare.php" class="text-light fs-5">
                     Customer Care
                 </a>
                 <!-- Customer Care Link -->

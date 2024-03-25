@@ -40,7 +40,7 @@
                 // Close Connection
                 mysqli_close($conn);
                 
-                header('Refresh: 0; URL=../pages/pokedopt.php');
+                ($_SESSION['page'] == 'Pokedopt') ? header('Refresh: 0; URL=../pages/pokedopt.php') : header('Refresh: 0; URL=../pages/pokelist.php');
                 exit;
     
             }

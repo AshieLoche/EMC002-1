@@ -157,7 +157,7 @@
               <!-- Personal Information Birthday Icon -->
               
               <!-- Personal Information Birthday Date -->
-              <input type="date" class="form-control bg-dark text-light border-dark" placeholder="Birthday" name="bday" required>
+              <input type="date" class="form-control bg-dark text-light border-dark" name="bday" required>
               <!-- Personal Information Birthday Date -->
               
             </section>

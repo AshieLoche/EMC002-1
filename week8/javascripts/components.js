@@ -168,6 +168,7 @@ $(document).ready(function() {
         }
     
         function filterByName() {
+            alert('owo');
             const pokemonCards = $('.pokemon_card');
             pokemonCards.hide();
             
@@ -405,6 +406,12 @@ $(document).ready(function() {
             } else {
                 $('section.btn-carousel').off('wheel');
             }
+
+            
+            $('.pokelist_card').on('wheel', function(event) {
+                $(this).scrollLeft($(this).scrollLeft() + (event.originalEvent.deltaY * 60));
+                event.preventDefault();
+            });
         }
 
     }
